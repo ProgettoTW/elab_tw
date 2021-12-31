@@ -11,7 +11,7 @@ if(isset($_POST['email'], $_POST['p'])) {
       //Login fallito
       ?>
               <h4 class="text-danger"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>   L'email o la password non corrispondono</h4>
-              <img src="/img/errore.png" alt="Errore login">
+              // IMMAGINE ERRORE
         <a class="btn btn-primary" href="/login_module.php">Torna indietro</a>
         <?php
    }
