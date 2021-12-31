@@ -7,8 +7,8 @@ if(isset($_GET['error'])) {
 ?>
 
 <link rel="stylesheet" href="/css/style.css">
-<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/additional-methods.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/additional-methods.min.js"></script>
 <script src="/js/login_module.js"></script>
 <script src="/js/jquery_validation_messages.js"></script>
 
