@@ -4,39 +4,39 @@ include_once("includes/connection.php");
 
 class ProductDB {
 
-	private $table_name = "products";
+	private $table_name = "Product";
 
-	public function getById($productId) {
-
-		$conn = new Connection();
-		$db = $conn->getConnection();
-		if ($db->connect_error) {
-			die("Connection failed: " . $db->connect_error);
-		}
-		$querytoexec = $db->prepare("SELECT * FROM ".$this->Product." WHERE id = ?");
-		$querytoexec->bind_param("i", $ProductId);
-		$result = $querytoexec->execute();
-		if (!$result){
-			echo "ERRORE NELL'ESECUZIONE DELLA QUERY!";
-			return null;
-		}
-		$result = $querytoexec->get_result();
-		if ($result->num_rows > 0) {
-			$rows = array();
-			while ($row = mysqli_fetch_assoc($result)) {
-				$temp = new Product($row["ProductName"], $row["UnitPrice"], $row["Customizable"], $row["SellerId"]);
-				$temp->setId($row["id"]);
-				$rows[] = $temp;
-			}
-		} else {
-			echo "Empty\n";
-			return null;
-		}
-
-		//TODO
-		$stmt->close();
-		$db->close();
-	}
+//    public function getById($ProductId) {
+//
+//		$conn = new Connection();
+//		$db = $conn->getConnection();
+//		if ($db->connect_error) {
+//			die("Connection failed: " . $db->connect_error);
+//		}
+//		$querytoexec = $db->prepare("SELECT * FROM ".$this->Product." WHERE ProductId = ?");
+//		$querytoexec->bind_param("i", $ProductId);
+//		$result = $querytoexec->execute();
+//		if (!$result){
+//			echo "ERRORE NELL'ESECUZIONE DELLA QUERY!";
+//			return null;
+//		}
+//		$result = $querytoexec->get_result();
+//		if ($result->num_rows > 0) {
+//			$rows = array();
+//			while ($row = mysqli_fetch_assoc($result)) {
+//				$temp = new Product($row["ProductName"], $row["UnitPrice"], $row["Customizable"], $row["SellerId"]);
+//				$temp->setId($row["id"]);
+//				$rows[] = $temp;
+//			}
+//		} else {
+//			echo "Empty\n";
+//			return null;
+//		}
+//
+//		//TODO
+//		$querytoexec->close();
+//		$db->close();
+//	}
 
 	public function getByCategoryId($categoryId) {
 
@@ -44,7 +44,6 @@ class ProductDB {
 		$db = $conn->getConnection();
 
 		//TODO
-		$stmt->close();
 		$db->close();
 	}
 
@@ -53,9 +52,34 @@ class ProductDB {
 		$conn = new Connection();
 		$db = $conn->getConnection();
 
-		//TODO
-		$stmt->close();
-		$db->close();
+		if ($db->connect_error) {
+			die("Connection failed: " . $db->connect_error);
+		}
+		$querytoexec = $db->prepare("SELECT * FROM ".$this->table_name."");
+		$result = $querytoexec->execute();
+		if (!$result) {
+            echo "error";
+            return null;
+            
+        }
+
+        $result = $querytoexec->get_result();
+        if ($result->num_rows > 0) {
+            $rows = array();
+            while ($row = mysqli_fetch_assoc($result)) {
+                $temp = new Product($row["ProductName"], $row["UnitPrice"], $row["Description"], $row["Customizable"]);
+                $temp->setId($row["ProductId"]);
+                $rows[] = $temp;
+            }
+        } else {
+            echo "Empty\n";
+            return null;
+        }
+
+        $querytoexec->close();
+        $db->close();
+
+        return $rows;
 	}
 
 	public function insert($product){
@@ -64,7 +88,7 @@ class ProductDB {
 		$db = $conn->getConnection();
 
 		//TODO
-		$stmt->close();
+
 		$db->close();
 	}
 
@@ -74,7 +98,6 @@ class ProductDB {
 		$db = $conn->getConnection();
 
 		//TODO
-		$stmt->close();
 		$db->close();
 	}
 
@@ -84,7 +107,6 @@ class ProductDB {
 		$db = $conn->getConnection();
 
 		//TODO
-		$stmt->close();
 		$db->close();
 	}
 
@@ -94,7 +116,6 @@ class ProductDB {
 		$db = $conn->getConnection();
 
 		//TODO
-		$stmt->close();
 		$db->close();
 	}
 }

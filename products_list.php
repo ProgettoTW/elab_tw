@@ -1,6 +1,8 @@
 <?php
 include_once("products.php");
+include_once("includes/header.php");
 
+$products = new ProductDB();
 ?>
 <html lang="it">
 <head>
@@ -31,6 +33,8 @@ include_once("products.php");
     <main>
         <section class="page-type">
             <h2 class="products">Prodotti</h2>
+            <?php $rows = $products->getAll();
+    ?>
         </section>
         <section class="categories filters">
             <ul>
@@ -39,26 +43,19 @@ include_once("products.php");
             </ul>
         </section>
 
-
         <section class="prodotti">
+          <?php
+          if (!is_null($rows)){
+          foreach ($rows as $row) { ?>
             <div class="prodotto">
                 <img src="img/cupcakes.jpg" alt="cupcakes">
-                <a href="#">prodotto</a>
+                <a href="#"><?php echo $row->getName(); ?></a>
                 <p>descrizione</p>
-                <p class="prezzo">Prezzo</p>
+                <p class="prezzo">Prezzo: <?php echo $row->getPrice();?>€</p>
             </div>
-            <div class="prodotto">
-                <img src="img/cupcakes.jpg" alt="cupcakes">
-                <a href="#">prodotto</a>
-                <p>descrizione</p>
-                <p class="prezzo">Prezzo</p>
-            </div>
-            <div class="prodotto">
-                <img src="img/cupcakes.jpg" alt="cupcakes">
-                <a href="#">prodotto</a>
-                <p>descrizione</p>
-                <p class="prezzo">Prezzo</p>
-            </div>
+            <?php
+            }
+            } ?>
         </section>
     </main>
     <footer class="footer">

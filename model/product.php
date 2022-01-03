@@ -4,14 +4,14 @@ class Product{
   private $id;
   private $name;
   private $description;
-  private $categoryId;
+  private $customizable;
   private $price;
 
-  public function __construct($name, $price, $description, $categoryId){
-      $this->name = $name;
-      $this->description = $description;
-      $this->categoryId= $categoryId;
-      $this->price = $price;
+  public function __construct($name, $price, $description, $customizable){
+      $this->ProductName = $name;
+      $this->Description = $description;
+      $this->Customizable= $customizable;
+      $this->UnitPrice = $price;
   }
 
   public function getId(){
@@ -23,35 +23,35 @@ class Product{
   }
 
   public function getName(){
-    return $this->name;
+    return $this->ProductName;
   }
 
   public function setName($name){
-    $this->id = $name;
+    $this->ProductName = $name;
   }
 
   public function getPrice(){
-    return $this->price;
+    return $this->UnitPrice;
   }
 
   public function setPrice($price){
-    $this->id = $price;
+    $this->UnitPrice = $price;
   }
 
   public function getDescription(){
-    return $this->description;
+    return $this->Description;
   }
 
   public function setDescription($description){
-    $this->id = $description;
+    $this->Description = $description;
   }
 
-  public function getCategoryId(){
-    return $this->categoryId;
+  public function getCustomizable(){
+    return $this->Customizable;
   }
 
-  public function setCategoryId($categoryId){
-    $this->id = $categoryId;
+  public function setCustomizable($customizable){
+    $this->Customizable = $customizable;
   }
 
 
