@@ -12,7 +12,7 @@ $products = new ProductDB();
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
-    <script src="js/products.js" type="text/javascript"></script>
+    <script src="js/nav_scripts.js" type="text/javascript"></script>
     <title>Delivery - Prodotti</title>
 </head>
 <body>
