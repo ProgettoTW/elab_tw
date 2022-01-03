@@ -1,16 +1,19 @@
-<!DOCTYPE html>
+<?php
+include_once("products.php");
+
+?>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
-    <script src="script.js" type="text/javascript"></script>
+    <script src="js/products.js" type="text/javascript"></script>
     <title>Delivery - Prodotti</title>
 </head>
-<body>      
+<body>
     <header class="header">
         <button onclick="openNav()" id="hamburger">&#9776;</button>
         <div id="mySidenav" class="sidenav">
@@ -23,7 +26,7 @@
         <div class="text-box">
             <h1>Pastecceroo</h1>
         </div>
-        
+
     </header>
     <main>
         <section class="page-type">
@@ -35,8 +38,8 @@
                 <li>Filtri</li>
             </ul>
         </section>
-        
-        
+
+
         <section class="prodotti">
             <div class="prodotto">
                 <img src="img/cupcakes.jpg" alt="cupcakes">
@@ -59,7 +62,7 @@
         </section>
     </main>
     <footer class="footer">
-        
+
             <ul>
                 <li><a href="#">Contatti</a></li>
                 <li><a href="#">Chi Siamo</a></li>
