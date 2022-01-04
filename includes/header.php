@@ -84,8 +84,8 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
    </div>
     <?php
 } else { ?>
-        <a href="../register_page.php">Registrati</a>
+        <a href="register_page.php">Registrati</a>
 
-        <a href="../login_page.php">Login</a>
+        <a href="login_page.php">Login</a>
     <?php
 } ?>
