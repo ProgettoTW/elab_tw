@@ -4,7 +4,7 @@ include_once("includes/connection.php");
 
 class ProductDB {
 
-	private $table_name = "Product";
+	private string $table_name = "Product";
 
 //    public function getById($ProductId) {
 //
@@ -55,7 +55,7 @@ class ProductDB {
 		if ($db->connect_error) {
 			die("Connection failed: " . $db->connect_error);
 		}
-		$querytoexec = $db->prepare("SELECT * FROM ".$this->table_name."");
+		$querytoexec = $db->prepare(query: "SELECT * FROM ".$this->table_name);
 		$result = $querytoexec->execute();
 		if (!$result) {
             echo "error";
