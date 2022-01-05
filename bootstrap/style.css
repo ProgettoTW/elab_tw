@@ -1,0 +1,32 @@
+.btn-secondary{
+    background: orange;
+}
+
+li{
+    padding-left: 20px;
+}
+hr{
+    margin:0;
+    opacity:.5;
+}
+hr:not([size]) {
+    height: 5px;
+}
+
+h1{
+    background-color:black;
+    font-family: 'Bree Serif', serif;
+    line-height:200%;
+    letter-spacing:5px;
+}
+
+.card{
+    vertical-align:middle;
+    display:inline-block;
+    margin:5%;
+    width: 14rem;
+}
+
+footer{
+    margin-top: 50px;
+}
