@@ -1,161 +1,36 @@
-*{
-    padding:0;
-    margin:0;
-    box-sizing: border-box;
-
+.btn-secondary{
+  background: orange;
 }
 
-body {
-    background-color: #eee;
-    width: 100%;
-    padding:20px;
-    font-family:"Merriweather";
+li{
+  padding-left: 20px;
+}
+hr{
+  margin:0;
+  opacity:.5;
+}
+hr:not([size]) {
+  height: 5px;
 }
 
-.header{
-    vertical-align: top;
-    display: flex;
-    flex-direction:row;
-    -ms-flex-item-align:start;
+h1{
+  background-color:black;
+  font-family: 'Bree Serif', serif;
+  line-height:200%;
+  letter-spacing:5px;
 }
 
-.text-box{
-    font-family: "Lobster", cursive;
-    text-align:center;
-    width: 100%;
-
-
-}
-
-.page-type{
-  width: 100%;
-  margin-top:20px;
-  padding:5%;
-  text-align: center;
-  text-transform: uppercase;
-
-  letter-spacing: 5px;
-}
-
-main ul li{
-  list-style: none;
-  display: inline-block;
-  width: 45%;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.prodotto{
-  width: 50%;
-  margin: 10% 20%;
-}
-
-.prodotto img {
-  align-self: center;
-  width: 150px;
-  margin-bottom: 10px;
-}
-
-.prodotto a , .prodotto a:visited , .prodotto a:active{
-  text-decoration: none;
-  display:block;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  color:#111;
-}
-
-
-.prodotto p{
-  margin-bottom: 10px;
-}
-
-.prezzo{
-  border-radius: 10px;
-  background-color:red;font-family:"Merriweather";
-  text-align: center;
-  color: #fff;
-}
-
-.sidenav {
+.card{
+  vertical-align:middle;
   display:inline-block;
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
+  margin:5%;
+  width: 14rem;
 }
 
-.sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
+footer{
+  margin-top: 50px;
 }
 
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-
-#hamburger{
-  border-style: none;
-  background-color: transparent;
-  font-size:30px;
-  cursor:pointer;
-}
-
-.footer{
-  background-color:#111;
-  color: #fff;
-}
-
-.footer li{
-  width:49%;
-  display: inline-block;
-  text-align:center;
-  padding:5%;
-  list-style: none;
-}
-
-
-.footer li a{
-  text-decoration: none;
-}
-
-
-/* visited link */
-.footer li a:visited {
-  color: #818181;
-}
-
-/* mouse over link */
-.footer li a:hover {
-  color: #f1f1f1;
-}
-
-/* selected link */
-.footer li a:active {
-  color: #818181;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
 
 #login_button{
   text-align: center;
