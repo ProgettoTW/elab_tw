@@ -1,12 +1,27 @@
+
 .header{
-  background-color:#445cac;
+  background-color:#156470;
+  margin-bottom:5%;
 }
 .navbar{
-  background-color:#445cac;
+  background-color:#156470;
 }
-/*#445cac; */
+/*#445cac;#3670bb; #156470 #1e4880;*/
+
+.container-fluid{
+  padding:0;
+}
 .navbar a{
   color:white;
+}
+
+.dropdown-menu{
+  max-width: 100px;
+  transition: all 4s;
+}
+.dropdown-menu a{
+  color:black;
+  text-transform: capitalize;
 }
 
 .btn-secondary{
@@ -35,7 +50,7 @@ h1{
 .card{
   vertical-align:middle;
   display:inline-block;
-  margin:5%;
+  margin: 5% 2%;
   width: 14rem;
 }
 
