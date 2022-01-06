@@ -1,4 +1,4 @@
-
+ /*  HEADER */
 .header{
   background-color:#156470;
   margin-bottom:5%;
@@ -9,7 +9,7 @@
 /*#445cac;#3670bb; #156470 #1e4880;*/
 
 .container-fluid{
-  padding:0;
+  padding:0  !important;
 }
 .navbar a{
   color:white;
@@ -32,6 +32,15 @@ li{
   padding-left: 20px;
 }
 
+/*   img
+ border-radius: 114px
+ 
+ 
+ card 
+ border: 7px solid
+ border-radio: 20px
+ width: 16rem
+ */
 
 hr{
   margin:0;
@@ -108,4 +117,43 @@ border-bottom-right-radius: 16px;
 border-bottom-left-radius: 16px;
 border-bottom-right-radius: 16px;
 }
+}
+
+
+
+/* Home */
+
+
+.body{
+  background-color:#eee;
+  overflow:hidden;
+  overflow-y:visible;
+}
+
+.img1{
+  max-width: calc(100vw);
+}
+
+.text .btn-main .btn{
+padding: 0.5rem 3.75rem;
+display: block;
+border-radius: 30px;
+background: orange;
+transition: all .4s;
+}
+
+.text .btn-main .btn:hover{
+transform: translateY(-3px);
+box-shadow: 0 10px 20px rgba(0,0,0,.2);
+}
+
+.text .btn-main .btn:active{
+transform: translateY(-1px);
+box-shadow: 0 5px 10px rgba(0,0,0,.6);
+}
+
+.img2{
+width:calc(100%);
+border: 20px solid white;
+border-radius: 40px;
 }
