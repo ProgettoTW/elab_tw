@@ -1,0 +1,32 @@
+
+.body{
+    background-color:#eee;
+}
+
+.img1{
+        max-width: calc(100vw);
+}
+
+.text .btn-main .btn{
+    padding: 0.5rem 3.75rem;
+    display: block;
+    border-radius: 30px;
+    background: orange;
+    transition: all .4s;
+}
+
+.text .btn-main .btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+}
+
+.text .btn-main .btn:active{
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0,0,0,.6);
+}
+
+.img2{
+    width:calc(100%);
+    border: 20px solid white;
+    border-radius: 40px;
+}
