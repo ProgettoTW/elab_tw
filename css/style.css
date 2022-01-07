@@ -14,10 +14,8 @@
 .navbar a{
   color:white;
 }
-
 .dropdown-menu{
   max-width: 100px;
-  transition: all 4s;
 }
 .dropdown-menu a{
   color:black;
@@ -28,13 +26,19 @@
   background: orange;
 }
 
-li{
-  padding-left: 20px;
+.auth li{
+  padding: 0 10px 5px 20px;
+}
+
+.content{
+  padding-right: 50px;
+}
+.content li{
+  padding-left:10px;
 }
 
 /*   img
  border-radius: 114px
- 
  
  card 
  border: 7px solid
@@ -42,86 +46,26 @@ li{
  width: 16rem
  */
 
-hr{
-  margin:0;
-  opacity:.5;
-}
-hr:not([size]) {
-  height: 5px;
-}
-
-h1{
+.h1{
   font-family: 'Bree Serif', serif;
   line-height:200%;
-  letter-spacing:5px;
+  letter-spacing:4px;
 }
+
+/* LISTA PRODOTTI MAIN*/
  
 .card{
-  vertical-align:middle;
-  display:inline-block;
   margin: 5% 2%;
   width: 14rem;
 }
+
+/* FOOTER */
 
 footer{
   margin-top: 50px;
 }
 
-
-#login_button{
-  text-align: center;
-  margin-left:auto;
-  margin-right:auto;
-  display: block;
-  margin: 30px auto;
-  width: 30%;
-}
-
-#register_button{
-  text-align: center;
-  margin-left:auto;
-  margin-right:auto;
-  width: 25%;
-}
-
-@media (min-width: 1025px) {
-.h-custom {
-height: 100vh !important;
-}
-}
-
-.card-registration .select-input.form-control[readonly]:not([disabled]) {
-font-size: 1rem;
-line-height: 2.15;
-padding-left: .75em;
-padding-right: .75em;
-}
-
-.card-registration .select-arrow {
-top: 13px;
-}
-
-.bg-grey {
-background-color: #eae8e8;
-}
-
-@media (min-width: 992px) {
-.card-registration-2 .bg-grey {
-border-top-right-radius: 16px;
-border-bottom-right-radius: 16px;
-}
-}
-
-@media (max-width: 991px) {
-.card-registration-2 .bg-grey {
-border-bottom-left-radius: 16px;
-border-bottom-right-radius: 16px;
-}
-}
-
-
-
-/* Home */
+/* Home main */
 
 
 .body{
@@ -157,3 +101,6 @@ width:calc(100%);
 border: 20px solid white;
 border-radius: 40px;
 }
+
+
+/* CARRELLO MAIN*/
