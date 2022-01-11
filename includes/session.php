@@ -13,11 +13,11 @@ function sec_session_start() {
 
 function login($email, $password, $mysqli) {
 
-    if ($querytoexec = $mysqli->prepare("SELECT u.nome, u.id, u.email, u.password, c.id, u.admin FROM users u, cart c WHERE u.email = ? AND u.id = c.user_id LIMIT 1")) {
+    if ($querytoexec = $mysqli->prepare("SELECT u.name, u.id, u.email, u.password, c.id, u.admin FROM users u, cart c WHERE u.email = ? AND u.id = c.user_id LIMIT 1")) {
         $querytoexec->bind_param('s', $email);
         $querytoexec->execute();
         $querytoexec->store_result();
-        $querytoexec->bind_result($nome, $user_id, $username, $db_password, $cart_id, $admin);
+        $querytoexec->bind_result($name, $user_id, $username, $db_password, $cart_id, $admin);
         $querytoexec->fetch();
         if($querytoexec->num_rows == 1) {
             // TODO Inserire check tentativi senza successo
@@ -32,7 +32,7 @@ function login($email, $password, $mysqli) {
                     $_SESSION['email'] = $username;
                     $_SESSION['login'] = true;
                     $_SESSION['cart_id'] = $cart_id;
-                    $_SESSION['nome'] = $nome;
+                    $_SESSION['name'] = $name;
                     $_SESSION['admin'] = false;
                     if ($admin == 1){
                         $_SESSION['admin'] = true;

@@ -1,7 +1,6 @@
  /*  HEADER */
 .header{
   background-color:#156470;
-  margin-bottom:5%;
 }
 .navbar{
   background-color:#156470;
@@ -50,10 +49,14 @@
 /* LISTA PRODOTTI MAIN*/
  
 .card{
+  max-width:1200px;
   margin: 5% 2%;
   border-radius: 20px;
   border: 10px solid #156470;
   width: 16rem;
+}
+.card-body{
+  max-height: 14rem;
 }
 
 /* FOOTER */
@@ -66,7 +69,8 @@ footer{
 
 
 .body{
-  background-color:#a8a8a8;
+  background-color:#eee;
+  /*#a8a8a8;*/
   overflow:hidden;
   overflow-y:visible;
 }
@@ -75,7 +79,7 @@ footer{
   max-width: calc(100vw);
 }
 
-.text .btn-main .btn{
+.primary-text .btn-main .btn{
 padding: 0.5rem 3.75rem;
 display: block;
 border-radius: 30px;
@@ -83,15 +87,6 @@ background: orange;
 transition: all .4s;
 }
 
-.text .btn-main .btn:hover{
-transform: translateY(-3px);
-box-shadow: 0 10px 20px rgba(0,0,0,.2);
-}
-
-.text .btn-main .btn:active{
-transform: translateY(-1px);
-box-shadow: 0 5px 10px rgba(0,0,0,.6);
-}
 
 .img2{
 width:calc(100%);
@@ -99,5 +94,49 @@ border: 20px solid white;
 border-radius: 40px;
 }
 
+@media screen and (min-width:576px) {
+  .img1{
+    max-width: calc(55%);
+  }
+  
+}
+
+@media screen and (min-width: 768px) { 
+  .primary-text{
+    display: inline-block;
+    
+  } 
+
+  .first-image{
+    justify-content:end !important;
+  }
+
+}
+
+@media screen and (min-width: 992px) {
+  .primary-text .btn-main .btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+    }
+    
+    .primary-text .btn-main .btn:active{
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0,0,0,.6);
+    }
+
+ }
+
+@media screen and (min-width: 1200px) {}
+
+@media screen and (min-width: 1400px) {.img1{max-width: calc(70%); }
+
+
 
 /* CARRELLO MAIN*/
+
+/* LOGIN  */
+
+.login-body{
+  background-color: white;
+}
+}

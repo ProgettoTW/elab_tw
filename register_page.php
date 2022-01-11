@@ -13,7 +13,7 @@ require_once("includes/header.php");
 <script src="/js/jquery_validation_messages.js"></script>
 
     <h1 class="page_title">Registrati</h1>
-    <form action="\includes\register.php" method="post" target="_parent" name="register_form" id="register_form">
+    <form action="http://localhost/elab_tw/includes/register.php" method="post" target="_parent" name="register_page" id="register_page">
       <fieldset>
         <div class="row">
             <div class="form-group">
@@ -30,12 +30,10 @@ require_once("includes/header.php");
             </div>
 
             <div class="form-group">
-              <label for="sesso">Genere</label>
-              <select class="form-control" name="sesso" id="sesso">
-                <option value="M">Maschile</option>
-                <option value="F">Femminile</option>
-                <option value="O">Altro</option>
-              </select>
+              <label for="data">Data di Nascita</label>
+                <input type="data" name="born_date"
+                       value="2000-01-01"
+                       min="1990-01-01" max="2020-12-31">
             </div>
 
             <div class="form-group">
