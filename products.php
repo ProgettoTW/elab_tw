@@ -2,65 +2,70 @@
 include_once("model/product.php");
 include_once("includes/connection.php");
 
-class ProductDB {
+class ProductDB
+{
 
-	private string $table_name = "Product";
+    private string $table_name = "Product";
 
-//    public function getById($ProductId) {
-//
-//		$conn = new Connection();
-//		$db = $conn->getConnection();
-//		if ($db->connect_error) {
-//			die("Connection failed: " . $db->connect_error);
-//		}
-//		$querytoexec = $db->prepare("SELECT * FROM ".$this->Product." WHERE ProductId = ?");
-//		$querytoexec->bind_param("i", $ProductId);
-//		$result = $querytoexec->execute();
-//		if (!$result){
-//			echo "ERRORE NELL'ESECUZIONE DELLA QUERY!";
-//			return null;
-//		}
-//		$result = $querytoexec->get_result();
-//		if ($result->num_rows > 0) {
-//			$rows = array();
-//			while ($row = mysqli_fetch_assoc($result)) {
-//				$temp = new Product($row["ProductName"], $row["UnitPrice"], $row["Customizable"], $row["SellerId"]);
-//				$temp->setId($row["id"]);
-//				$rows[] = $temp;
-//			}
-//		} else {
-//			echo "Empty\n";
-//			return null;
-//		}
-//
-//		//TODO
-//		$querytoexec->close();
-//		$db->close();
-//	}
+    public function getById($ProductId)
+    {
 
-	public function getByCategoryId($categoryId) {
+        $conn = new Connection();
+        $db = $conn->getConnection();
+        if ($db->connect_error) {
+            die("Connection failed: " . $db->connect_error);
+        }
+        $querytoexec = $db->prepare("SELECT * FROM " . $this->Product . " WHERE ProductId = ?");
+        $querytoexec->bind_param("i", $ProductId);
+        $result = $querytoexec->execute();
+        if (!$result) {
+            echo "ERRORE NELL'ESECUZIONE DELLA QUERY!";
+            return null;
+        }
+        $result = $querytoexec->get_result();
+        if ($result->num_rows > 0) {
+            $rows = array();
+            while ($row = mysqli_fetch_assoc($result)) {
+                $temp = new Product($row["ProductName"], $row["UnitPrice"], $row["Customizable"], $row["SellerId"]);
+                $temp->setId($row["id"]);
+                $rows[] = $temp;
+            }
+        } else {
+            echo "Empty\n";
+            return null;
+        }
 
-		$conn = new Connection();
-		$db = $conn->getConnection();
+        $querytoexec->close();
+        $db->close();
 
-		//TODO
-		$db->close();
-	}
+        return $rows;
+    }
 
-	public function getAll(){
+    public function getByCategoryId($categoryId)
+    {
 
-		$conn = new Connection();
-		$db = $conn->getConnection();
+        $conn = new Connection();
+        $db = $conn->getConnection();
 
-		if ($db->connect_error) {
-			die("Connection failed: " . $db->connect_error);
-		}
-		$querytoexec = $db->prepare(query: "SELECT * FROM ".$this->table_name);
-		$result = $querytoexec->execute();
-		if (!$result) {
+        //TODO
+        $db->close();
+    }
+
+    public function getAll()
+    {
+
+        $conn = new Connection();
+        $db = $conn->getConnection();
+
+        if ($db->connect_error) {
+            die("Connection failed: " . $db->connect_error);
+        }
+        $querytoexec = $db->prepare(query: "SELECT * FROM " . $this->table_name);
+        $result = $querytoexec->execute();
+        if (!$result) {
             echo "error";
             return null;
-            
+
         }
 
         $result = $querytoexec->get_result();
@@ -80,43 +85,68 @@ class ProductDB {
         $db->close();
 
         return $rows;
-	}
+    }
 
-	public function insert($product){
+    public function insert($product)
+    {
+        $conn = new Connection();
+        $db = $conn->getConnection();
 
-		$conn = new Connection();
-		$db = $conn->getConnection();
+        if ($db->connect_error) {
+            die("Connection failed: " . $db->connect_error);
+        }
 
-		//TODO
+        $querytoexec = $db->prepare("INSERT INTO " . $this->table_name . " (name, price, description, category_id) VALUES (?, ?, ?, ?)");
+        $prName = $product->getName();
+        $prPrice = $product->getPrice();
+        $prDescr = $product->getDescription();
+        $prCategory = $product->getCategoryId();
+        $querytoexec->bind_param('sdsi', $prName, $prPrice, $prDescr, $prCategory);
+        if (!$querytoexec->execute()) {
+            echo($querytoexec->error);
+        }
 
-		$db->close();
-	}
+        $result = $querytoexec->get_result();
+        if ($result) {
+            echo "Insert OK";
+        } else {
+            return null;
+        }
+        $id = mysqli_stmt_insert_id($querytoexec);
 
-	public function delete($id){
+        $querytoexec->close();
+        $db->close();
+    }
 
-		$conn = new Connection();
-		$db = $conn->getConnection();
+    public function delete($id)
+    {
 
-		//TODO
-		$db->close();
-	}
+        $conn = new Connection();
+        $db = $conn->getConnection();
 
-	public function update($product){
+        //TODO
+        $db->close();
+    }
 
-		$conn = new Connection();
-		$db = $conn->getConnection();
+    public function update($product)
+    {
 
-		//TODO
-		$db->close();
-	}
+        $conn = new Connection();
+        $db = $conn->getConnection();
 
-	public function searchProduct($string){
+        //TODO
+        $db->close();
+    }
 
-		$conn = new Connection();
-		$db = $conn->getConnection();
+    public function searchProduct($string)
+    {
 
-		//TODO
-		$db->close();
-	}
+        $conn = new Connection();
+        $db = $conn->getConnection();
+
+        //TODO
+        $db->close();
+    }
 }
+
 ?>
