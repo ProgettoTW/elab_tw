@@ -1,142 +1,140 @@
- /*  HEADER */
-.header{
-  background-color:#156470;
+/*  HEADER */
+.header {
+  background-color: #156470;
 }
-.navbar{
-  background-color:#156470;
+.navbar {
+  background-color: #156470;
 }
 /*#445cac;#3670bb; #156470 #1e4880;*/
 
-.container-fluid{
-  padding:0  !important;
+.container-fluid {
+  padding: 0 !important;
 }
-.navbar a{
-  color:white;
+.navbar a {
+  color: white;
 }
-.dropdown-menu{
+.dropdown-menu {
   max-width: 100px;
 }
-.dropdown-menu a{
-  color:black;
+.dropdown-menu a {
+  color: black;
   text-transform: capitalize;
 }
 
-.btn-secondary{
+.btn-secondary {
   background: orange;
 }
 
-.auth li{
+.auth li {
   padding: 0 10px 5px 20px;
 }
 
-.content{
+.content {
   padding-right: 50px;
 }
-.content li{
-  padding-left:10px;
+.content li {
+  padding-left: 10px;
 }
-.img-fluid{
+.img-fluid {
   border-radius: 10px;
 }
 
-
-.h1{
-  font-family: 'Bree Serif', serif;
-  line-height:200%;
-  letter-spacing:4px;
+.h1 {
+  font-family: "Bree Serif", serif;
+  line-height: 200%;
+  letter-spacing: 4px;
 }
 
 /* LISTA PRODOTTI MAIN*/
- 
-.card{
-  max-width:1200px;
-  margin: 5% 2%;
-  border-radius: 20px;
-  border: 10px solid #156470;
-  width: 16rem;
+
+.card {
+  margin: 2%;
 }
-.card-body{
-  max-height: 14rem;
+
+/* FILTRI */
+
+.filters {
+  margin: 1%;
+}
+
+.filter {
+  margin: 0 3%;
 }
 
 /* FOOTER */
 
-footer{
+footer {
   margin-top: 50px;
 }
 
 /* Home main */
 
-
-.body{
-  background-color:#eee;
+.body {
+  background-color: #eee;
   /*#a8a8a8;*/
-  overflow:hidden;
-  overflow-y:visible;
+  overflow: hidden;
+  overflow-y: visible;
 }
 
-.img1{
+.img1 {
   max-width: calc(100vw);
 }
 
-.primary-text .btn-main .btn{
-padding: 0.5rem 3.75rem;
-display: block;
-border-radius: 30px;
-background: orange;
-transition: all .4s;
+.primary-text .btn-main .btn {
+  padding: 0.5rem 3.75rem;
+  display: block;
+  border-radius: 30px;
+  background: orange;
+  transition: all 0.4s;
 }
 
-
-.img2{
-width:calc(100%);
-border: 20px solid white;
-border-radius: 40px;
+.img2 {
+  width: calc(100%);
+  border: 20px solid white;
+  border-radius: 40px;
 }
 
-@media screen and (min-width:576px) {
-  .img1{
+@media screen and (min-width: 576px) {
+  .img1 {
     max-width: calc(55%);
   }
-  
 }
 
-@media screen and (min-width: 768px) { 
-  .primary-text{
+@media screen and (min-width: 768px) {
+  .primary-text {
     display: inline-block;
-    
-  } 
-
-  .first-image{
-    justify-content:end !important;
   }
 
+  .first-image {
+    justify-content: end !important;
+  }
 }
 
 @media screen and (min-width: 992px) {
-  .primary-text .btn-main .btn:hover{
+  .primary-text .btn-main .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,.2);
-    }
-    
-    .primary-text .btn-main .btn:active{
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .primary-text .btn-main .btn:active {
     transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0,0,0,.6);
-    }
-
- }
-
-@media screen and (min-width: 1200px) {}
-
-@media screen and (min-width: 1400px) {.img1{max-width: calc(70%); }
-
-
-
-/* CARRELLO MAIN*/
-
-/* LOGIN  */
-
-.login-body{
-  background-color: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+  }
 }
+
+@media screen and (min-width: 1200px) {
+}
+
+@media screen and (min-width: 1400px) {
+  .img1 {
+    max-width: calc(70%);
+  }
+
+  /* CARRELLO MAIN*/
+
+  /* LOGIN  */
+
+  .login-body {
+    background-color: white;
+  }
 }

@@ -12,11 +12,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
 
   <title>Pastecceroo</title>
+
+  <!-- FAVICON -->
+  <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
 </head>
 
 <body class="body">
 <!-- Container -->
 <div class="container-fluid">
+  <!--START OF HEADER-->
   <div class="header justify-content-evenly px-4">
     <nav class="navbar navbar-expand-lg text-uppercase navbar-dark">
       <a class="navbar-brand" href="#">
@@ -40,7 +48,6 @@
               <li><a class="dropdown-item" href="#">Torte</a></li>
               <li><a class="dropdown-item" href="#">Cupcakes</a></li>
               <li><a class="dropdown-item" href="#">Biscotti</a></li>
-              <li><a class="dropdown-item" href="#">Brownie</a></li>
             </ul>
           </li>
         </ul>
@@ -54,11 +61,12 @@
       </div>
     </nav>
   </div>
-
+  <!--END OF HEADER-->
   <main>
-    <div class="d-flex justify-content-around flex-wrap">
+
+    <!-- <div class="d-flex justify-content-around flex-wrap">
       <div class="card">
-        <img src="../img/biscotti.jpg" class="card-img-top img-fluid" alt="">
+        <img src="./img/limone.jpg" class="card-img-top img-fluid" alt="">
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -95,9 +103,85 @@
           <h5 class="card-title">Card title</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- <div>
+      <ul class="filters">
+        <li data-group="TORTE">Torte</li>
+        <li data-group="MUFFIN">Muffin</li>
+        <li data-group="BISCOTTI">Biscotti</li>
+      </ul>
+    </div> -->
+    <nav>
+      <ul class="nav nav-tabs filters justify-content-center">
+        <li class="nav-item filter">
+          <a class="nav-link active" aria-current="page" href="#">Torte</a>
+        </li>
+        <li class="nav-item filter">
+          <a class="nav-link" href="#">Muffin</a>
+        </li>
+        <li class="nav-item filter">
+          <a class="nav-link" href="#">Biscotti</a>
+        </li>
+      </ul>
+    </nav>
+    
+
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+      <div class="col">
+        <div class="card text-center">
+          <img src="./img/limone.jpg" class="card-img-top" alt="asd">
+          <div class="card-body">
+            <h5 class="card-title">Torta al Limone</h5>
+            <p class="card-text">Prezzo: 42 €</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-center">
+          <img src="./img/cioccolato.jpg" class="card-img-top" alt="asd">
+          <div class="card-body">
+            <h5 class="card-title">Torta al Cioccolato</h5>
+            <p class="card-text">Prezzo: 42 €</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-center">
+          <img src="./img/fragola.jpg" class="card-img-top" alt="asd">
+          <div class="card-body">
+            <h5 class="card-title">Torta alla Fragola</h5>
+            <p class="card-text">Prezzo: 42 €</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-center">
+          <img src="./img/limone.jpg" class="card-img-top" alt="asd">
+          <div class="card-body">
+            <h5 class="card-title">Torta </h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-center">
+          <img src="./img/limone.jpg" class="card-img-top" alt="asd">
+          <div class="card-body">
+            <h5 class="card-title">Torta </h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
         </div>
       </div>
     </div>
+    
   </main>
   <footer>
     <!-- Footer -->
