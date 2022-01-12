@@ -134,7 +134,16 @@ footer {
 
   /* LOGIN  */
 
-  .login-body {
-    background-color: white;
-  }
+
+/* CARRELLO MAIN*/
+.table-box{
+  margin: 20%;
 }
+
+/* LOGIN  */
+
+.login-body{
+  background-color: white;
+}
+}
+

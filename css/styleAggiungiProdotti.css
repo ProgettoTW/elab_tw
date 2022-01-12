@@ -1,0 +1,38 @@
+
+
+input, textarea{
+    font-weight: 500;
+}
+
+input{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+textarea{
+    width: 100%;
+}
+
+.prodotti-info{
+    padding: 5%;
+    width: 100%;
+    margin-bottom: 20px;
+    display: inline-block;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+
+.text{
+    text-transform: capitalize;
+    color: #383838;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+
+.text img{
+    height: 20px;
+    margin-right: 10px;
+}
