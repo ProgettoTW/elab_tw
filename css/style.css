@@ -58,7 +58,7 @@
 }
 
 .filter {
-  margin: 0 3%;
+  margin: 0 2%;
 }
 
 /* FOOTER */
@@ -134,16 +134,14 @@ footer {
 
   /* LOGIN  */
 
+  /* CARRELLO MAIN*/
+  .table-box {
+    margin: 20%;
+  }
 
-/* CARRELLO MAIN*/
-.table-box{
-  margin: 20%;
+  /* LOGIN  */
+
+  .login-body {
+    background-color: white;
+  }
 }
-
-/* LOGIN  */
-
-.login-body{
-  background-color: white;
-}
-}
-
