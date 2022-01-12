@@ -45,6 +45,10 @@
   letter-spacing: 4px;
 }
 
+svg{
+  transform: scale(1.8);
+}
+
 /* LISTA PRODOTTI MAIN*/
 
 .card {
@@ -65,6 +69,9 @@
 
 footer {
   margin-top: 50px;
+}
+.copyright{
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 /* Home main */

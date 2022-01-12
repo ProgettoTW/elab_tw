@@ -89,3 +89,93 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
         <a href="login_page.php">Login</a>
     <?php
 } ?>
+
+<!--
+        HEADER NORMALE
+
+
+        <div class="header justify-content-evenly px-4">
+      <nav class="navbar navbar-expand-lg text-uppercase navbar-dark">
+        <a class="navbar-brand" href="#">
+          <h1 class="h1">Pastecceroo</h1></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-lg-between" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mx-auto content">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Pagina iniziale</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="prodotti.html">Prodotti</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="chiSiamo.html">Chi Siamo</a>
+            </li>
+            <li class="nav-item">
+              <form class="d-flex input-group">
+                <input type="search" class="form-control" placeholder="Search" aria-label="Search"/>
+                <span class="input-group-text border-0">
+                  <i class="bi bi-search"></i>
+                </span>
+              </form>
+            </li>
+          </ul>
+          <ul class="navbar-nav auth">
+            <li class="nav-item">
+              <button type="button" class="btn btn-primary">Accedi</button>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="btn btn-secondary">Registrati</button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+-->
+
+<!--
+        HEADER DOPO IL LOGIN
+
+        <div class="header justify-content-evenly px-4">
+      <nav class="navbar navbar-expand-lg text-uppercase navbar-dark">
+        <a class="navbar-brand" href="#">
+          <h1 class="h1">Pastecceroo</h1></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-lg-between" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mx-auto content">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Pagina iniziale</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="prodotti.html">Prodotti</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="chiSiamo.html">Chi Siamo</a>
+            </li>
+            <li class="nav-item">
+              <form class="d-flex input-group">
+                <input type="search" class="form-control" placeholder="Search" aria-label="Search"/>
+                <span class="input-group-text border-0">
+                  <i class="bi bi-search"></i>
+                </span>
+              </form>
+            </li>
+          </ul>
+          <ul class="navbar-nav auth">
+            <li class="nav-item">
+              <a class="nav-link active" href="shopping-cart.html">Carrello</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Ordini</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Notifiche</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+-->
