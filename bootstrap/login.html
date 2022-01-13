@@ -1,69 +1,228 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/style.css">
-    <!--Google Font-->
-    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
-    <!--Bootstrap icons-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Pastecceroo</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <!--Google Font-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap"
+      rel="stylesheet"
+    />
+    <!--Bootstrap icons-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
+    />
+    <!-- FAVICON -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./img/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./img/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./img/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
   </head>
-  <body class="login-body">
-      <section class="back">
-        <div class="pt-5">
-            <h5 class="fw-bold mb-5">
-                <a href="index.html"><i class="bi bi-arrow-left-circle-fill"></i>Back to shopping</a>
-              </h5>
-          </div>
-      </section>
-    <section class="">
-        <div class="container py-5">
-          <div class="row align-items-center justify-content-center">
-            <div class="col-md-8 col-lg-7 col-xl-6">
-              <img src="./img/login.svg" class="img-fluid" alt="">
-            </div>
-            <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-              <form>
-                <!-- Email input -->
-                <div class="form-outline mb-4">
-                  <input type="email" id="form1Example13" class="form-control form-control-lg" />
-                  <label class="form-label" for="form1Example13">Email address</label>
-                </div>
-      
-                <!-- Password input -->
-                <div class="form-outline">
-                  <input type="password" id="form1Example23" class="form-control form-control-lg" />
-                  <label class="form-label" for="form1Example23">Password</label>
-                </div>
-      
-                <div class="d-flex justify-content-around align-items-center">
-                  <!-- Checkbox -->
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="form1Example3"
-                      checked
-                    />
-                    <label class="form-check-label" for="form1Example3"> Remember me </label>
-                  </div>
-                  <a href="#!">Forgot password?</a>
-                </div>
-      
-                <!-- Submit button -->
-                <button type="submit" class="btn btn-secondary btn-lg mt-4">Sign in</button>
+
+  <body class="body">
+    <!--START OF HEADER-->
+    <div class="header justify-content-evenly px-4">
+      <nav class="navbar navbar-expand-lg text-uppercase navbar-dark">
+        <a class="navbar-brand" href="index.html">
+          <h1 class="h1">Pastecceroo</h1>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-lg-between"
+          id="navbarSupportedContent"
+        >
+          <ul class="navbar-nav me-auto mx-auto content">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html"
+                >Pagina iniziale</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="prodotti.html">Prodotti</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="chiSiamo.html">Chi Siamo</a>
+            </li>
+            <li class="nav-item">
+              <form class="d-flex input-group">
+                <input
+                  type="search"
+                  class="form-control"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <span class="input-group-text border-0">
+                  <i class="bi bi-search"></i>
+                </span>
               </form>
+            </li>
+          </ul>
+          <ul class="navbar-nav auth">
+            <li class="nav-item">
+              <button type="button" class="btn btn-primary">
+                <a href="login.html">Accedi/Registrati</a>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <!--END OF HEADER-->
+    <main>
+  
+      <nav>
+        <ul class="nav nav-pills filters justify-content-center" id="myTab" role="tablist">
+          <li class="nav-item filter" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Torte</button>
+          </li>
+          <li class="nav-item filter" role="presentation">
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Muffin</button>
+          </li>
+          <li class="nav-item filter" role="presentation">
+            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Biscotti</button>
+          </li>
+        </ul>
+      </nav>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+  
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+              <div class="col">
+                <div class="card text-center">
+                  <img src="./img/torta_limone.jpg" class="card-img-top" alt="asd">
+                  <div class="card-body">
+                    <h5 class="card-title">Torta al Limone</h5>
+                    <p class="card-text">Prezzo: 42 €</p>
+                    <a href="#" class="btn btn-primary">Aggiungi al Carrello</a>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+  
+          </div>
+          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+  
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+              <div class="col">
+                  <div class="card text-center">
+                  <img src="./img/muffin_tradizionale.jpg" class="card-img-top" alt="asd">
+                  <div class="card-body">
+                      <h5 class="card-title">Muffin Tradizionale</h5>
+                      <p class="card-text">Prezzo: 42 €</p>
+                      <a href="#" class="btn btn-primary">Aggiungi al Carrello</a>
+                  </div>
+                  </div>
+              </div>
+          </div>
+  
+          </div>
+          <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+            
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+              <div class="col">
+                  <div class="card text-center">
+                    <img src="./img/biscotto_gocce.jpg" class="card-img-top" alt="asd">
+                    <div class="card-body">
+                      <h5 class="card-title">Biscotto con Gocce di Cioccolato</h5>
+                      <p class="card-text">Prezzo: 42 €</p>
+                      <a href="#" class="btn btn-primary">Aggiungi al Carrello</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+          </div>
+        </div>
+      </div>
+      
+    </main>
+    <!--START OF FOOTER-->
+    <footer class="text-center text-lg-start bg-dark text-muted">
+      <section class="">
+        <div class="container text-center text-md-start mt-5">
+          <div class="row mt-3">
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <h3 class="text-uppercase fw-bold my-4">Pastecceroo</h3>
+              <p>
+                Compagnia di consegna di dolci per studenti e docenti presso
+                l'Alma Mater Studiorum - Università di Bologna - Campus di
+                Cesena <br />
+                <br />
+                Scopri centinaia di prodotti artigianali prodotti dalle migliori
+                Pasticcerie della zona. <br />
+                <br />
+                Inserisci la data di nascita corretta, al tuo compleanno
+                riceverai una torta da gustare con chi vuoi!
+              </p>
+            </div>
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h3 class="text-uppercase fw-bold my-4">Prodotti</h3>
+              <p>
+                <a href="#!" class="text-reset">Torte</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Biscotti</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Capcakes</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Brownie</a>
+              </p>
+            </div>
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <h3 class="text-uppercase fw-bold my-4">Contatti</h3>
+              <p>Via Cesare Pavese, 50, 47521 Cesena FC</p>
+              <p>infoPastecceroo@example.com</p>
             </div>
           </div>
         </div>
       </section>
+      <div class="copyright text-center p-4">
+        © 2021 Copyright:
+        <a class="text-reset fw-bold" href="index.html">Pastecceroo.it</a>
+      </div>
+    </footer>
+    <!--END OF FOOTER-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
-  </html>
+</html>
