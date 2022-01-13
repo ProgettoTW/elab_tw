@@ -45,6 +45,20 @@
   letter-spacing: 4px;
 }
 
+<<<<<<< Updated upstream
+=======
+svg{
+  transform: scale(1.8);
+}
+
+.bi-person, .bi-cart3{
+  color: white;
+  font-size:150%;
+    
+}
+
+
+>>>>>>> Stashed changes
 /* LISTA PRODOTTI MAIN*/
 
 .card {
