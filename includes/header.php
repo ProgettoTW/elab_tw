@@ -82,7 +82,8 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
     <link rel="stylesheet" href="css/style.css">
     <!--Google Font-->
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
-
+    <!--Bootstrap icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <title>Pastecceroo</title>
 </head>
 
