@@ -1,5 +1,6 @@
 <?php
-function sec_session_start() {
+function sec_session_start()
+{
     $session_name = 'sec_session_id';
     $secure = false; // no https
     $httponly = true; // no js
@@ -11,50 +12,41 @@ function sec_session_start() {
     session_regenerate_id();
 }
 
-function login($email, $password, $mysqli) {
-
-    if ($querytoexec = $mysqli->prepare("SELECT u.name, u.id, u.email, u.password, c.id, u.admin FROM users u, cart c WHERE u.email = ? AND u.id = c.user_id LIMIT 1")) {
+function login($email, $password, $mysqli)
+{
+    //TODO Finire qui perché ho riscritto il DB e porcapaletta mi sarà sicuramente saltato qualcosa
+    if ($querytoexec = $mysqli->prepare("SELECT u.name, u.email, u.password, c.id, u.admin FROM users u, cart c WHERE u.email = ? AND u.id = c.user_id LIMIT 1")) {
         $querytoexec->bind_param('s', $email);
         $querytoexec->execute();
         $querytoexec->store_result();
-        $querytoexec->bind_result($name, $user_id, $username, $db_password, $cart_id, $admin);
+        $querytoexec->bind_result($name, $username, $password_hashed, $cart_id, $admin);
         $querytoexec->fetch();
-        if($querytoexec->num_rows == 1) {
-            // TODO Inserire check tentativi senza successo
-            if(false) {
-                echo "Account disabilitato, troppi tentativi errati. Riprova più tardi.";
-                return false;
-            } else {
-                if(password_verify($password, $db_password)) {
-                    $user_id = preg_replace("/[^0-9]+/", "", $user_id); //XSS
-                    $_SESSION['user_id'] = $user_id;
-                    $username = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $username); //XSS
-                    $_SESSION['email'] = $username;
-                    $_SESSION['login'] = true;
-                    $_SESSION['cart_id'] = $cart_id;
-                    $_SESSION['name'] = $name;
-                    $_SESSION['admin'] = false;
-                    if ($admin == 1){
-                        $_SESSION['admin'] = true;
-                    }
-                    return true;
-                } else {
-                    // TODO Aumentare i tentativi errati
-                    return false;
+        if ($querytoexec->num_rows == 1) {
+            if (password_verify($password, $password_hashed)) {
+                $user_id = preg_replace("/[^0-9]+/", "", $username); //XSS
+                $_SESSION['user_id'] = $username;
+                $username = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $username); //XSS
+                $_SESSION['email'] = $username;
+                $_SESSION['login'] = true;
+                $_SESSION['cart_id'] = $cart_id;
+                $_SESSION['name'] = $name;
+                $_SESSION['admin'] = false;
+                if ($admin == 1) {
+                    $_SESSION['admin'] = true;
                 }
+                return true;
             }
-        } else {
-            return false;
         }
     }
 }
 
-function login_check($mysqli) {
-    if(isset($_SESSION['user_id'], $_SESSION['email'], $_SESSION['login'])) {
+function login_check($mysqli)
+{
+    if (isset($_SESSION['user_id'], $_SESSION['email'], $_SESSION['login'])) {
         $user_id = $_SESSION['user_id'];
         $login = $_SESSION['login'];
         $username = $_SESSION['email'];
-        if($login) {
+        if ($login) {
             return true;
         } else {
             return false;
@@ -64,9 +56,10 @@ function login_check($mysqli) {
     }
 }
 
-function admin_check($mysqli) {
-    if(isset($_SESSION['admin'])) {
-        if($_SESSION['admin']) {
+function admin_check($mysqli)
+{
+    if (isset($_SESSION['admin'])) {
+        if ($_SESSION['admin']) {
             return true;
         } else {
             return false;
@@ -76,9 +69,10 @@ function admin_check($mysqli) {
     }
 }
 
-function seller_check($mysqli) {
-    if(isset($_SESSION['seller'])) {
-        if($_SESSION['seller']) {
+function seller_check($mysqli)
+{
+    if (isset($_SESSION['seller'])) {
+        if ($_SESSION['seller']) {
             return true;
         } else {
             return false;
@@ -89,13 +83,6 @@ function seller_check($mysqli) {
 }
 
 //TODO Funzione per controllare i tentativi di login senza successo
-
-
-
-
-
-
-
 
 
 ?>

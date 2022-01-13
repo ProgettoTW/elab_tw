@@ -18,7 +18,7 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
 ?>
 <!-- TODO: Questo CSS è solo per testare il dropdown, altrimenti faccio un pastrocchio
  -->
-
+<!DOCTYPE html>
 <style>
     /* Dropdown Button */
     .dropbtn {
@@ -69,7 +69,7 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
     }
 </style>
 
-<!DOCTYPE html>
+
 
 <head>
     <meta charset="utf-8">

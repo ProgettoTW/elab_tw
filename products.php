@@ -124,10 +124,27 @@ class ProductDB
         $conn = new Connection();
         $db = $conn->getConnection();
 
-        //TODO
+        if ($db->connect_error) {
+            die("Connection failed: " . $db->connect_error);
+        }
+        $querytoexec = $db->prepare("DELETE FROM " . $this->table_name . " WHERE id = ?");
+        $querytoexec->bind_param('i', $id);
+        if (!$querytoexec->execute()) {
+            echo($querytoexec->error);
+        }
+
+        $result = $querytoexec->get_result();
+        if ($result) {
+            echo "Delete OK";
+        } else {
+            return null;
+        }
+
+        $querytoexec->close();
         $db->close();
     }
 
+    //TODO
     public function update($product)
     {
 
@@ -138,14 +155,41 @@ class ProductDB
         $db->close();
     }
 
+    //TODO La logica c'è, bisogna definire come vogliamo gestire le categorie e il resto
     public function searchProduct($string)
     {
 
         $conn = new Connection();
         $db = $conn->getConnection();
 
-        //TODO
+        if ($db->connect_error) {
+            die("Connection failed: " . $db->connect_error);
+        }
+
+        $querytoexec = $db->prepare("SELECT * FROM " . $this->table_name . " WHERE name LIKE CONCAT('%',?,'%') OR description LIKE CONCAT('%',?,'%')");
+        $querytoexec->bind_param('ss', $string, $string);
+        $result = $querytoexec->execute();
+        if (!$result) {
+            echo "error";
+            return null;
+        }
+
+        $result = $querytoexec->get_result();
+        if ($result->num_rows > 0) {
+            $rows = array();
+            while ($row = mysqli_fetch_assoc($result)) {
+                $temp = new Product($row["name"], $row["price"], $row["description"], $row["category_id"]);
+                $temp->setId($row["id"]);
+                $rows[] = $temp;
+            }
+        } else {
+            return null;
+        }
+
+        $querytoexec->close();
+
         $db->close();
+        return $rows;
     }
 }
 

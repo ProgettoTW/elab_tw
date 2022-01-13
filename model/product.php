@@ -1,59 +1,73 @@
 <?php
-class Product{
 
-  private $id;
-  private $name;
-  private $description;
-  private $customizable;
-  private $price;
+class Product
+{
 
-  public function __construct($name, $price, $description, $customizable){
-      $this->ProductName = $name;
-      $this->Description = $description;
-      $this->Customizable= $customizable;
-      $this->UnitPrice = $price;
-  }
+    private $id;
+    private $name;
+    private $description;
+    private $customizable;
+    private $price;
 
-  public function getId(){
-    return $this->id;
-  }
+    public function __construct($name, $price, $description, $customizable)
+    {
+        $this->ProductName = $name;
+        $this->Description = $description;
+        $this->Customizable = $customizable;
+        $this->UnitPrice = $price;
+    }
 
-  public function setId($id){
-    $this->id = $id;
-  }
+    public function getId()
+    {
+        return $this->id;
+    }
 
-  public function getName(){
-    return $this->ProductName;
-  }
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
 
-  public function setName($name){
-    $this->ProductName = $name;
-  }
+    public function getName()
+    {
+        return $this->ProductName;
+    }
 
-  public function getPrice(){
-    return $this->UnitPrice;
-  }
+    public function setName($name)
+    {
+        $this->ProductName = $name;
+    }
 
-  public function setPrice($price){
-    $this->UnitPrice = $price;
-  }
+    public function getPrice()
+    {
+        return $this->UnitPrice;
+    }
 
-  public function getDescription(){
-    return $this->Description;
-  }
+    public function setPrice($price)
+    {
+        $this->UnitPrice = $price;
+    }
 
-  public function setDescription($description){
-    $this->Description = $description;
-  }
+    public function getDescription()
+    {
+        return $this->Description;
+    }
 
-  public function getCustomizable(){
-    return $this->Customizable;
-  }
+    public function setDescription($description)
+    {
+        $this->Description = $description;
+    }
 
-  public function setCustomizable($customizable){
-    $this->Customizable = $customizable;
-  }
+    public function getCustomizable()
+    {
+        return $this->Customizable;
+    }
+
+    public function setCustomizable($customizable)
+    {
+        $this->Customizable = $customizable;
+    }
 
 
 }
+
 ?>
