@@ -19,7 +19,7 @@ $products = new ProductDB();
             if (!is_null($rows)) {
                 foreach ($rows as $row) { ?>
                     <div class="card">
-                        <img src="img/332.jpg" class="card-img-top" alt="">
+                        <img src="img/products/<?php echo $row->getId()?>.jpg" class="card-img-top" alt="">
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $row->getName(); ?></h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
