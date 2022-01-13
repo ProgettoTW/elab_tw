@@ -5,6 +5,7 @@ class Cart_item{
   private $cartId;
   private $productId;
   private $quantity;
+  //In realtà questo potrebbe non servire
   private $productName;
 
   public function __construct($productId, $quantity, $cartId){

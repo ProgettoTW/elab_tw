@@ -4,10 +4,10 @@ class Product
 {
 
     private $id;
-    private $name;
-    private $description;
-    private $customizable;
-    private $price;
+    private $ProductName;
+    private $Description;
+    private $Customizable;
+    private $UnitPrice;
 
     public function __construct($name, $price, $description, $customizable)
     {
