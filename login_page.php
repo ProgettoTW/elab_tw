@@ -69,17 +69,17 @@ if (isset($_GET['error'])) {
                         <form>
                             <div class="row">
                                 <div class="col form-floating mb-3">
-                                    <input type="text" class="form-control" placeholder="nome">
+                                    <input type="text" class="form-control flex-grow-0" placeholder="nome">
                                     <label class="mx-sm-2" for="floatingInput">Nome</label>
                                 </div>
                                 <div class="col form-floating">
-                                    <input type="text" class="form-control" placeholder="cognome">
+                                    <input type="text" class="form-control flex-grow-0" placeholder="cognome">
                                     <label class="mx-sm-2" for="floatingInput">Cognome</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col mb-3 mx-sm-1">
-                                    <label for="date">Compleanno: </label>
+                                    <label for="date">Data di Nascita: </label>
                                     <input type="date" id="date">
                                 </div>
                                 <div class="col">
@@ -87,12 +87,12 @@ if (isset($_GET['error'])) {
                                 </div>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="floatingInput"
+                                <input type="email" class="form-control flex-grow-0" id="floatingInput"
                                        placeholder="name@example.com">
                                 <label for="floatingInput">Email</label>
                             </div>
                             <div class="form-floating mb-4">
-                                <input type="password" class="form-control" id="floatingPassword"
+                                <input type="password" class="form-control flex-grow-0" id="floatingPassword"
                                        placeholder="Password">
                                 <label for="floatingPassword">Password</label>
                             </div>

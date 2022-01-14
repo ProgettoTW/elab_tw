@@ -30,7 +30,7 @@
                     <hr>
                     <p>Via Cesare Pavese, 50, 47521 Cesena FC</p>
                     <hr>
-                    <p><a href="mailto:info@pastecceroo.com">info@pastecceroo.com</a></p>
+                    <p><a href="mailto:info@pastecceroo.com">info@pastecceroo.it</a></p>
                 </div>
             </div>
         </div>

@@ -85,6 +85,11 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
     <!--Bootstrap icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <title>Pastecceroo</title>
 </head>
 
@@ -105,10 +110,10 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
                     <a class="nav-link active" aria-current="page" href="index.php">Pagina iniziale</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="products.php">Prodotti</a>
+                    <a class="nav-link active" href="products_list.php">Prodotti</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="products.php">Chi Siamo</a>
+                    <a class="nav-link active" href="#">Chi Siamo</a>
                 </li>
                 <li class="nav-item">
                     <form class="d-flex input-group">

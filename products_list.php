@@ -7,160 +7,101 @@ $products = new ProductDB();
 <html lang="it">
 </head>
 
+
 <body class="bg-light">
 <!-- Container -->
 <div class="container-fluid">
-
     <main>
-        <?php $rows = $products->getAll();
-        ?>
-        <div class="d-flex justify-content-lg-around flex-wrap">
-            <?php
-            if (!is_null($rows)) {
-                foreach ($rows as $row) { ?>
-                    <div class="card">
-                        <img src="img/products/<?php echo $row->getId()?>.jpg" class="card-img-top" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo $row->getName(); ?></h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-primary"><?php echo $row->getPrice(); ?>€</a>
-                        </div>
-                    </div>
+        <!-- FILTER NAVS-->
+        <nav>
+            <?php $rows = $products->getAll();
+            ?>
+            <ul class="nav nav-pills filters justify-content-center" id="myTab" role="tablist">
+
+                <li class="nav-item filter" role="presentation">
+                    <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all"
+                            type="button" role="tab" aria-selected="true">Tutti i Prodotti
+                    </button>
+                </li>
+                <li class="nav-item filter" role="presentation">
+                    <button class="nav-link" id="torte-tab" data-bs-toggle="tab" data-bs-target="#torte" type="button"
+                            role="tab" aria-selected="false">Torte
+                    </button>
+                </li>
+                <li class="nav-item filter" role="presentation">
+                    <button class="nav-link" id="biscotti-tab" data-bs-toggle="tab" data-bs-target="#biscotti"
+                            type="button" role="tab" aria-selected="false">Biscotti
+                    </button>
+                </li>
+            </ul>
+        </nav>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+
+                <div class="row row-cols-1 row-cols-md-4 g-4">
                     <?php
-                }
-            } ?>
-
-        </div>
-    </main>
-    <footer>
-        <!-- Footer -->
-        <footer class="text-center text-lg-start bg-dark text-muted">
-            <!-- Section: Social media -->
-            <section
-                    class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
-            >
-                <!-- Left -->
-                <div class="me-5 d-none d-lg-block">
-                    <span>Get connected with us on social networks:</span>
+                    if (!is_null($rows)) {
+                        foreach ($rows as $row) { ?>
+                            <div class="col">
+                                <div class="card text-center">
+                                    <img src="img/products/<?php echo $row->getId() ?>.jpg" class="card-img-top"
+                                         alt="asd">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?php echo $row->getName(); ?></h5>
+                                        <p class="card-text">Prezzo: <?php echo $row->getPrice(); ?> €</p>
+                                        <a href="#" class="btn btn-primary">Aggiungi al Carrello</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                    } ?>
                 </div>
-                <!-- Left -->
 
-                <!-- Right -->
-                <div>
-                    <a href="" class="me-4 text-reset">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="" class="me-4 text-reset">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="" class="me-4 text-reset">
-                        <i class="fab fa-google"></i>
-                    </a>
-                    <a href="" class="me-4 text-reset">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="" class="me-4 text-reset">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="" class="me-4 text-reset">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
-                <!-- Right -->
-            </section>
-            <!-- Section: Social media -->
-
-            <!-- Section: Links  -->
-            <section class="">
-                <div class="container text-center text-md-start mt-5">
-                    <!-- Grid row -->
-                    <div class="row mt-3">
-                        <!-- Grid column -->
-                        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                            <!-- Content -->
-                            <h6 class="text-uppercase fw-bold mb-4">
-                                <i class="fas fa-gem me-3"></i>Company name
-                            </h6>
-                            <p>
-                                Here you can use rows and columns to organize your footer content. Lorem ipsum
-                                dolor sit amet, consectetur adipisicing elit.
-                            </p>
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                            <!-- Links -->
-                            <h6 class="text-uppercase fw-bold mb-4">
-                                Products
-                            </h6>
-                            <p>
-                                <a href="#!" class="text-reset">Angular</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">React</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Vue</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Laravel</a>
-                            </p>
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                            <!-- Links -->
-                            <h6 class="text-uppercase fw-bold mb-4">
-                                Useful links
-                            </h6>
-                            <p>
-                                <a href="#!" class="text-reset">Pricing</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Settings</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Orders</a>
-                            </p>
-                            <p>
-                                <a href="#!" class="text-reset">Help</a>
-                            </p>
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                            <!-- Links -->
-                            <h6 class="text-uppercase fw-bold mb-4">
-                                Contact
-                            </h6>
-                            <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
-                            <p>
-                                <i class="fas fa-envelope me-3"></i>
-                                info@example.com
-                            </p>
-                            <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-                            <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
-                        </div>
-                        <!-- Grid column -->
-                    </div>
-                    <!-- Grid row -->
-                </div>
-            </section>
-            <!-- Section: Links  -->
-
-            <!-- Copyright -->
-            <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-                © 2021 Copyright:
-                <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
             </div>
-            <!-- Copyright -->
-        </footer>
-        <!-- Footer -->
-    </footer>
+            <div class="tab-pane fade" id="torte" role="tabpanel" aria-labelledby="torte-tab">
+
+                <div class="row row-cols-1 row-cols-md-4 g-4">
+
+                    <div class="col">
+                        <div class="card text-center">
+                            <img src="./img/muffin_tradizionale.jpg" class="card-img-top" alt="asd">
+                            <div class="card-body">
+                                <h5 class="card-title">Muffin Tradizionale</h5>
+                                <p class="card-text">Prezzo: 42 €</p>
+                                <a href="#" class="btn btn-primary">Aggiungi al Carrello</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="biscotti-tab">
+
+                <div class="row row-cols-1 row-cols-md-4 g-4">
+
+                    <div class="col">
+                        <div class="card text-center">
+                            <img src="./img/biscotto_gocce.jpg" class="card-img-top" alt="asd">
+                            <div class="card-body">
+                                <h5 class="card-title">Biscotto con Gocce di Cioccolato</h5>
+                                <p class="card-text">Prezzo: 42 €</p>
+                                <a href="#" class="btn btn-primary">Aggiungi al Carrello</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+    </main>
+    <?php
+    require_once("includes/footer.php");
+    ?>
 </div>
 </body>
 </html>
