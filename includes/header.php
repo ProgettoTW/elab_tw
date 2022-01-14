@@ -69,8 +69,6 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
     }
 </style>
 
-
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
