@@ -1,6 +1,7 @@
 CREATE TABLE `cart`
 (
     `cartID` int(11) NOT NULL AUTO_INCREMENT,
+    `status` varchar(50) NOT NULL,
 
     PRIMARY KEY (`cartID`)
 );
