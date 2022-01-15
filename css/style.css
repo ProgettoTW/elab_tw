@@ -45,6 +45,11 @@
   letter-spacing: 4px;
 }
 
+.checkout-container {
+  max-width: 960px;
+  margin-right: auto;
+  margin-left: auto;
+}
 
 svg{
   transform: scale(1.8);
@@ -60,6 +65,12 @@ svg{
 
 .card {
   margin: 2%;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 20vw;
+  object-fit: cover;
 }
 
 /* FILTRI */

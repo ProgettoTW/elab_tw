@@ -2,7 +2,10 @@
 <html lang="it">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Pastecceroo - Carrello</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -14,217 +17,234 @@
     <!--Bootstrap icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 
-    <title>Pastecceroo</title>
+    <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
   </head>
 
   <body class="body">
     <!-- Container -->
       <div class="container-fluid">
-            <div class="header justify-content-evenly px-4">
-              <nav class="navbar navbar-expand-lg text-uppercase navbar-dark">
-                    <a class="navbar-brand" href="#">
-                      <h1 class="h1">Pastecceroo</h1></a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse justify-content-lg-between" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mx-auto content">
-                      <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link active" href="prodotti.html">Prodotti</a>
-                      </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Categorie
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <li><a class="dropdown-item" href="#">Torte</a></li>
-                          <li><a class="dropdown-item" href="#">Cupcakes</a></li>
-                          <li><a class="dropdown-item" href="#">Biscotti</a></li>
-                          <li><a class="dropdown-item" href="#">Brownie</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                    <ul class="navbar-nav auth">
-                      <li class="nav-item">
-                        <button type="button" class="btn btn-primary">Accedi</button>
-                      </li>
-                      <li class="nav-item">
-                      <button type="button" class="btn btn-secondary">Registrati</button>
-                      </li>  
+      <!--HEADER-->
+      <div class="header justify-content-evenly px-4">
+        <nav class="navbar navbar-expand-lg text-uppercase navbar-dark">
+          <a class="navbar-brand" href="#">
+            <h1 class="h1">Pastecceroo</h1>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse justify-content-lg-between"
+            id="navbarSupportedContent"
+          >
+            <ul class="navbar-nav me-auto mx-auto content">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html"
+                  >Pagina iniziale</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="prodotti.html">Prodotti</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="chiSiamo.html">Chi Siamo</a>
+              </li>
+              <li class="nav-item">
+                <form class="d-flex input-group">
+                  <input
+                    type="search"
+                    class="form-control"
+                    placeholder="Search"
+                    aria-label="Search"
+                  />
+                  <sp4an class="input-group-text border-0">
+                    <i class="bi bi-search"></i>
+                  </span>
+                </form>
+              </li>
+            </ul>
+            <ul class="navbar-nav auth">
+              <li class="nav-item">
+                <button type="button" class="btn btn-primary">
+                  <a href="login.html">Accedi/Registrati</a>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <main>
+        <div class="checkout-container py-5">
+          <div class="row g-5">
+            <!--CARRELLO-->
+            <div class="col-md-5 col-lg-4 order-md-last">
+              <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-primary">Il tuo carrello</span>
+                <span class="badge bg-primary rounded-pill">3</span>
+              </h4>
+              <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                  <div>
+                    <h6 class="my-0">Torta alla fragola</h6>
+                    <small class="text-muted">Quantità: 1</small>
                   </div>
-              </nav>
+                  <span class="text-muted">€ 12</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                  <div>
+                    <h6 class="my-0">Biscotto al cioccolato</h6>
+                    <small class="text-muted">Quantità: 6</small>
+                  </div>
+                  <span class="text-muted">€ 8</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                  <div>
+                    <h6 class="my-0">Muffin tradizionale</h6>
+                    <small class="text-muted">Quantità: 2</small>
+                  </div>
+                  <span class="text-muted">€ 5</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between bg-light">
+                  <div class="text-success">
+                    <h6 class="my-0">Offerta compleanno</h6>
+                    <small>TANTI AUGURI</small>
+                  </div>
+                  <span class="text-success">−50%</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                  <span>Totale (EUR)</span>
+                  <strong>€ 12.5</strong>
+                </li>
+              </ul>
+      
+              <form class="card p-2">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Promo code">
+                  <button type="submit" class="btn btn-secondary">Redeem</button>
+                </div>
+              </form>
             </div>
-
-            <main>
-              <div>
-                <h2>Carrello</h2>
-              </div>
-              <div class="table-box">
-                  <table class="table d-flex justify-content-center">
-                    <tr class="text-center">
-                      <th>Immagine</th>
-                      <th>Nome</th>
-                      <th>Descrizione</th>
-                      <th>Quantità</th>
-                      <th>Prezzo</th>
-                    </tr>
-                    <tr class="text-center">
-                      <td><img src="" alt=""></td>
-                      <td>Torta al limone</td>
-                      <td>Deliziosa torta al limone</td>
-                      <td><input type="number"></td>
-                      <td>Prezzo</td>
-                    </tr>
-                    <tr class="text-center">
-                      <td><img src="" alt=""></td>
-                      <td>Torta al cioccolato</td>
-                      <td>Deliziosa torta al cioccolato</td>
-                      <td><input type="number" ></td>
-                      <td>Prezzo</td>
-                    </tr>
-                    <tr class="text-center">
-                      <th>Totale</th>
-                      <td rowspan="4">Totale</td>
-                    </tr>
-                  </table>
-                  <div class="btn-carrello d-flex justify-content-center">
-                    <button type="button" class="btn">Acquista prodotti</button>
+            <!--INDIRIZZO DI FATTURAZIONE-->
+            <div class="col-md-7 col-lg-8">
+              <form class="needs-validation" novalidate="">     
+                <h4 class="mb-3">Pagamento: </h4>       
+                <div class="my-3">
+                  <div class="form-check">
+                    <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="">
+                    <label class="form-check-label" for="credit">Carta di credito</label>
                   </div>
-              </div>
-            </main>
-        <footer>
-          <!-- Footer -->
-            <footer class="text-center text-lg-start bg-dark text-muted">
-              <!-- Section: Social media -->
-              <section
-                class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
-              >
-                <!-- Left -->
-                <div class="me-5 d-none d-lg-block">
-                  <span>Get connected with us on social networks:</span>
-                </div>
-                <!-- Left -->
-
-                <!-- Right -->
-                <div>
-                  <a href="" class="me-4 text-reset">
-                    <i class="fab fa-facebook-f"></i>
-                  </a>
-                  <a href="" class="me-4 text-reset">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                  <a href="" class="me-4 text-reset">
-                    <i class="fab fa-google"></i>
-                  </a>
-                  <a href="" class="me-4 text-reset">
-                    <i class="fab fa-instagram"></i>
-                  </a>
-                  <a href="" class="me-4 text-reset">
-                    <i class="fab fa-linkedin"></i>
-                  </a>
-                  <a href="" class="me-4 text-reset">
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
-                <!-- Right -->
-              </section>
-              <!-- Section: Social media -->
-
-              <!-- Section: Links  -->
-              <section class="">
-                <div class="container text-center text-md-start mt-5">
-                  <!-- Grid row -->
-                  <div class="row mt-3">
-                    <!-- Grid column -->
-                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                      <!-- Content -->
-                      <h6 class="text-uppercase fw-bold mb-4">
-                        <i class="fas fa-gem me-3"></i>Company name
-                      </h6>
-                      <p>
-                        Here you can use rows and columns to organize your footer content. Lorem ipsum
-                        dolor sit amet, consectetur adipisicing elit.
-                      </p>
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                      <!-- Links -->
-                      <h6 class="text-uppercase fw-bold mb-4">
-                        Products
-                      </h6>
-                      <p>
-                        <a href="#!" class="text-reset">Angular</a>
-                      </p>
-                      <p>
-                        <a href="#!" class="text-reset">React</a>
-                      </p>
-                      <p>
-                        <a href="#!" class="text-reset">Vue</a>
-                      </p>
-                      <p>
-                        <a href="#!" class="text-reset">Laravel</a>
-                      </p>
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                      <!-- Links -->
-                      <h6 class="text-uppercase fw-bold mb-4">
-                        Useful links
-                      </h6>
-                      <p>
-                        <a href="#!" class="text-reset">Pricing</a>
-                      </p>
-                      <p>
-                        <a href="#!" class="text-reset">Settings</a>
-                      </p>
-                      <p>
-                        <a href="#!" class="text-reset">Orders</a>
-                      </p>
-                      <p>
-                        <a href="#!" class="text-reset">Help</a>
-                      </p>
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                      <!-- Links -->
-                      <h6 class="text-uppercase fw-bold mb-4">
-                        Contact
-                      </h6>
-                      <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
-                      <p>
-                        <i class="fas fa-envelope me-3"></i>
-                        info@example.com
-                      </p>
-                      <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-                      <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
-                    </div>
-                    <!-- Grid column -->
+                  <div class="form-check">
+                    <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
+                    <label class="form-check-label" for="debit">Carta di debito</label>
                   </div>
-                  <!-- Grid row -->
+                  <div class="form-check">
+                    <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">
+                    <label class="form-check-label" for="paypal">PayPal</label>
+                  </div>
                 </div>
-              </section>
-              <!-- Section: Links  -->
-
-              <!-- Copyright -->
-              <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-                © 2021 Copyright:
-                <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-              </div>
-              <!-- Copyright -->
-            </footer>
-            <!-- Footer -->
-        </footer>
-\
-
+      
+                <div class="row gy-3">
+                  <div class="col-md-6">
+                    <label for="cc-name" class="form-label">Nome sulla carta</label>
+                    <input type="text" class="form-control" id="cc-name" placeholder="" required="">
+                    <small class="text-muted">Nome del proprietario della carta</small>
+                    <div class="invalid-feedback">
+                      Il nome è obbligatorio.
+                    </div>
+                  </div>
+      
+                  <div class="col-md-6">
+                    <label for="cc-number" class="form-label">Numero della carta</label>
+                    <input type="text" class="form-control" id="cc-number" placeholder="XXXX XXXX XXXX XXXX" required="">
+                    <div class="invalid-feedback">
+                      Il numero della carta è obbligatorio.
+                    </div>
+                  </div>
+      
+                  <div class="col-md-3">
+                    <label for="cc-expiration" class="form-label">Scadenza</label>
+                    <input type="text" class="form-control" id="cc-expiration" placeholder="XX/XX" required="">
+                    <div class="invalid-feedback">
+                      La scadenza della carta è obbligatoria.
+                    </div>
+                  </div>
+      
+                  <div class="col-md-3">
+                    <label for="cc-cvv" class="form-label">CVV</label>
+                    <input type="text" class="form-control" id="cc-cvv" placeholder="XXX" required="">
+                    <div class="invalid-feedback">
+                      Il CVV è obbligatorio
+                    </div>
+                  </div>
+                </div>
+      
+                <hr class="my-4">
+      
+                <button class="w-100 btn btn-primary btn-lg" type="submit">Acquista</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+        <!--START OF FOOTER-->
+    <footer class="text-center text-lg-start bg-dark text-muted">
+      <section class="">
+        <div class="container text-center text-md-start mt-5">
+          <div class="row mt-3">
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <h3 class="text-uppercase fw-bold my-4">Pastecceroo</h3>
+              <p>
+                Compagnia di consegna di dolci per studenti e docenti presso
+                l'Alma Mater Studiorum - Università di Bologna - Campus di
+                Cesena <br />
+                <br />
+                Scopri centinaia di prodotti artigianali prodotti dalle migliori
+                Pasticcerie della zona. <br />
+                <br />
+                Inserisci la data di nascita corretta, al tuo compleanno
+                riceverai una torta da gustare con chi vuoi!
+              </p>
+            </div>
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h3 class="text-uppercase fw-bold my-4">Prodotti</h3>
+              <p>
+                <a href="#!" class="text-reset">Torte</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Biscotti</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Capcakes</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Brownie</a>
+              </p>
+            </div>
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <h3 class="text-uppercase fw-bold my-4">Contatti</h3>
+              <p>Via Cesare Pavese, 50, 47521 Cesena FC</p>
+              <p>infoPastecceroo@example.com</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="copyright text-center p-4">
+        © 2021 Copyright:
+        <a class="text-reset fw-bold" href="index.html">Pastecceroo.it</a>
+      </div>
+    </footer>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
