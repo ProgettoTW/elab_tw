@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Pastecceroo - Riepilogo Venditore</title>
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <!-- CSS -->
+        <link rel="stylesheet" href="../css/style.css">
+        <!--Google Font-->
+        <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+        <!--Bootstrap icons-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+
+        <!-- FAVICON -->
+        <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+    </head>
+    <body class="body">
+        <div class="container-fluid">
+            <div class="header justify-content-evenly px-4">
+                <nav class="navbar navbar-expand-lg text-uppercase navbar-dark">
+                    <a class="navbar-brand" href="index.html">
+                      <h1 class="h1">Pastecceroo</h1>
+                    </a>
+                    <button
+                      class="navbar-toggler"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#navbarSupportedContent"
+                      aria-controls="navbarSupportedContent"
+                      aria-expanded="false"
+                      aria-label="Toggle navigation"
+                    >
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div
+                      class="collapse navbar-collapse justify-content-lg-between"
+                      id="navbarSupportedContent"
+                    >
+                      <ul class="navbar-nav me-auto mx-auto content">
+                        <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="index.html">Pagina iniziale</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link active" href="prodotti.html">Prodotti</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link active" href="chiSiamo.html">Chi Siamo</a>
+                        </li>
+                        <li class="nav-item">
+                          <form class="d-flex input-group">
+                            <input
+                              type="search"
+                              class="form-control"
+                              placeholder="Search"
+                              aria-label="Search"
+                            />
+                            <span class="input-group-text border-0">
+                              <i class="bi bi-search"></i>
+                            </span>
+                          </form>
+                        </li>
+                      </ul>
+                      <ul class="navbar-nav auth">
+                        <li class="nav-item">
+                          <button type="button" class="btn btn-primary">
+                            <a href="login.html">Accedi/Registrati</a>
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </nav>
+            </div>
+            <main>
+                <div class="row d-flex">
+                    <div class="col-7 p-4">
+                        <h2 class="mb-4">I tuoi prodotti:</h2>
+                        <table class="table table-striped table-hover">
+                            <thead>
+                              <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Prodotto</th>
+                                <th scope="col">Quantità</th>
+                                <th scope="col">Rimuovi</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">1</th>
+                                <td>Torta al limone</td>
+                                <td>
+                                    <span class="input-number">
+                                        <input type="number" id="inputNumber1" name="inputNumber1" value="0" min="0" max="99">
+                                    </span>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-danger">Rimuovi</button>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th scope="row">2</th>
+                                <td>Torta al cioccolato</td>
+                                <td>
+                                    <span class="input-number">
+                                        <input type="number" id="inputNumber1" name="inputNumber1" value="0" min="0" max="99">
+                                    </span>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-danger">Rimuovi</button>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th scope="row">3</th>
+                                <td>Torta alla fragola</td>
+                                <td>
+                                    <span class="input-number">
+                                        <input type="number" id="inputNumber1" name="inputNumber1" value="0" min="0" max="99">
+                                    </span>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-danger">Rimuovi</button>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th scope="row">1</th>
+                                <td>Torta ai frutti di bosco</td>
+                                <td>
+                                    <span class="input-number">
+                                        <input type="number" id="inputNumber1" name="inputNumber1" value="0" min="0" max="99">
+                                    </span>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-danger">Rimuovi</button>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th scope="row">1</th>
+                                <td>Torta al tiramisù</td>
+                                <td>
+                                    <span class="input-number">
+                                        <input type="number" id="inputNumber1" name="inputNumber1" value="0" min="0" max="99">
+                                    </span>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-danger">Rimuovi</button>
+                                </td>
+                              </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="col-5 p-4">
+                        <h2 class="mb-4">Aggiungi un prodotto:</h2>
+                        <form class="form-inline">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">Nome</span>
+                                <input type="text" class="form-control" placeholder="Nome prodotto" aria-label="name" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">€</span>
+                                <input type="number" min="0.00" step="0.01" value="1.00" id="exampleInputAmount" class="form-control" placeholder="Prezzo">
+                            </div>
+                            <select class="form-select mb-3" id="autoSizingSelect">
+                                <option selected disabled>Categoria</option>
+                                <option value="1">Torta</option>
+                                <option value="2">Muffin</option>
+                                <option value="3">Biscotto</option>
+                            </select>
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="inputGroupFile01">Immagine prodotto</label>
+                                <input type="file" class="form-control" id="inputGroupFile01">
+                            </div>
+                            <button type="button" class="btn btn-success">Aggiungi</button>
+                        </form>
+                    </div>
+                </div>
+                
+            </main>
+        </div>
+        <footer class="text-center text-lg-start bg-dark text-muted">
+            <section class="">
+                <div class="container text-center text-md-start mt-5">
+                  <div class="row mt-3">
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                      <h3 class="text-uppercase fw-bold my-4">Pastecceroo</h3>
+                      <p>
+                        Compagnia di consegna di dolci per studenti e docenti presso
+                        l'Alma Mater Studiorum - Università di Bologna - Campus di
+                        Cesena <br />
+                        <br />
+                        Scopri centinaia di prodotti artigianali prodotti dalle migliori
+                        Pasticcerie della zona. <br />
+                        <br />
+                        Inserisci la data di nascita corretta, al tuo compleanno
+                        riceverai una torta da gustare con chi vuoi!
+                      </p>
+                    </div>
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                      <h3 class="text-uppercase fw-bold my-4">Prodotti</h3>
+                      <p>
+                        <a href="#!" class="text-reset">Torte</a>
+                      </p>
+                      <p>
+                        <a href="#!" class="text-reset">Biscotti</a>
+                      </p>
+                      <p>
+                        <a href="#!" class="text-reset">Cupcakes</a>
+                      </p>
+                      <p>
+                        <a href="#!" class="text-reset">Brownie</a>
+                      </p>
+                    </div>
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                      <h3 class="text-uppercase fw-bold my-4">Contatti</h3>
+                      <p>Via Cesare Pavese, 50, 47521 Cesena FC</p>
+                      <p>infoPastecceroo@example.com</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <div class="copyright text-center p-4">
+                © 2021 Copyright:
+                <a class="text-reset fw-bold" href="index.html">Pastecceroo.it</a>
+              </div>
+        </footer>
+    </body>
+</html>
