@@ -15,13 +15,27 @@ CREATE TABLE `users`
     `phone`    varchar(50) NOT NULL,
     `address`  varchar(50) NOT NULL,
     `date`     date NULL DEFAULT NULL,
-    `password` varchar(50) NOT NULL,
+    `password` varchar(128) NOT NULL,
     `admin`    bit(1)      NOT NULL DEFAULT b'0',
 
     PRIMARY KEY (`email`),
     KEY        `FK_110` (`cartID`),
     CONSTRAINT `FK_108` FOREIGN KEY `FK_110` (`cartID`) REFERENCES `cart` (`cartID`)
 ) ENGINE=INNODB;
+
+CREATE TABLE `order`
+(
+    `orderID` int         NOT NULL AUTO_INCREMENT,
+    `cartID`  int(11) NOT NULL,
+    `email`   varchar(50) NOT NULL,
+    `time`    datetime    NOT NULL,
+
+    PRIMARY KEY (`orderID`),
+    KEY       `FK_141` (`cartID`),
+    CONSTRAINT `FK_139` FOREIGN KEY `FK_141` (`cartID`) REFERENCES `cart` (`cartID`),
+    KEY       `FK_145` (`email`),
+    CONSTRAINT `FK_143` FOREIGN KEY `FK_145` (`email`) REFERENCES `users` (`email`)
+);
 
 CREATE TABLE `categories`
 (
@@ -57,6 +71,20 @@ CREATE TABLE `products`
     CONSTRAINT `FK_64` FOREIGN KEY `FK_66` (`sellerID`) REFERENCES `seller` (`sellerID`)
 ) ENGINE=INNODB;
 
+CREATE TABLE `orderItem`
+(
+    `ID`        int(11) NOT NULL AUTO_INCREMENT,
+    `orderID`   int         NOT NULL,
+    `productID` int(11) NOT NULL,
+    `quantity`  int(11) NOT NULL,
+    `name`      varchar(50) NOT NULL,
+
+    PRIMARY KEY (`ID`),
+    KEY         `FK_151` (`orderID`),
+    CONSTRAINT `FK_149` FOREIGN KEY `FK_151` (`orderID`) REFERENCES `order` (`orderID`),
+    KEY         `FK_168` (`productID`),
+    CONSTRAINT `FK_166` FOREIGN KEY `FK_168` (`productID`) REFERENCES `products` (`productID`)
+);
 
 CREATE TABLE `cartItem`
 (

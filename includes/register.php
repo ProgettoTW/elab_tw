@@ -5,9 +5,9 @@ require_once("connection.php");
 
 sec_session_start();
 
-if (isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['born_date']) && isset($_POST['address']) && isset($_POST['phone']) && isset($_POST['email']) && isset($_POST['p'])) {
+if (isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['born_date']) && isset($_POST['phone']) && isset($_POST['email']) && isset($_POST['p'])) {
+    echo "arrivo qui";
     $name = $_POST['name'];
-    $address = $_POST['address'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $surname = $_POST['surname'];
@@ -21,10 +21,14 @@ if (isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['born_date
         $update_stmt->execute();
         $update_stmt->store_result();
         if($update_stmt->num_rows < 1) {
+            echo "anche qui";
+            $address = "PROVA";
             if ($insert_stmt = $db->prepare("INSERT INTO users (name, surname, phone, address, born_date, email, password, admin) VALUES (?, ?, ?, ?, ?, ?, ?, 0)")) {
                 $insert_stmt->bind_param('sssssss', $name, $surname, $phone, $address, $born_date, $email, $hashed_password);
+                echo "qui ok";
                 // Esegui la query ottenuta.
                 $insert_stmt->execute();
+                echo "eseguita?";
                 $user_id = mysqli_stmt_insert_id($insert_stmt);
                 if ($insert_stmt2 = $db->prepare("INSERT INTO cart (user_id) VALUES (?)")) {
                     $insert_stmt2->bind_param('i', $user_id);
@@ -32,7 +36,7 @@ if (isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['born_date
                     $insert_stmt2->execute();
                     $insert_stmt2->close();
                     ?> <div>Registrazione completata!</div>
-                    <a class="btn btn-primary" href="/login_page.php">Vai al login</a> <?php
+                    <a class="btn btn-primary" href="../login_page.php">Vai al login</a> <?php
                 } else {
                     echo "prepare error";
                 }
@@ -43,7 +47,7 @@ if (isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['born_date
             <div class="row">
             <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 mx-auto bg-light" >
             <h4> Questa mail è già registrata!</h4>
-            <a class="btn btn-primary" href="/login_page.php">Torna indietro</a>
+            <a class="btn btn-primary" href="../login_page.php">Torna indietro</a>
             <?php
         }
     }

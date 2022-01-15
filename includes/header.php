@@ -136,7 +136,7 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
                             <a href="#">Il mio account</a>
                             <a href="#">I miei ordini</a>
                             <a href="#"> - </a>
-                            <a href="#">Logout</a>
+                            <a href="includes/logout.php">Logout</a>
                         </div>
                 </div>
                 <?php
