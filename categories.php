@@ -112,4 +112,89 @@ class CategoryDB
         return $rows;
     }
 
+
+    public function insert($category)
+    {
+        $conn = new Connection();
+        $db = $conn->getConnection();
+
+        if ($db->connect_error) {
+            die("Connection failed: " . $db->connect_error);
+        }
+
+        $querytoexec = $db->prepare("INSERT INTO " . $this->categories_table . " (name, description) VALUES (?, ?)");
+        $catName = $category->getName();
+        $catDesc = $category->getDescription();
+        $querytoexec->bind_param('ss', $catName, $catDesc);
+        if (!$querytoexec->execute()) {
+            echo($querytoexec->error);
+        }
+
+        $result = $querytoexec->get_result();
+        if ($result) {
+            echo "Insert OK";
+        } else {
+            return null;
+        }
+
+        $querytoexec->close();
+        $db->close();
+    }
+
+    public function delete($id)
+    {
+        $conn = new Connection();
+        $db = $conn->getConnection();
+
+        if ($db->connect_error) {
+            die("Connection failed: " . $db->connect_error);
+        }
+
+        $querytoexec = $db->prepare("DELETE FROM " . $this->categories_table . " WHERE categoryID = ?");
+
+        $querytoexec->bind_param('i', $id);
+        if (!$querytoexec->execute()) {
+            echo($querytoexec->error);
+        }
+
+        $result = $querytoexec->get_result();
+        if ($result) {
+            echo "Delete OK";
+        } else {
+            return null;
+        }
+
+        $querytoexec->close();
+        $db->close();
+    }
+
+    public function update($category)
+    {
+        $conn = new Connection();
+        $db = $conn->getConnection();
+
+        if ($db->connect_error) {
+            die("Connection failed: " . $db->connect_error);
+        }
+
+        $querytoexec = $db->prepare("UPDATE " . $this->categories_table . "SET name = ?, description = ? WHERE categoryID = ?");
+        $catName = $category->getName();
+        $catDesc = $category->getDescription();
+        $catId = $category->getId();
+        $querytoexec->bind_param('ssi', $catName, $catDesc, $catId);
+        if (!$querytoexec->execute()) {
+            echo($querytoexec->error);
+        }
+
+        $result = $querytoexec->get_result();
+        if ($result) {
+            echo "Update OK";
+        } else {
+            return null;
+        }
+
+        $querytoexec->close();
+        $db->close();
+    }
+
 }
