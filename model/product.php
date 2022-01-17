@@ -7,13 +7,15 @@ class Product
     private $ProductName;
     private $Description;
     private $Customizable;
+    private $Quantity;
     private $UnitPrice;
 
-    public function __construct($name, $price, $description, $customizable)
+    public function __construct($name, $price, $description, $customizable, $quantity)
     {
         $this->ProductName = $name;
         $this->Description = $description;
         $this->Customizable = $customizable;
+        $this->Quantity = $quantity;
         $this->UnitPrice = $price;
     }
 
@@ -65,6 +67,17 @@ class Product
     public function setCustomizable($customizable)
     {
         $this->Customizable = $customizable;
+    }
+
+    public function getQuantity()
+    {
+        return $this->Quantity;
+    }
+
+
+    public function setQuantity($Quantity): void
+    {
+        $this->Quantity = $Quantity;
     }
 
 

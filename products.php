@@ -60,7 +60,7 @@ class ProductDB
         if ($db->connect_error) {
             die("Connection failed: " . $db->connect_error);
         }
-        $querytoexec = $db->prepare(query: "SELECT * FROM " . $this->products_table);
+        $querytoexec = $db->prepare("SELECT * FROM " . $this->products_table);
         $result = $querytoexec->execute();
         if (!$result) {
             echo "error";
@@ -96,12 +96,13 @@ class ProductDB
             die("Connection failed: " . $db->connect_error);
         }
         //TODO Need to add customizable, I still need to think about it, maybe I'll just stick with a single flag in every insertion
-        $querytoexec = $db->prepare("INSERT INTO " . $this->products_table . " (name, price, description, categoryID) VALUES (?, ?, ?, ?, ?)");
+        $querytoexec = $db->prepare("INSERT INTO " . $this->products_table . " (name, price, description, categoryID, quantity) VALUES (?, ?, ?, ?, ?, ?)");
         $prName = $product->getName();
         $prPrice = $product->getPrice();
         $prDescr = $product->getDescription();
         $prCategory = $product->getCategoryId();
-        $querytoexec->bind_param('sdsi', $prName, $prPrice, $prDescr, $prCategory);
+        $quantity = $product->getQuantity();
+        $querytoexec->bind_param('sdsii', $prName, $prPrice, $prDescr, $prCategory, $quantity);
         if (!$querytoexec->execute()) {
             echo($querytoexec->error);
         }
@@ -143,15 +144,37 @@ class ProductDB
         $querytoexec->close();
         $db->close();
     }
-
-    //TODO
+    
     public function update($product)
     {
 
         $conn = new Connection();
         $db = $conn->getConnection();
 
-        //TODO
+        if ($db->connect_error) {
+            die("Connection failed: " . $db->connect_error);
+        }
+
+        $querytoexec = $db->prepare("UPDATE " . $this->products_table . " SET name = ?, price = ?, description = ?, quantity = ?, categoryID = ? WHERE productID = ?");
+        $prName = $product->getName();
+        $prPrice = $product->getPrice();
+        $prDescr = $product->getDescription();
+        $prCategory = $product->getCategoryId();
+        $prQuantity = $product->getQuantity();
+        $prID = $product->getId();
+
+        $querytoexec->bind_param('sisiii', $prName, $prPrice, $prDescr, $prQuantity, $prCategory, $prID);
+        if (!$querytoexec->execute()) {
+            echo($querytoexec->error);
+        }
+
+        $result = $querytoexec->get_result();
+        if (!$result) {
+            echo($querytoexec->error);
+            die();
+        }
+
+        $querytoexec->close();
         $db->close();
     }
 
