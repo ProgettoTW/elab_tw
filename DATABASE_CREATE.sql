@@ -1,10 +1,3 @@
-CREATE TABLE `cart`
-(
-    `cartID` int(11) NOT NULL AUTO_INCREMENT,
-    `status` varchar(50) NOT NULL,
-
-    PRIMARY KEY (`cartID`)
-);
 
 CREATE TABLE `users`
 (
@@ -16,12 +9,23 @@ CREATE TABLE `users`
     `address`  varchar(50) NOT NULL,
     `date`     date NULL DEFAULT NULL,
     `password` varchar(128) NOT NULL,
-    `admin`    bit(1)      NOT NULL DEFAULT b'0',
+    `admin`    bit(1) NOT NULL DEFAULT b'0',
 
     PRIMARY KEY (`email`),
-    KEY        `FK_110` (`cartID`),
-    CONSTRAINT `FK_108` FOREIGN KEY `FK_110` (`cartID`) REFERENCES `cart` (`cartID`)
 ) ENGINE=INNODB;
+
+CREATE TABLE `cart`
+(
+    `cartID` int(11) NOT NULL AUTO_INCREMENT,
+    `status` varchar(50) NOT NULL,
+    `email`  varchar(50) NOT NULL,
+
+    PRIMARY KEY (`cartID`),
+    KEY      `FK_173` (`email`),
+    CONSTRAINT `FK_171` FOREIGN KEY `FK_173` (`email`) REFERENCES `users` (`email`)
+);
+
+
 
 CREATE TABLE `order`
 (
@@ -37,12 +41,16 @@ CREATE TABLE `order`
     CONSTRAINT `FK_143` FOREIGN KEY `FK_145` (`email`) REFERENCES `users` (`email`)
 );
 
+
 CREATE TABLE `categories`
 (
-    `categoryID` int(11) NOT NULL AUTO_INCREMENT,
+    `categoryID`  int(11) NOT NULL AUTO_INCREMENT,
+    `name`        varchar(50) NOT NULL,
+    `description` varchar(50) NOT NULL,
 
     PRIMARY KEY (`categoryID`)
 );
+
 
 CREATE TABLE `seller`
 (
