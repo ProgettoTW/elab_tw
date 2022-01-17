@@ -1,4 +1,3 @@
-
 CREATE TABLE `users`
 (
     `email`    varchar(50) NOT NULL,
@@ -11,7 +10,7 @@ CREATE TABLE `users`
     `password` varchar(128) NOT NULL,
     `admin`    bit(1) NOT NULL DEFAULT b'0',
 
-    PRIMARY KEY (`email`),
+    PRIMARY KEY (`email`)
 ) ENGINE=INNODB;
 
 CREATE TABLE `cart`
