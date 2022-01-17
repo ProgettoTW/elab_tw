@@ -5,7 +5,7 @@ include_once("includes/connection.php");
 class ProductDB
 {
 
-    private string $table_name = "Product";
+    private string $products_table = "products";
 
     public function getById($ProductId)
     {
@@ -15,7 +15,7 @@ class ProductDB
         if ($db->connect_error) {
             die("Connection failed: " . $db->connect_error);
         }
-        $querytoexec = $db->prepare("SELECT * FROM " . $this->Product . " WHERE ProductId = ?");
+        $querytoexec = $db->prepare("SELECT * FROM " . $this->products_table . " WHERE productID = ?");
         $querytoexec->bind_param("i", $ProductId);
         $result = $querytoexec->execute();
         if (!$result) {
@@ -60,7 +60,7 @@ class ProductDB
         if ($db->connect_error) {
             die("Connection failed: " . $db->connect_error);
         }
-        $querytoexec = $db->prepare(query: "SELECT * FROM " . $this->table_name);
+        $querytoexec = $db->prepare(query: "SELECT * FROM " . $this->products_table);
         $result = $querytoexec->execute();
         if (!$result) {
             echo "error";
@@ -95,8 +95,8 @@ class ProductDB
         if ($db->connect_error) {
             die("Connection failed: " . $db->connect_error);
         }
-
-        $querytoexec = $db->prepare("INSERT INTO " . $this->table_name . " (name, price, description, category_id) VALUES (?, ?, ?, ?)");
+        //TODO Need to add customizable, I still need to think about it, maybe I'll just stick with a single flag in every insertion
+        $querytoexec = $db->prepare("INSERT INTO " . $this->products_table . " (name, price, description, categoryID) VALUES (?, ?, ?, ?, ?)");
         $prName = $product->getName();
         $prPrice = $product->getPrice();
         $prDescr = $product->getDescription();
@@ -127,7 +127,7 @@ class ProductDB
         if ($db->connect_error) {
             die("Connection failed: " . $db->connect_error);
         }
-        $querytoexec = $db->prepare("DELETE FROM " . $this->table_name . " WHERE id = ?");
+        $querytoexec = $db->prepare("DELETE FROM " . $this->products_table . " WHERE productID = ?");
         $querytoexec->bind_param('i', $id);
         if (!$querytoexec->execute()) {
             echo($querytoexec->error);
@@ -166,7 +166,7 @@ class ProductDB
             die("Connection failed: " . $db->connect_error);
         }
 
-        $querytoexec = $db->prepare("SELECT * FROM " . $this->table_name . " WHERE name LIKE CONCAT('%',?,'%') OR description LIKE CONCAT('%',?,'%')");
+        $querytoexec = $db->prepare("SELECT * FROM " . $this->products_table . " WHERE name LIKE CONCAT('%',?,'%') OR description LIKE CONCAT('%',?,'%')");
         $querytoexec->bind_param('ss', $string, $string);
         $result = $querytoexec->execute();
         if (!$result) {

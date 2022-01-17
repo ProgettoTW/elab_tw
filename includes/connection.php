@@ -3,7 +3,7 @@ class Connection{
     private $server="127.0.0.1";
     private $user="root";
     private $pass="";
-    private $db="progettotw";
+    private $db="progettotw_new";
 	public $conn;
 
 	public function getConnection(){

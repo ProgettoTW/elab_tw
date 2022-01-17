@@ -2,7 +2,6 @@ CREATE TABLE `users`
 (
     `email`    varchar(50) NOT NULL,
     `name`     varchar(50) NOT NULL,
-    `cartID`   int(11) NOT NULL,
     `surname`  varchar(50) NOT NULL,
     `phone`    varchar(50) NOT NULL,
     `address`  varchar(50) NOT NULL,
