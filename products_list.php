@@ -46,8 +46,8 @@ $products = new ProductDB();
                         foreach ($allProducts as $row) { ?>
                             <div class="col">
                                 <div class="card text-center">
-                                    <img src="img/products/<?php echo $row->getId() ?>.jpg" class="card-img-top"
-                                         alt="asd">
+                                    <img src="img/products/<?php echo $row->getId(); ?>.jpg" class="card-img-top"
+                                         alt="Foto di <?php echo $row->getName(); ?>">
                                     <div class="card-body">
                                         <h5 class="card-title"><?php echo $row->getName(); ?></h5>
                                         <p class="card-text">Prezzo: <?php echo $row->getPrice(); ?> €</p>
@@ -69,8 +69,8 @@ $products = new ProductDB();
                         foreach ($torte as $row) { ?>
                             <div class="col">
                                 <div class="card text-center">
-                                    <img src="img/products/<?php echo $row->getId() ?>.jpg" class="card-img-top"
-                                         alt="asd">
+                                    <img src="img/products/<?php echo $row->getId(); ?>.jpg" class="card-img-top"
+                                         alt="Foto di <?php echo $row->getName(); ?>">
                                     <div class="card-body">
                                         <h5 class="card-title"><?php echo $row->getName(); ?></h5>
                                         <p class="card-text">Prezzo: <?php echo $row->getPrice(); ?> €</p>
@@ -92,8 +92,8 @@ $products = new ProductDB();
                         foreach ($biscotti as $row) { ?>
                             <div class="col">
                                 <div class="card text-center">
-                                    <img src="img/products/<?php echo $row->getId() ?>.jpg" class="card-img-top"
-                                         alt="asd">
+                                    <img src="img/products/<?php echo $row->getId(); ?>.jpg" class="card-img-top"
+                                         alt="Foto di <?php echo $row->getName(); ?>">
                                     <div class="card-body">
                                         <h5 class="card-title"><?php echo $row->getName(); ?></h5>
                                         <p class="card-text">Prezzo: <?php echo $row->getPrice(); ?> €</p>
