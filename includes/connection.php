@@ -1,9 +1,9 @@
 <?php
 class Connection{
-    private $server="127.0.0.1";
-    private $user="root";
-    private $pass="";
-    private $db="progettotw_new";
+    private string $server="127.0.0.1";
+    private string $user="root";
+    private string $pass="";
+    private string $db="progettotw_new";
 	public $conn;
 
 	public function getConnection(){
@@ -11,4 +11,3 @@ class Connection{
     return $this->conn;
 	}
 }
-?>

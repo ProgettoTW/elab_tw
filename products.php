@@ -240,5 +240,3 @@ class ProductDB
         return $rows;
     }
 }
-
-?>

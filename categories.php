@@ -52,7 +52,7 @@ class CategoryDB
             die("Connection failed: " . $db->connect_error);
         }
 
-        $querytoexec = $db->prepare("SELECT c.name, c.description, c.categoryID FROM" . $this->categories_table . "c, " . $this->products_table . " p WHERE p.productID = ? AND p.categoryID = c.categoryID");
+        $querytoexec = $db->prepare("SELECT c.name, c.description, c.categoryID FROM" . $this->categories_table . " c, " . $this->products_table . " p WHERE p.productID = ? AND p.categoryID = c.categoryID");
         $querytoexec->bind_param('i', $productId);
         $result = $querytoexec->execute();
         if (!$result) {
@@ -177,7 +177,7 @@ class CategoryDB
             die("Connection failed: " . $db->connect_error);
         }
 
-        $querytoexec = $db->prepare("UPDATE " . $this->categories_table . "SET name = ?, description = ? WHERE categoryID = ?");
+        $querytoexec = $db->prepare("UPDATE " . $this->categories_table . " SET name = ?, description = ? WHERE categoryID = ?");
         $catName = $category->getName();
         $catDesc = $category->getDescription();
         $catId = $category->getId();

@@ -1,14 +1,3 @@
-<?php
-
-require_once("includes/header.php");
-require_once("products.php");
-require_once("model/cart.php");
-require_once("model/cart_item.php");
-
-$products = new ProductDB();
-
-?>
-<html lang="it">
 
       <div class="container mt-4">
         <div class="row">
@@ -70,10 +59,3 @@ $products = new ProductDB();
             </div>
           </div>
         </div>
-
-<?php
-require_once("includes/footer.php");
-?>
-</body>
-
-</html>
