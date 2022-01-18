@@ -81,6 +81,7 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
             style=""></script>
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styleUtenti.css">
     <!--Google Font-->
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
     <!--Bootstrap icons-->
