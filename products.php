@@ -46,9 +46,34 @@ class ProductDB
 
         $conn = new Connection();
         $db = $conn->getConnection();
+        if ($db->connect_error) {
+            die("Connection failed: " . $db->connect_error);
+        }
+        $querytoexec = $db->prepare("SELECT * FROM " . $this->products_table . " WHERE categoryID = ?");
+        $querytoexec->bind_param('i', $categoryId);
+        $result = $querytoexec->execute();
+        if (!$result) {
+            echo "error";
+            return null;
+        }
 
-        //TODO
+        $result = $querytoexec->get_result();
+        if ($result->num_rows > 0) {
+            $rows = array();
+            while ($row = mysqli_fetch_assoc($result)) {
+                $temp = new Product($row["name"], $row["price"], $row["description"], $row["customizable"], $row["quantity"]);
+                $temp->setId($row["productID"]);
+                $rows[] = $temp;
+            }
+        } else {
+            echo "Empty\n";
+            return null;
+        }
+
+        $querytoexec->close();
         $db->close();
+
+        return $rows;
     }
 
     public function getAll()
@@ -72,8 +97,8 @@ class ProductDB
         if ($result->num_rows > 0) {
             $rows = array();
             while ($row = mysqli_fetch_assoc($result)) {
-                $temp = new Product($row["ProductName"], $row["UnitPrice"], $row["Description"], $row["Customizable"]);
-                $temp->setId($row["ProductId"]);
+                $temp = new Product($row["name"], $row["price"], $row["description"], $row["customizable"], $row["quantity"]);
+                $temp->setId($row["productID"]);
                 $rows[] = $temp;
             }
         } else {
@@ -144,7 +169,7 @@ class ProductDB
         $querytoexec->close();
         $db->close();
     }
-    
+
     public function update($product)
     {
 
