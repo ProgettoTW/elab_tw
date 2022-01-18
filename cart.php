@@ -5,15 +5,19 @@ require_once("includes/session.php");
 require_once("includes/connection.php");
 require_once("cart_manager.php");
 require_once("categories.php");
+require_once("products.php");
 require_once("model/product.php");
 require_once("model/cart.php");
 require_once("model/cart_item.php");
 //altri require
 
 
-//TODO: CHECK SE LOGIN E SESSIONE SONO APERTI E COINCIDONO
-$userId = $_SESSION['user_id'];
-$cartId = $_SESSION['cart_id'];
+if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
+    $userId = $_SESSION['user_id'];
+    $cartId = $_SESSION['cart_id'];
+} else  {
+//TODO REDIRECT SE SESSIONE NON È CREATA
+}
 
 $cartmanager = new CartManager();
 $products = new ProductDB();
