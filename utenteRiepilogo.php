@@ -76,9 +76,7 @@ $products = new ProductDB();
                           </div>
                         </div>
                       </div>
-                
-                  </div>
-            </div>
+                </div>
           </div>
         </div>
     </main>

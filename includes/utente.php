@@ -46,7 +46,7 @@
                           </a> 
                       </li>
                       <li> 
-                        <a href="#" class="d-flex">
+                        <a href="./includes/logout.php" class="d-flex">
                           <div><i class="bi bi-door-open"></i></div>
                               <div class="d-flex px-3">
                                 <div class="link">Disconnetti</div>
@@ -57,5 +57,3 @@
               </div>
             </div>
             </div>
-          </div>
-        </div>
