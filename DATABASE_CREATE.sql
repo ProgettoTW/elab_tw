@@ -25,12 +25,13 @@ CREATE TABLE `cart`
 
 
 
-CREATE TABLE `order`
+CREATE TABLE `orders`
 (
     `orderID` int         NOT NULL AUTO_INCREMENT,
     `cartID`  int(11) NOT NULL,
     `email`   varchar(50) NOT NULL,
     `time`    datetime    NOT NULL,
+    `status`  varchar(50) NOT NULL,
 
     PRIMARY KEY (`orderID`),
     KEY       `FK_141` (`cartID`),
