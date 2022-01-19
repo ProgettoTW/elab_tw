@@ -1,6 +1,6 @@
 <?php
 
-class order_item
+class Order_Item
 {
 
     private $ID;
@@ -19,25 +19,25 @@ class order_item
     }
 
 
-    public function getOrderID()
+    public function getOrderId()
     {
         return $this->orderID;
     }
 
 
-    public function setOrderID($orderID): void
+    public function setOrderId($orderID): void
     {
         $this->orderID = $orderID;
     }
 
 
-    public function getProductID()
+    public function getProductId()
     {
         return $this->productID;
     }
 
 
-    public function setProductID($productID): void
+    public function setProductId($productID): void
     {
         $this->productID = $productID;
     }
@@ -67,13 +67,13 @@ class order_item
     }
 
 
-    public function getID()
+    public function getId()
     {
         return $this->ID;
     }
 
 
-    public function setID($ID): void
+    public function setId($ID): void
     {
         $this->ID = $ID;
     }
