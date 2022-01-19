@@ -81,7 +81,14 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
                     <a href="cart.php"><i class="bi bi-cart3"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a href="utenteRiepilogo.php"><i class="bi bi-person"></i></a>
+                    <?php if (admin_check($db)) {
+                        ?>
+                        <a href="venditoreRiepilogo.php"><i class="bi bi-person"></i></a>
+                    <?php
+                    } else{?>
+                        <a href="utenteRiepilogo.php"><i class="bi bi-person"></i></a>
+                   <?php }?>
+
                 </li>
             </ul>
             <?php
