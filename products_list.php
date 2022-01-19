@@ -1,8 +1,11 @@
 <?php
 include_once("products.php");
+include_once("categories.php");
 include_once("includes/header.php");
 
 $products = new ProductDB();
+$categories = new CategoryDB();
+$allCats = $categories->getAll();
 ?>
 <html lang="it">
 </head>
@@ -14,10 +17,6 @@ $products = new ProductDB();
     <main>
         <!-- FILTER NAVS-->
         <nav>
-            <?php $allProducts = $products->getAll();
-            $torte = $products->getByCategoryId(1);
-            $biscotti = $products->getByCategoryId(2);
-            ?>
             <ul class="nav nav-pills filters justify-content-center" id="myTab" role="tablist">
 
                 <li class="nav-item filter" role="presentation">
@@ -25,16 +24,18 @@ $products = new ProductDB();
                             type="button" role="tab" aria-selected="true">Tutti i Prodotti
                     </button>
                 </li>
+                <?php
+                if (!is_null($allCats)) {
+                    foreach ($allCats as $row) {
+                        $name=$row->getName();?>
                 <li class="nav-item filter" role="presentation">
-                    <button class="nav-link" id="torte-tab" data-bs-toggle="tab" data-bs-target="#torte" type="button"
-                            role="tab" aria-selected="false">Torte
+                    <button class="nav-link" id="<?php echo $name; ?>-tab" data-bs-toggle="tab" data-bs-target="#<?php echo $name; ?>" type="button"
+                            role="tab" aria-selected="false"><?php echo $name; ?>
                     </button>
                 </li>
-                <li class="nav-item filter" role="presentation">
-                    <button class="nav-link" id="biscotti-tab" data-bs-toggle="tab" data-bs-target="#biscotti"
-                            type="button" role="tab" aria-selected="false">Biscotti
-                    </button>
-                </li>
+                    <?php
+                }
+                } ?>
             </ul>
         </nav>
         <div class="tab-content" id="myTabContent">
@@ -42,6 +43,7 @@ $products = new ProductDB();
 
                 <div class="row row-cols-1 row-cols-md-4 g-4">
                     <?php
+                    $allProducts = $products->getAll();
                     if (!is_null($allProducts)) {
                         foreach ($allProducts as $row) { ?>
                             <div class="col">
@@ -61,12 +63,18 @@ $products = new ProductDB();
                 </div>
 
             </div>
-            <div class="tab-pane fade" id="torte" role="tabpanel" aria-labelledby="torte-tab">
+            <?php
+            if (!is_null($allCats)) {
+            foreach ($allCats as $row1) {
+            $name=$row1->getName();
+            $ID=$row1->getId();?>
+            <div class="tab-pane fade" id="<?php echo $name; ?>" role="tabpanel" aria-labelledby="<?php echo $name; ?>-tab">
 
                 <div class="row row-cols-1 row-cols-md-4 g-4">
                     <?php
-                    if (!is_null($torte)) {
-                        foreach ($torte as $row) { ?>
+                    $temp = $products->getByCategoryId($ID);
+                    if (!is_null($temp)) {
+                        foreach ($temp as $row) { ?>
                             <div class="col">
                                 <div class="card text-center">
                                     <img src="img/products/<?php echo $row->getId(); ?>.jpg" class="card-img-top"
@@ -84,10 +92,14 @@ $products = new ProductDB();
                 </div>
 
             </div>
+                <?php
+            }
+            } ?>
             <div class="tab-pane fade" id="biscotti" role="tabpanel" aria-labelledby="biscotti-tab">
 
                 <div class="row row-cols-1 row-cols-md-4 g-4">
                     <?php
+                    $biscotti = $products->getByCategoryId(3);
                     if (!is_null($biscotti)) {
                         foreach ($biscotti as $row) { ?>
                             <div class="col">
