@@ -58,7 +58,7 @@ CREATE TABLE `products`
     `categoryID`   int(11) NOT NULL,
     `price`        decimal(12, 2) NULL DEFAULT NULL,
     `customizable` bit(1)      NOT NULL,
-    `desciption`   varchar(50) NULL DEFAULT NULL,
+    `description`  varchar(50) NULL DEFAULT NULL,
     `quantity`     int(11) NOT NULL,
 
     PRIMARY KEY (`productID`),
