@@ -26,7 +26,7 @@ class ProductDB
         if ($result->num_rows > 0) {
             $rows = array();
             while ($row = mysqli_fetch_assoc($result)) {
-                $temp = new Product($row["ProductName"], $row["UnitPrice"], $row["Customizable"], $row["SellerId"]);
+                $temp = new Product($row["name"], $row["price"], $row["description"], $row["customizable"], $row["categoryID"], $row["quantity"]);
                 $temp->setId($row["id"]);
                 $rows[] = $temp;
             }
@@ -61,7 +61,7 @@ class ProductDB
         if ($result->num_rows > 0) {
             $rows = array();
             while ($row = mysqli_fetch_assoc($result)) {
-                $temp = new Product($row["name"], $row["price"], $row["description"], $row["customizable"], $row["quantity"]);
+                $temp = new Product($row["name"], $row["price"], $row["description"], $row["customizable"], $row["categoryID"], $row["quantity"]);
                 $temp->setId($row["productID"]);
                 $rows[] = $temp;
             }
@@ -97,7 +97,7 @@ class ProductDB
         if ($result->num_rows > 0) {
             $rows = array();
             while ($row = mysqli_fetch_assoc($result)) {
-                $temp = new Product($row["name"], $row["price"], $row["description"], $row["customizable"], $row["quantity"]);
+                $temp = new Product($row["name"], $row["price"], $row["description"], $row["customizable"], $row["categoryID"], $row["quantity"]);
                 $temp->setId($row["productID"]);
                 $rows[] = $temp;
             }
@@ -121,27 +121,32 @@ class ProductDB
             die("Connection failed: " . $db->connect_error);
         }
         //TODO Need to add customizable, I still need to think about it, maybe I'll just stick with a single flag in every insertion
-        $querytoexec = $db->prepare("INSERT INTO " . $this->products_table . " (name, price, description, categoryID, quantity) VALUES (?, ?, ?, ?, ?, ?)");
+        $querytoexec = $db->prepare("INSERT INTO products (name, price, description, categoryID, customizable, quantity) VALUES (?, ?, ?, ?, 0, ?)");
         $prName = $product->getName();
         $prPrice = $product->getPrice();
         $prDescr = $product->getDescription();
         $prCategory = $product->getCategoryId();
-        $quantity = $product->getQuantity();
-        $querytoexec->bind_param('sdsii', $prName, $prPrice, $prDescr, $prCategory, $quantity);
+        $prQuantity = $product->getQuantity();
+
+        $querytoexec->bind_param('sdsii', $prName, $prPrice, $prDescr, $prCategory, $prQuantity);
+
         if (!$querytoexec->execute()) {
             echo($querytoexec->error);
         }
-
         $result = $querytoexec->get_result();
         if ($result) {
             echo "Insert OK";
         } else {
+            $querytoexec->close();
+            $db->close();
             return null;
         }
         $id = mysqli_stmt_insert_id($querytoexec);
 
         $querytoexec->close();
         $db->close();
+
+        return $id;
     }
 
     public function delete($id)
@@ -194,10 +199,42 @@ class ProductDB
         }
 
         $result = $querytoexec->get_result();
-        if (!$result) {
+        if ($result) {
+        } else {
             echo($querytoexec->error);
             die();
         }
+
+        $querytoexec->close();
+        $db->close();
+    }
+
+    public function updatePriceQuant($price, $quantity, $ID)
+    {
+        $conn = new Connection();
+        $db = $conn->getConnection();
+        if ($db->connect_error) {
+            die("Connection failed: " . $db->connect_error);
+        }
+
+        $querytoexec = $db->prepare("UPDATE " . $this->products_table . " SET price = ?, quantity = ? WHERE productID = ?");
+
+        $querytoexec->bind_param('iii', $price, $quantity, $ID);
+
+        if (!$querytoexec->execute()) {
+            echo($querytoexec->error);
+        }
+
+
+        $result = $querytoexec->get_result();
+
+        if ($result) {
+        } else {
+
+            echo($querytoexec->error);
+            return null;
+        }
+
 
         $querytoexec->close();
         $db->close();

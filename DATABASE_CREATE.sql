@@ -50,21 +50,11 @@ CREATE TABLE `categories`
 );
 
 
-CREATE TABLE `seller`
-(
-    `sellerID` int(11) NOT NULL AUTO_INCREMENT,
-    `name`     varchar(40) NOT NULL,
-    `phone`    varchar(20) NULL DEFAULT NULL,
-
-    PRIMARY KEY (`sellerID`)
-) ENGINE=INNODB;
-
 CREATE TABLE `products`
 (
     `productID`    int(11) NOT NULL AUTO_INCREMENT,
     `name`         varchar(50) NOT NULL,
     `categoryID`   int(11) NOT NULL,
-    `sellerID`     int(11) NOT NULL,
     `price`        decimal(12, 2) NULL DEFAULT NULL,
     `customizable` bit(1)      NOT NULL,
     `desciption`   varchar(50) NULL DEFAULT NULL,
@@ -72,9 +62,7 @@ CREATE TABLE `products`
 
     PRIMARY KEY (`productID`),
     KEY            `FK_134` (`categoryID`),
-    CONSTRAINT `FK_132` FOREIGN KEY `FK_134` (`categoryID`) REFERENCES `categories` (`categoryID`),
-    KEY            `FK_66` (`sellerID`),
-    CONSTRAINT `FK_64` FOREIGN KEY `FK_66` (`sellerID`) REFERENCES `seller` (`sellerID`)
+    CONSTRAINT `FK_132` FOREIGN KEY `FK_134` (`categoryID`) REFERENCES `categories` (`categoryID`)
 ) ENGINE=INNODB;
 
 CREATE TABLE `orderItem`
