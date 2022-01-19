@@ -76,7 +76,7 @@ CREATE TABLE `orderItem`
 
     PRIMARY KEY (`ID`),
     KEY         `FK_151` (`orderID`),
-    CONSTRAINT `FK_149` FOREIGN KEY `FK_151` (`orderID`) REFERENCES `order` (`orderID`),
+    CONSTRAINT `FK_149` FOREIGN KEY `FK_151` (`orderID`) REFERENCES `orders` (`orderID`),
     KEY         `FK_168` (`productID`),
     CONSTRAINT `FK_166` FOREIGN KEY `FK_168` (`productID`) REFERENCES `products` (`productID`)
 );
