@@ -16,8 +16,8 @@ $products = new ProductDB();
             <div class="col-lg-9 my-lg-0 my-1">
               <div class="main-content">
                   <div class="d-flex my-4 flex-column">
-                      <div class="h5">Ciao nome,</div>
-                      <div>Accesso effettuato con: email@gmail.com</div>
+                      <div class="h5">Ciao <?php echo $_SESSION['name']; ?>,</div>
+                      <div>Accesso effettuato con: <?php echo $_SESSION['email']; ?></div>
                   </div>
                   <div class="d-flex flex-wrap">
                     <div class="box m-4 bg-light"> 

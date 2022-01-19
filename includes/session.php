@@ -24,8 +24,8 @@ function login($email, $password, $mysqli)
         if ($querytoexec->num_rows == 1) {
             if (password_verify($password, $password_hashed)) {
                 $user_id = preg_replace("/[^0-9]+/", "", $username); //XSS
-                $_SESSION['user_id'] = $username;
-                $username = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $username); //XSS
+                $_SESSION['user_id'] = $user_id;
+                //$username = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $username); //XSS
                 $_SESSION['email'] = $username;
                 $_SESSION['login'] = true;
                 //Per creare carrello senza login vedremo
