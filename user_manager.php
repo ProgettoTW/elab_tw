@@ -9,31 +9,26 @@ class UserManager
 
     private $users_table = "users";
 
-    public function setnewPass($email, $oldPsw, $newPsw)
+
+    public function setnewPass($email, $newPsw)
     {
-        //password should be taken as PHP Hashed PSW: eg: $newPsw should already be hashed altrimenti porca paletta si rompe tutto
-        if (login_check($email, $oldPsw)) {
-            $conn = new Connection();
-            $db = $conn->getConnection();
+        $conn = new Connection();
+        $db = $conn->getConnection();
+        if ($db->connect_error) {
+            die("Connection failed: " . $db->connect_error);
+        }
+        if (login_check($db)) {
 
-            if ($db->connect_error) {
-                die("Connection failed: " . $db->connect_error);
-            }
-
+            $newPsw = password_hash($newPsw, PASSWORD_DEFAULT);
             $querytoexec = $db->prepare("UPDATE " . $this->users_table . " SET password = ? WHERE email = ?");
             $querytoexec->bind_param('ss', $newPsw, $email);
             if (!$querytoexec->execute()) {
                 echo($querytoexec->error);
             }
-
             $result = $querytoexec->get_result();
-            if (!$result) {
-                return false;
-            }
 
             $querytoexec->close();
             $db->close();
-
             return true;
         }
         return false;
