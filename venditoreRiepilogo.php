@@ -11,7 +11,9 @@ $products = new ProductDB();
 $categories = new CategoryDB();
 
 if (!admin_check($db)){
-    //redirect se non admin
+    ?>
+    <meta http-equiv="refresh" content="0;url=index.php">
+<?php
 }
 if (isset($_POST['nome'], $_POST['descrizione'], $_POST['categoria'], $_POST['prezzo'], $_POST['quantita'])){
     $prod = new Product($_POST['nome'], $_POST['prezzo'], $_POST['descrizione'], 0, $_POST['categoria'], $_POST['quantita']);

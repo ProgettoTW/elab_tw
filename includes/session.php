@@ -41,7 +41,7 @@ function login($email, $password, $mysqli)
     }
 }
 
-function login_check($mysqli)
+function login_check($mysqli): bool
 {
     if (isset($_SESSION['user_id'], $_SESSION['email'], $_SESSION['login'])) {
         $user_id = $_SESSION['user_id'];
@@ -57,7 +57,7 @@ function login_check($mysqli)
     }
 }
 
-function admin_check($mysqli)
+function admin_check($mysqli): bool
 {
     if (isset($_SESSION['admin'])) {
         if ($_SESSION['admin']) {

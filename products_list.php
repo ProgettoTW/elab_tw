@@ -8,7 +8,6 @@ $categories = new CategoryDB();
 $allCats = $categories->getAll();
 ?>
 <html lang="it">
-</head>
 
 
 <body class="bg-light">

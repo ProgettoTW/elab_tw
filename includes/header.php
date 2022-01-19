@@ -89,12 +89,7 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
                 <ul class="navbar-nav auth">
                     <li class="nav-item">
                         <a href="login_page.php">
-                            <button type="button" class="btn btn-primary">Accedi</button>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="register_page.php">
-                            <button type="button" class="btn btn-secondary">Registrati</button>
+                            <button type="button" class="btn btn-secondary">Accedi/Registrati</button>
                         </a>
                     </li>
                 </ul>

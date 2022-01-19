@@ -1,4 +1,11 @@
-
+<?php
+if (!login_check($db)){
+    //TODO: DECOMMENTARE QUI SOTTO DOPO AVER FINITO DI LAVORARE ALLE PAGINE UTENTE
+?>
+<!-- <meta http-equiv="refresh" content="0;url=login_page.php"> -->
+<?php
+}
+?>
       <div class="container mt-4">
         <div class="row">
           <div class="col-lg-3 my-lg-0 my-md-1">
