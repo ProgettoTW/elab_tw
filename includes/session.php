@@ -15,21 +15,21 @@ function sec_session_start()
 function login($email, $password, $mysqli)
 {
     //TODO Finire qui perché ho riscritto il DB e porcapaletta mi sarà sicuramente saltato qualcosa
-    if ($querytoexec = $mysqli->prepare("SELECT u.name, u.email, u.password, u.admin FROM users u WHERE u.email = ? LIMIT 1")) {
+    if ($querytoexec = $mysqli->prepare("SELECT u.name, u.email, u.password, c.cartID, u.admin FROM users u, cart c WHERE u.email = ? AND u.email = c.email LIMIT 1")) {
         $querytoexec->bind_param('s', $email);
         $querytoexec->execute();
         $querytoexec->store_result();
-        $querytoexec->bind_result($name, $username, $password_hashed, $admin);
+        $querytoexec->bind_result($name, $username, $password_hashed, $cartID, $admin);
         $querytoexec->fetch();
         if ($querytoexec->num_rows == 1) {
             if (password_verify($password, $password_hashed)) {
-                $user_id = preg_replace("/[^0-9]+/", "", $username); //XSS
+                //Replace all special characters and compose an user_id by concatenating the result with the user's name
+                $user_id = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $username)."-NAME-".$name;
                 $_SESSION['user_id'] = $user_id;
                 //$username = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $username); //XSS
                 $_SESSION['email'] = $username;
                 $_SESSION['login'] = true;
-                //Per creare carrello senza login vedremo
-                //$_SESSION['cart_id'] = $cart_id;
+                $_SESSION['cart_id'] = $cartID;
                 $_SESSION['name'] = $name;
                 $_SESSION['admin'] = false;
                 if ($admin == 1) {
