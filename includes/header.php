@@ -50,8 +50,7 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
     <nav class="navbar navbar-expand-lg text-uppercase navbar-dark">
         <a class="navbar-brand" href="#">
             <h1 class="h1">Pastecceroo</h1></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-lg-between" id="navbarSupportedContent">
@@ -63,7 +62,7 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
                     <a class="nav-link active" href="products_list.php">Prodotti</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Chi Siamo</a>
+                    <a class="nav-link active" href="chiSiamo.php">Chi Siamo</a>
                 </li>
                 <li class="nav-item">
                     <form class="d-flex input-group">
@@ -73,23 +72,19 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
                 </span>
                     </form>
                 </li>
+            </ul><?php if (login_check($db)) { ?>
+            <div class="dropdown"><b><?php if (admin_check($db)) {
+                        echo "ADMIN";
+                    } ?>
+            <ul class="navbar-nav auth">
+                <li class="nav-item">
+                    <a href="cart.php"><i class="bi bi-cart3"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a href="utenteRiepilogo.php"><i class="bi bi-person"></i></a>
+                </li>
             </ul>
-            <?php if (login_check($db)) { ?>
-                <div class="dropdown"><?php echo $_SESSION['nome']; ?> - <?php if (admin_check($db)) {
-                            echo "ADMIN";
-                        } ?>
-                        <div class="dropbtn">Menu</div>
-                        <div class="dropdown-content">
-                            <?php if (admin_check($db)) { ?>
-                                <a href="#">Pagina amministratore</a>
-                            <?php } ?>
-                            <a href="#">Il mio account</a>
-                            <a href="#">I miei ordini</a>
-                            <a href="#"> - </a>
-                            <a href="includes/logout.php">Logout</a>
-                        </div>
-                </div>
-                <?php
+            <?php
             } else { ?>
                 <ul class="navbar-nav auth">
                     <li class="nav-item">
