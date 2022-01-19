@@ -30,7 +30,7 @@ class CategoryDB
             $rows = array();
             while ($row = mysqli_fetch_assoc($result)) {
                 $temp = new Category($row["name"], $row["description"]);
-                $temp->setId($row["id"]);
+                $temp->setId($row["categoryID"]);
                 $rows[] = $temp;
             }
         } else {
@@ -65,7 +65,7 @@ class CategoryDB
             $rows = array();
             while ($row = mysqli_fetch_assoc($result)) {
                 $temp = new Category($row["name"], $row["description"]);
-                $temp->setId($row["id"]);
+                $temp->setId($row["categoryID"]);
                 $rows[] = $temp;
             }
         } else {
@@ -86,8 +86,7 @@ class CategoryDB
         if ($db->connect_error) {
             die("Connection failed: " . $db->connect_error);
         }
-
-        $querytoexec = $db->prepare("SELECT * FROM *" . $this->categories_table);
+        $querytoexec = $db->prepare("SELECT * FROM " . $this->categories_table);
         $result = $querytoexec->execute();
         if (!$result) {
             echo "E vabbè, c'è stato un errore, spiaze";
@@ -99,7 +98,7 @@ class CategoryDB
             $rows = array();
             while ($row = mysqli_fetch_assoc($result)) {
                 $temp = new Category($row["name"], $row["description"]);
-                $temp->setId($row["id"]);
+                $temp->setId($row["categoryID"]);
                 $rows[] = $temp;
             }
         } else {

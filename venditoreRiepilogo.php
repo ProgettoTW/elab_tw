@@ -104,11 +104,17 @@ if(isset($_POST['rimuovi'], $_POST['ID'])){
                                 <span class="input-group-text" id="basic-addon1">Quantità</span>
                                 <input type="number" min="1" step="1" value="1" id="exampleInputAmount" name="quantita" class="form-control" placeholder="Quantità">
                             </div>
+                            <?php
+                                $allCat = $categories->getAll(); ?>
                             <select type="number" class="form-select mb-3" name="categoria" id="autoSizingSelect">
                                 <option selected disabled>Categoria</option>
-                                <option value="1">Torta</option>
-                                <option value="2">Muffin</option>
-                                <option value="3">Biscotto</option>
+                               <?php
+                               if (!is_null($allCat)) {
+                                foreach ($allCat as $row) { ?>
+                                <option value="<?php echo $row->getId(); ?>"><?php echo $row->getName(); ?></option>
+                                    <?php
+                                }
+                                } ?>
                             </select>
                             <div class="input-group mb-3">
                                 <label class="input-group-text" for="inputGroupFile01" name="immagine">Immagine prodotto</label>
