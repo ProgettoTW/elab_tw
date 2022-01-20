@@ -78,9 +78,6 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
                     } ?>
             <ul class="navbar-nav auth">
                 <li class="nav-item">
-                    <a href="cart.php"><i class="bi bi-cart3"></i></a>
-                </li>
-                <li class="nav-item">
                     <?php if (admin_check($db)) {
                         ?>
                         <a href="venditoreRiepilogo.php"><i class="bi bi-person"></i></a>
