@@ -10,7 +10,6 @@ $products = new ProductDB();
 ?>
 <html lang="it">
 <body class="body">
-<link rel="stylesheet" href="css/utenteStyle.css">
 <div class="container mt-4">
     <div class="row">
     <?php

@@ -30,11 +30,15 @@ if (isset($_POST['rimuovi'], $_POST['ID'])) {
 
 ?>
 <html lang="it">
-<main>
-        <?php
-        require_once("includes/venditore.php");
-        ?>
-        <div class="col-lg-7 p-4">
+<body class="body">
+<div class="container mt-4">
+    <div class="row">
+    <?php
+    require_once("includes/venditore.php");
+    ?>
+        <div class="col-lg-6 my-lg-0 my-1">
+        <div class="main-content">
+        <div class="d-flex my-4 flex-column">
             <h2 class="mb-4">I tuoi prodotti:</h2>
             <table class="table table-striped table-hover">
                 <thead>
@@ -92,11 +96,7 @@ if (isset($_POST['rimuovi'], $_POST['ID'])) {
                 } ?>
                 </tbody>
             </table>
-
-        </div>
-        <!--AGGIUNGI UN PRODOTTO-->
-        <div class="col-lg-5 p-4">
-            <h2 class="mb-4">Aggiungi un prodotto:</h2>
+            <h5 class="d-flex justify-content-center mb-4">Aggiungi un prodotto:</h5>
             <form class="form-inline" action="venditoreRiepilogo.php" method="post">
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Nome</span>
@@ -138,7 +138,10 @@ if (isset($_POST['rimuovi'], $_POST['ID'])) {
             </form>
         </div>
     </div>
-</main>
+    </div>
+    </div>
+    </div>
+                </body>
 <?php
 require_once("includes/footer.php");
 ?>

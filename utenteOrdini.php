@@ -11,7 +11,9 @@ $orders = new OrderManager();
 
 ?>
 <html lang="it">
-<main>
+<body class="body">
+<div class="container mt-4">
+    <div class="row">
     <?php
     require_once("includes/utente.php");
     ?>
@@ -45,13 +47,15 @@ $orders = new OrderManager();
                             </div>
                         </div>
                     </div>
+
+
                     <?php
                 }
             }
             ?>
-
         </div>
-</main>
+    </div>
+</body>
 <?php
 require_once("includes/footer.php");
 ?>

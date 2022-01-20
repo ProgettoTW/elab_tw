@@ -31,12 +31,16 @@ if(isset($_POST['rimuovi'], $_POST['ID'])){
 
 ?>
 <html lang="it">
-        <main>
-        <?php
-        require_once("includes/venditore.php");
-        ?>
+<body class="body">
+<div class="container mt-4">
+    <div class="row">
+    <?php
+    require_once("includes/venditore.php");
+    ?>
+    </div>
+    </div>
         <!-- PAGINA ORDINI-->
-        </main>
+</body>
 <?php
 require_once("includes/footer.php");
 ?>

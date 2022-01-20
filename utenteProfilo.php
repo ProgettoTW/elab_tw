@@ -20,7 +20,9 @@ if (isset($_POST['old_pw'], $_POST['new_pw'], $_SESSION['email'])) {
 
 ?>
 <html lang="it">
-<main>
+<body class="body">
+<div class="container mt-4">
+    <div class="row">
     <?php
     require_once("includes/utente.php");
     ?>
@@ -47,9 +49,10 @@ if (isset($_POST['old_pw'], $_POST['new_pw'], $_SESSION['email'])) {
                 </div>
             </form>
         </div>
-
     </div>
-</main>
+    </div>
+    </div>
+</body>
 <?php
 require_once("includes/footer.php");
 ?>

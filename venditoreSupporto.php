@@ -31,10 +31,12 @@ if(isset($_POST['rimuovi'], $_POST['ID'])){
 
 ?>
 <html lang="it">
-        <main>
-        <?php
-        require_once("includes/venditore.php");
-        ?>
+<body class="body">
+<div class="container mt-4">
+    <div class="row">
+    <?php
+    require_once("includes/venditore.php");
+    ?>
         <div class="col-lg-6 my-lg-0 my-1">
         <div class="main-content">
             <div class="d-flex my-4 flex-column">
@@ -51,7 +53,9 @@ if(isset($_POST['rimuovi'], $_POST['ID'])){
             </div>
         </div>
     </div>
-        </main>
+    </div>    
+</div>
+</body>
 <?php
 require_once("includes/footer.php");
 ?>

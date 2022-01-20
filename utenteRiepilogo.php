@@ -9,7 +9,9 @@ $products = new ProductDB();
 
 ?>
 <html lang="it">
-<main>
+<body class="body">
+<div class="container mt-4">
+    <div class="row">
     <?php
     require_once("includes/utente.php");
     ?>
@@ -79,7 +81,8 @@ $products = new ProductDB();
         </div>
     </div>
     </div>
-</main>
+</div>
+</body>
 <?php
 require_once("includes/footer.php");
 ?>
