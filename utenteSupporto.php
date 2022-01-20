@@ -9,11 +9,14 @@ $products = new ProductDB();
 
 ?>
 <html lang="it">
-<main>
+<body class="body">
+<link rel="stylesheet" href="css/utenteStyle.css">
+<div class="container mt-4">
+    <div class="row">
     <?php
     require_once("includes/utente.php");
     ?>
-    <div class="col-lg-6 my-lg-0 my-1">
+        <div class="col-lg-6 my-lg-0 my-1">
         <div class="main-content">
             <div class="d-flex my-4 flex-column">
                 <div class="h5 d-flex mb-4">Supporto Pastecceroo</div>
@@ -29,7 +32,10 @@ $products = new ProductDB();
             </div>
         </div>
     </div>
-</main>
+
+</div>
+</div>
+</body>
 <?php
 require_once("includes/footer.php");
 ?>

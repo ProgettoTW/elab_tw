@@ -6,10 +6,7 @@ if (!login_check($db)) {
     <?php
 }
 ?>
-<link rel="stylesheet" href="css/utenteStyle.css">
-<div class="container mt-4">
-    <div class="row">
-        <div class="col-lg-3 my-lg-0 my-md-1">
+<div class="col-lg-3 my-lg-0 my-md-1">
             <div class="aside">
                 <div class="h4 text-white">Profilo</div>
                 <ul>
@@ -64,4 +61,3 @@ if (!login_check($db)) {
                 </ul>
             </div>
         </div>
-    </div>

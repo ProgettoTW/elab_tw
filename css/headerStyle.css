@@ -64,3 +64,10 @@ svg{
 .searchbar{
   color: black!important;
 }
+
+.body {
+  background-color: #eee ;
+  /*#a8a8a8;*/
+  overflow: hidden;
+  overflow-y: visible;
+}

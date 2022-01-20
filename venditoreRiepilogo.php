@@ -35,7 +35,7 @@ if(isset($_POST['rimuovi'], $_POST['ID'])){
         <?php
         require_once("includes/venditore.php");
         ?>
-        <!-- PAGINA SPEDIZIONI-->
+        <!-- PAGINA ORDINI-->
         </main>
 <?php
 require_once("includes/footer.php");
