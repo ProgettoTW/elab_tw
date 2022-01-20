@@ -1,0 +1,66 @@
+/*  HEADER */
+.header {
+  background-color: #156470;
+}
+.navbar {
+  background-color: #156470;
+}
+/*#445cac;#3670bb; #156470 #1e4880;*/
+
+.container-fluid {
+  padding: 0 !important;
+}
+.navbar a {
+  color: white;
+}
+.dropdown-menu {
+  max-width: 100px;
+}
+.dropdown-menu a {
+  color: black;
+  text-transform: capitalize;
+}
+
+.btn-secondary {
+  background: orange;
+}
+
+.auth li {
+  padding: 0 10px 5px 20px;
+}
+
+.content {
+  padding-right: 50px;
+}
+.content li {
+  padding-left: 10px;
+}
+.img-fluid {
+  border-radius: 10px;
+}
+
+.h1 {
+  font-family: "Bree Serif", serif;
+  line-height: 200%;
+  letter-spacing: 4px;
+}
+
+.checkout-container {
+  max-width: 960px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+svg{
+  transform: scale(1.8);
+}
+
+.bi-person, .bi-cart3{
+  color: white;
+  font-size:150%;
+    
+}
+
+.searchbar{
+  color: black!important;
+}

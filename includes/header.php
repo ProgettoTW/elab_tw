@@ -16,8 +16,6 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
 }
 
 ?>
-<!-- TODO: Questo CSS è solo per testare il dropdown, altrimenti faccio un pastrocchio
- -->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,8 +27,7 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"
             style=""></script>
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/styleUtenti.css">
+    <link rel="stylesheet" href="css/headerStyle.css">
     <!--Google Font-->
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
     <!--Bootstrap icons-->
@@ -43,9 +40,6 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
     <title>Pastecceroo</title>
 </head>
 
-<!--
-        SESSION CHECK
--->
 <div class="header justify-content-evenly px-4">
     <nav class="navbar navbar-expand-lg text-uppercase navbar-dark">
         <a class="navbar-brand" href="#">
@@ -74,7 +68,7 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
                     </form>
                 </li>
             </ul><?php if (login_check($db)) { ?>
-            <div class="dropdown"><b><?php if (admin_check($db)) {
+            <div class="dropdown"><?php if (admin_check($db)) {
                         echo "ADMIN";
                     } ?>
                     <ul class="navbar-nav auth">

@@ -1,0 +1,23 @@
+
+/* LISTA PRODOTTI MAIN*/
+
+.card {
+  margin: 2%;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 20vw;
+  object-fit: cover;
+}
+
+
+/* FILTRI */
+
+.filters {
+  margin: 1%;
+}
+
+.filter {
+  margin: 0 2%;
+}

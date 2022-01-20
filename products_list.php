@@ -3,12 +3,14 @@ include_once("products.php");
 include_once("categories.php");
 include_once("includes/header.php");
 
+
 $products = new ProductDB();
 $categories = new CategoryDB();
 $allCats = $categories->getAll();
 ?>
 <html lang="it">
 
+<link rel="stylesheet" href="css/listaProdottiMainStyle.css">
 
 <body class="bg-light">
 <!-- Container -->
