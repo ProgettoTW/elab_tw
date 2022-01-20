@@ -39,9 +39,9 @@ $allCats = $categories->getAll();
         </nav>
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
-
-                <div class="row row-cols-1 row-cols-md-4 g-4">
-                    <?php
+                <form method="post" action="utenteCarrello.php">
+                    <div class="row row-cols-1 row-cols-md-4 g-4">
+                        <?php
                     $allProducts = $products->getAll();
                     if (!is_null($allProducts)) {
                         foreach ($allProducts as $row) { ?>
@@ -52,14 +52,17 @@ $allCats = $categories->getAll();
                                     <div class="card-body">
                                         <h5 class="card-title"><?php echo $row->getName(); ?></h5>
                                         <p class="card-text">Prezzo: <?php echo $row->getPrice(); ?> €</p>
-                                        <a href="#" class="btn btn-primary">Aggiungi al Carrello</a>
+                                        <button class="btn btn-primary" name="add" type="submit"
+                                                value="<?php echo $row->getId(); ?>">Aggiungi al Carrello
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                             <?php
                         }
                     } ?>
-                </div>
+                    </div>
+                </form>
 
             </div>
             <?php
@@ -68,9 +71,9 @@ $allCats = $categories->getAll();
             $name=$row1->getName();
             $ID=$row1->getId();?>
             <div class="tab-pane fade" id="<?php echo $name; ?>" role="tabpanel" aria-labelledby="<?php echo $name; ?>-tab">
-
-                <div class="row row-cols-1 row-cols-md-4 g-4">
-                    <?php
+                <form method="post" action="utenteCarrello.php">
+                    <div class="row row-cols-1 row-cols-md-4 g-4">
+                        <?php
                     $temp = $products->getByCategoryId($ID);
                     if (!is_null($temp)) {
                         foreach ($temp as $row) { ?>
@@ -81,43 +84,21 @@ $allCats = $categories->getAll();
                                     <div class="card-body">
                                         <h5 class="card-title"><?php echo $row->getName(); ?></h5>
                                         <p class="card-text">Prezzo: <?php echo $row->getPrice(); ?> €</p>
-                                        <a href="#" class="btn btn-primary">Aggiungi al Carrello</a>
+                                        <button class="btn btn-primary" name="add" type="submit"
+                                                value="<?php echo $row->getId(); ?>">Aggiungi al Carrello
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                             <?php
                         }
                     } ?>
-                </div>
-
+                    </div>
+                </form>
             </div>
                 <?php
             }
             } ?>
-            <div class="tab-pane fade" id="biscotti" role="tabpanel" aria-labelledby="biscotti-tab">
-
-                <div class="row row-cols-1 row-cols-md-4 g-4">
-                    <?php
-                    $biscotti = $products->getByCategoryId(3);
-                    if (!is_null($biscotti)) {
-                        foreach ($biscotti as $row) { ?>
-                            <div class="col">
-                                <div class="card text-center">
-                                    <img src="img/products/<?php echo $row->getId(); ?>.jpg" class="card-img-top"
-                                         alt="Foto di <?php echo $row->getName(); ?>">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><?php echo $row->getName(); ?></h5>
-                                        <p class="card-text">Prezzo: <?php echo $row->getPrice(); ?> €</p>
-                                        <a href="#" class="btn btn-primary">Aggiungi al Carrello</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php
-                        }
-                    } ?>
-                </div>
-
-            </div>
         </div>
 
 

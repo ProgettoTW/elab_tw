@@ -32,7 +32,7 @@ class CartManager{
             $rows = array();
             while ($row = mysqli_fetch_assoc($result)) {
                 $temp = new Cart_item($row["pid"], $row["quantity"], $row["cid"]);
-                $temp->setId($row["id"]);
+                $temp->setId($row["ID"]);
                 $temp->setProductName($row["name"]);
                 $rows[] = $temp;
             }
@@ -94,7 +94,7 @@ class CartManager{
             $rows = array();
             while ($row = mysqli_fetch_assoc($result)) {
                 $temp = new Cart_item($row["pid"], $row["quantity"], $row["cid"]);
-                $temp->setId($row["id"]);
+                $temp->setId($row["ID"]);
                 $rows[] = $temp;
             }
         } else {

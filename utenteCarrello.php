@@ -12,12 +12,16 @@ require_once("model/cart_item.php");
 //altri require
 
 
-if (isset($_SESSION['user_id'], $_SESSION['cart_id'], $_SESSION['bday'])) {
+if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
     $userId = $_SESSION['email'];
     $cartId = $_SESSION['cart_id'];
-    $bday = bday_check();
+    $bday = false;
+    if (isset($_SESSION['bday'])) {
+        $bday = bday_check();
+    }
 
-} else  {
+
+} else {
 //TODO REDIRECT SE SESSIONE NON È CREATA
 }
 
@@ -67,7 +71,10 @@ require_once("includes/utente.php");
                 <?php $rows = $cartmanager->getCartItems($userId);
                 ?>
                 <span class="text-primary">Il tuo carrello</span>
-                <span class="badge bg-primary rounded-pill"><?php if(!is_null($rows)){echo count($rows);} ?></span>
+                <form action="utenteCarrello.php" method="post">
+                    <span class="badge bg-primary rounded-pill"><?php if (!is_null($rows)) {
+                            echo count($rows);
+                        } ?></span>
             </h4>
             <ul class="list-group mb-3">
                 <?php
@@ -75,29 +82,32 @@ require_once("includes/utente.php");
                     $totale = 0;
                     foreach ($rows as $row) {
                         $productrows = $products->getById($row->getProductId());
-                        $totale = $totale + ($productrows[0]->getPrice() * $row->getQuantity()); ?>
+                        $tmpTotale = $productrows[0]->getPrice() * $row->getQuantity();
+                        $totale = $totale + $tmpTotale; ?>
                         <li class="list-group-item d-flex justify-content-between lh-sm">
                             <div>
                                 <h6 class="my-0"><?php echo $productrows[0]->getName(); ?></h6>
                                 <small class="text-muted">Quantità: <?php echo $row->getQuantity(); ?></small>
                             </div>
                             <div>
-                                <button class="btn w-20 btn-group-sm btn-danger btn-sm"> -</button>
+                                <button class="btn w-20 btn-group-sm btn-danger btn-sm" type="submit" name="remove"
+                                        value="<?php echo $row->getProductId(); ?>">🗑
+                                </button>
                             </div>
-                            <span class="text-muted">€ <?php $row->getPrice() * $row->getQuantity() ?>></span>
+                            <span class="text-muted">€ <?php echo $tmpTotale; ?></span>
                         </li>
-                    <?php } ?>
-                <?php } else {
+                    <?php }
+                } else {
                     echo "Il carrello è vuoto!";
                 }
-                if($bday){
-                    $totale=$totale/2;
-                ?>
-                <li class="list-group-item d-flex justify-content-between bg-light">
-                    <div class="text-success">
-                        <h6 class="my-0">Offerta compleanno</h6>
-                        <small>TANTI AUGURI</small>
-                    </div>
+                if ($bday) {
+                    $totale = $totale / 2;
+                    ?>
+                    <li class="list-group-item d-flex justify-content-between bg-light">
+                        <div class="text-success">
+                            <h6 class="my-0">Offerta compleanno</h6>
+                            <small>TANTI AUGURI</small>
+                        </div>
                     <span class="text-success">−50%</span>
                 </li>
                 <?php
@@ -107,37 +117,28 @@ require_once("includes/utente.php");
                     <strong>€ <?php echo $totale; ?></strong>
                 </li>
             </ul>
-
-
-
-
-
-
-
-
-
-
-
+            </form>
         </div>
         <!--INDIRIZZO DI FATTURAZIONE-->
-            <div class="col-md-7 col-lg-8">
-              <form class="needs-validation" novalidate="">     
-                <h4 class="mb-3">Pagamento: </h4>       
+        <div class="col-md-7 col-lg-8">
+            <form class="needs-validation" novalidate="">
+                <h4 class="mb-3">Pagamento: </h4>
                 <div class="my-3">
-                  <div class="form-check">
-                    <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="">
-                    <label class="form-check-label" for="credit">Carta di credito</label>
-                  </div>
-                  <div class="form-check">
-                    <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
-                    <label class="form-check-label" for="debit">Carta di debito</label>
-                  </div>
-                  <div class="form-check">
-                    <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">
-                    <label class="form-check-label" for="paypal">PayPal</label>
-                  </div>
+                    <div class="form-check">
+                        <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked=""
+                               required="">
+                        <label class="form-check-label" for="credit">Carta di credito</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
+                        <label class="form-check-label" for="debit">Carta di debito</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">
+                        <label class="form-check-label" for="paypal">PayPal</label>
+                    </div>
                 </div>
-      
+
                 <div class="row gy-3">
                   <div class="col-md-6">
                     <label for="cc-name" class="form-label">Nome sulla carta</label>

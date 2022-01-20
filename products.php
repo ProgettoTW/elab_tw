@@ -27,7 +27,7 @@ class ProductDB
             $rows = array();
             while ($row = mysqli_fetch_assoc($result)) {
                 $temp = new Product($row["name"], $row["price"], $row["description"], $row["customizable"], $row["categoryID"], $row["quantity"]);
-                $temp->setId($row["id"]);
+                $temp->setId($row["productID"]);
                 $rows[] = $temp;
             }
         } else {
