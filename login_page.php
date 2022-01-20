@@ -73,11 +73,13 @@ if (isset($_GET['error'])) {
                                     <label class="mx-sm-2" for="floatingInput">Nome</label>
                                 </div>
                                 <div class="col form-floating">
-                                    <input type="text" class="form-control flex-grow-0" placeholder="cognome" name="surname">
+                                    <input type="text" class="form-control flex-grow-0" placeholder="cognome"
+                                           name="surname">
                                     <label class="mx-sm-2" for="floatingInput">Cognome</label>
                                 </div>
                                 <div class="col form-floating">
-                                    <input type="text" class="form-control flex-grow-0" placeholder="numero di telefono" name="phone">
+                                    <input type="text" class="form-control flex-grow-0" placeholder="numero di telefono"
+                                           name="phone">
                                     <label class="mx-sm-2" for="floatingInput">Numero di Telefono</label>
                                 </div>
                             </div>

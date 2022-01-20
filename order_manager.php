@@ -8,22 +8,82 @@ require_once("includes/connection.php");
 class OrderManager
 {
 
-    private $orderItemTable = "orderItem";
-    private $orderTable = "orders";
-    private $productTable = "products";
-    private $cartItemTable = "cartItem";
-    private $cartTable = "cart";
+    private string $orderItemTable = "orderItem";
+    private string $orderTable = "orders";
+    private string $productTable = "products";
+    private string $cartItemTable = "cartItem";
+    private string $cartTable = "cart";
 
     public function getOrderItems($orderId)
     {
-        //TODO
-        return null;
+        $conn = new Connection();
+        $db = $conn->getConnection();
+
+        if ($db->connect_error) {
+            die("Connection Failed: " . $db->error);
+        }
+        $querytoexec = $db->prepare("SELECT i.ID, p.productID as 'pid', p.name, i.quantity, o.orderID as 'oid' FROM" . $this->orderTable . " o, " . $this->cartItemTable . " i, " . $this->productTable . " p WHERE i.orderID = o.orderID AND o.orderID = ? AND p.productID = i.productID AND quantity > 0 ORDER BY o.time");
+        $querytoexec->bind_param('i', $orderId);
+        $result = $querytoexec->execute();
+        if (!$result) {
+            echo "echo";
+            return null;
+        }
+
+        $result = $querytoexec->get_result();
+        if ($result->num_rows > 0) {
+            $rows = array();
+            while ($row = mysqli_fetch_assoc($result)) {
+                $temp = new Order_Item($row["pid"], $row["quantity"], $row["oid"]);
+                $temp->setId($row["ID"]);
+                $temp->setProductName($row["name"]);
+                $rows[] = $temp;
+            }
+        } else {
+            return null;
+        }
+
+        $querytoexec->close();
+        $db->close();
+
+        return $rows;
     }
 
     public function getOrdersByUserId($userId)
     {
-        //TODO
-        return null;
+        $conn = new Connection();
+        $db = $conn->getConnection();
+
+        if ($db->connect_error) {
+            die("Connection failed: " . $db->connect_error);
+        }
+
+        $querytoexec = $db->prepare("SELECT orderID, email, time FROM " . $this->orderTable . " WHERE email = ?");
+        $querytoexec->bind_param('s', $userId);
+        $result = $querytoexec->execute();
+        if (!$result) {
+            echo "error";
+            return null;
+        }
+
+
+        $result = $querytoexec->get_result();
+        if ($result->num_rows > 0) {
+            $rows = array();
+            while ($row = mysqli_fetch_assoc($result)) {
+                $temp = new Order($row["email"]);
+                $temp->setTime($row["time"]);
+                $temp->setId($row["orderID"]);
+                $rows[] = $temp;
+            }
+        } else {
+            return null;
+        }
+
+        $querytoexec->close();
+        $db->close();
+
+        return $rows;
     }
 
     public function getAllOrders()
@@ -61,34 +121,146 @@ class OrderManager
         return $rows;
     }
 
-    public function setOrderStatus()
+    public function setOrderStatus($orderId, $status)
     {
-        //TODO
-        return null;
+        $conn = new Connection();
+        $db = $conn->getConnection();
+
+        if ($db->connect_error) {
+            die("Connection failed: " . $db->connect_error);
+        }
+
+        $querytoexec = $db->prepare("UPDATE " . $this->orderTable . " SET status = ? WHERE orderID = ?");
+        $querytoexec->bind_param('ii', $status, $orderId);
+        if (!$querytoexec->execute()) {
+            echo($querytoexec->error);
+        }
+
+        $result = $querytoexec->get_result();
+        if ($result) {
+            echo "Update OK";
+        } else {
+            return null;
+        }
+
+        $querytoexec->close();
+        $db->close();
     }
 
-    public function getOrderStatus()
+    public function getOrderStatus($orderId)
     {
-        //TODO
-        return null;
+        $conn = new Connection();
+        $db = $conn->getConnection();
+
+        if ($db->connect_error) {
+            die("Connection failed: " . $db->connect_error);
+        }
+
+        $querytoexec = $db->prepare("SELECT orderID, status FROM" . $this->orderTable . "WHERE orderID = ? ");
+        $querytoexec->bind_param('i', $orderId);
+        $result = $querytoexec->execute();
+        if (!$result) {
+            echo "error";
+            return null;
+        }
+
+        $result = $querytoexec->get_result();
+        if ($result->num_rows > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $status = $row['status'];
+            }
+        } else {
+            return null;
+        }
+
+        $querytoexec->close();
+        $db->close();
+        return $status;
     }
 
     public function isInOrder($productId, $orderId)
     {
-        //TODO
-        return null;
+        $conn = new Connection();
+        $db = $conn->getConnection();
+
+        if ($db->connect_error) {
+            die("Connection failed: " . $db->connect_error);
+        }
+
+        $querytoexec = $db->prepare("SELECT * FROM " . $this->orderTable . " o, " . $this->orderItemTable . " i WHERE i.orderID = o.orderID AND o.orderID = ? AND i.productID = ? and quantity > 0");
+        $querytoexec->bind_param('ii', $orderId, $productId);
+        $result = $querytoexec->execute();
+        if (!$result) {
+            echo "error";
+            return null;
+        }
+
+        $result = $querytoexec->get_result();
+        $querytoexec->close();
+        $db->close();
+
+        if ($result->num_rows > 0) {
+            return true;
+        } else {
+            return false;
+        }
+
+
     }
 
     public function insertItem($orderItem)
     {
-        //TODO
-        return null;
+        $conn = new Connection();
+        $db = $conn->getConnection();
+
+        if ($db->connect_error) {
+            die("Connection failed: " . $db->connect_error);
+        }
+
+        $querytoexec = $db->prepare("INSERT INTO " . $this->orderItemTable . " (productID, orderID, quantity) VALUES (?, ?, ?)");
+        $itProductId = $orderItem->getProductId();
+        $itOrderId = $orderItem->getOrderId();
+        $itQuantity = $orderItem->getQuantity();
+        $querytoexec->bind_param('iii', $itProductId, $itOrderId, $itQuantity);
+        if (!$querytoexec->execute()) {
+            echo($querytoexec->error);
+        }
+
+        $result = $querytoexec->get_result();
+        if ($result) {
+            echo "Insert OK";
+        } else {
+            return null;
+        }
+        $querytoexec->close();
+        $db->close();
+
     }
 
     public function insertOrder($order)
     {
-        //TODO
-        return null;
+        $conn = new Connection();
+        $db = $conn->getConnection();
+
+        if ($db->connect_error) {
+            die("Connection failed: " . $db->connect_error);
+        }
+
+        $querytoexec = $db->prepare("INSERT INTO " . $this->orderTable . " (email, status) VALUES (?, 0)");
+        $ordUser = $order->getUserId();
+
+        $querytoexec->bind_param('s', $ordUser);
+        if (!$querytoexec->execute()) {
+            echo($querytoexec->error);
+        }
+        $result = $querytoexec->get_result();
+        $id = mysqli_stmt_insert_id($querytoexec);
+
+        $querytoexec->close();
+        $db->close();
+
+        return $id;
+
     }
 
 

@@ -15,46 +15,46 @@ require_once("model/cart_item.php");
 if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
     $userId = $_SESSION['user_id'];
     $cartId = $_SESSION['cart_id'];
-} else  {
+} else {
 //TODO REDIRECT SE SESSIONE NON È CREATA
 }
 
 $cartmanager = new CartManager();
 $products = new ProductDB();
 
-if(isset($_POST['add'])){
+if (isset($_POST['add'])) {
     $productId = intval($_POST['add']);
-    if ($cartmanager->isInCart($productId, $userId)){
+    if ($cartmanager->isInCart($productId, $userId)) {
         $row = $cartmanager->getByProductId($productId, $userId);
-        $quantity = $row[0]->getQuantity()+1;
+        $quantity = $row[0]->getQuantity() + 1;
         $cartmanager->updateQuantity($row[0]->getId(), $quantity);
     } else {
         $item = new Cart_item($productId, 1, $cartId);
         $cartmanager->insertItem($item);
     }
-} else if(isset($_POST['remove'])) {
+} else if (isset($_POST['remove'])) {
     $productId = intval($_POST['remove']);
-    if ($cartmanager->isInCart($productId, $userId)){
+    if ($cartmanager->isInCart($productId, $userId)) {
         $row = $cartmanager->getByProductId($productId, $userId);
-        $quantity = $row[0]->getQuantity()+1;
+        $quantity = $row[0]->getQuantity() + 1;
         $cartmanager->updateQuantity($row[0]->getId(), 0);
     } else {
-        echo ("Il prodotto non è nel carrello");
+        echo("Il prodotto non è nel carrello");
     }
-} else if (isset($_POST['quantity'], $_POST['product_id'])){
+} else if (isset($_POST['quantity'], $_POST['product_id'])) {
     $productId = $_POST['product_id'];
-    if ($cartmanager->isInCart($productId, $userId)){
+    if ($cartmanager->isInCart($productId, $userId)) {
         $row = $cartmanager->getByProductId($productId, $userId);
         $quantity = $_POST['quantity'];
         $cartmanager->updateQuantity($row[0]->getId(), $quantity);
     }
-} else if (isset($_POST['empty'])){
+} else if (isset($_POST['empty'])) {
     $cartmanager->emptyCart($userId);
 }
 ?>
-<html>
-<h1> BOOOH ROBA HTML QUI</h1>
-</html>
+    <html>
+    <h1> BOOOH ROBA HTML QUI</h1>
+    </html>
 
 <?php
 require_once("includes/footer.php");

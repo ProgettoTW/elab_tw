@@ -4,13 +4,15 @@ require_once("model/cart.php");
 require_once("model/cart_item.php");
 require_once("includes/connection.php");
 
-class CartManager{
+class CartManager
+{
 
-    private $items_table = "cartItems";
+    private $items_table = "cartItem";
     private $cart_table = "cart";
     private $products_table = "products";
 
-    public function getCartItems($userId) {
+    public function getCartItems($userId)
+    {
         $conn = new Connection();
         $db = $conn->getConnection();
 
@@ -18,11 +20,11 @@ class CartManager{
             die("Connection failed: " . $db->connect_error);
         }
 
-        $querytoexec = $db->prepare("SELECT i.ID, p.productID as 'pid', p.name, i.quantity, c.cartID as 'cid' FROM ".$this->cart_table." c, ".$this->items_table." i, ".$this->products_table." p WHERE i.cartID = c.cartID AND c.email = ? AND p.productID = i.productID AND quantity > 0");
+        $querytoexec = $db->prepare("SELECT i.ID, p.productID as 'pid', p.name, i.quantity, c.cartID as 'cid' FROM " . $this->cart_table . " c, " . $this->items_table . " i, " . $this->products_table . " p WHERE i.cartID = c.cartID AND c.email = ? AND p.productID = i.productID AND i.quantity > 0");
         $querytoexec->bind_param('s', $userId);
         //userId is te email
         $result = $querytoexec->execute();
-        if (!$result){
+        if (!$result) {
             echo "error";
             return null;
         }
@@ -32,7 +34,7 @@ class CartManager{
             $rows = array();
             while ($row = mysqli_fetch_assoc($result)) {
                 $temp = new Cart_item($row["pid"], $row["quantity"], $row["cid"]);
-                $temp->setId($row["id"]);
+                $temp->setId($row["ID"]);
                 $temp->setProductName($row["name"]);
                 $rows[] = $temp;
             }
@@ -47,7 +49,8 @@ class CartManager{
 
     }
 
-    public function emptyCart($userId) {
+    public function emptyCart($userId)
+    {
         $conn = new Connection();
         $db = $conn->getConnection();
 
@@ -55,9 +58,9 @@ class CartManager{
             die("Connection failed: " . $db->connect_error);
         }
 
-        $querytoexec = $db->prepare("UPDATE ".$this->items_table." i, ".$this->cart_table." c SET i.quantity = 0 WHERE c.cartID = i.cartID AND c.email = ?");
+        $querytoexec = $db->prepare("UPDATE " . $this->items_table . " i, " . $this->cart_table . " c SET i.quantity = 0 WHERE c.cartID = i.cartID AND c.email = ?");
         $querytoexec->bind_param('s', $userId);
-        if (!$querytoexec->execute()){
+        if (!$querytoexec->execute()) {
             echo($querytoexec->error);
         }
 
@@ -72,7 +75,8 @@ class CartManager{
         $db->close();
     }
 
-    public function getByProductId($productId, $userId) {
+    public function getByProductId($productId, $userId)
+    {
         $conn = new Connection();
         $db = $conn->getConnection();
 
@@ -80,11 +84,11 @@ class CartManager{
             die("Connection failed: " . $db->connect_error);
         }
 
-        $querytoexec = $db->prepare("SELECT i.ID, i.productID 'pid', i.quantity, c.cartID as 'cid' FROM ".$this->cart_table." c, ".$this->items_table." i WHERE i.cartID = c.cartID AND c.email = ? AND i.productID = ? AND quantity > 0");
+        $querytoexec = $db->prepare("SELECT i.ID, i.productID 'pid', i.quantity, c.cartID as 'cid' FROM " . $this->cart_table . " c, " . $this->items_table . " i WHERE i.cartID = c.cartID AND c.email = ? AND i.productID = ? AND quantity > 0");
         //$querytoexec->bind_param('i', $userId);
         $querytoexec->bind_param('si', $userId, $productId);
         $result = $querytoexec->execute();
-        if (!$result){
+        if (!$result) {
             echo "error";
             return null;
         }
@@ -94,7 +98,7 @@ class CartManager{
             $rows = array();
             while ($row = mysqli_fetch_assoc($result)) {
                 $temp = new Cart_item($row["pid"], $row["quantity"], $row["cid"]);
-                $temp->setId($row["id"]);
+                $temp->setId($row["ID"]);
                 $rows[] = $temp;
             }
         } else {
@@ -108,7 +112,8 @@ class CartManager{
 
     }
 
-    public function isInCart($productId, $userId){
+    public function isInCart($productId, $userId)
+    {
         $conn = new Connection();
         $db = $conn->getConnection();
 
@@ -116,10 +121,10 @@ class CartManager{
             die("Connection failed: " . $db->connect_error);
         }
 
-        $querytoexec = $db->prepare("SELECT * FROM ".$this->cart_table." c, ".$this->items_table." i WHERE i.cartID = c.cartID AND c.email = ? AND i.productID = ? and quantity > 0");
+        $querytoexec = $db->prepare("SELECT * FROM " . $this->cart_table . " c, " . $this->items_table . " i WHERE i.cartID = c.cartID AND c.email = ? AND i.productID = ? and quantity > 0");
         $querytoexec->bind_param('si', $userId, $productId);
         $result = $querytoexec->execute();
-        if (!$result){
+        if (!$result) {
             echo "error";
             return null;
         }
@@ -135,7 +140,8 @@ class CartManager{
     }
 
 
-    public function insertItem($cartItem){
+    public function insertItem($cartItem)
+    {
 
         $conn = new Connection();
         $db = $conn->getConnection();
@@ -144,12 +150,12 @@ class CartManager{
             die("Connection failed: " . $db->connect_error);
         }
 
-        $querytoexec = $db->prepare("INSERT INTO ".$this->items_table." (productID, cartID, quantity) VALUES (?, ?, ?)");
+        $querytoexec = $db->prepare("INSERT INTO " . $this->items_table . " (productID, cartID, quantity) VALUES (?, ?, ?)");
         $itProductId = $cartItem->getProductId();
         $itCartId = $cartItem->getCartId();
         $itQuantity = $cartItem->getQuantity();
         $querytoexec->bind_param('iii', $itProductId, $itCartId, $itQuantity);
-        if (!$querytoexec->execute()){
+        if (!$querytoexec->execute()) {
             echo($querytoexec->error);
         }
 
@@ -164,7 +170,8 @@ class CartManager{
         $db->close();
     }
 
-    public function updateQuantity($cartItemId, $quantity){
+    public function updateQuantity($cartItemId, $quantity)
+    {
 
         $conn = new Connection();
         $db = $conn->getConnection();
@@ -174,15 +181,15 @@ class CartManager{
         }
 
         if ($quantity > 0 && $quantity <= 10) {
-            $querytoexec = $db->prepare("UPDATE ".$this->items_table." SET quantity = ? WHERE id = ?");
-            $querytoexec->bind_param('ii',  $quantity, $cartItemId);
-            if (!$querytoexec->execute()){
+            $querytoexec = $db->prepare("UPDATE " . $this->items_table . " SET quantity = ? WHERE id = ?");
+            $querytoexec->bind_param('ii', $quantity, $cartItemId);
+            if (!$querytoexec->execute()) {
                 echo($querytoexec->error);
             }
         } else if ($quantity == 0) {
-            $querytoexec = $db->prepare("UPDATE ".$this->items_table." SET quantity = 0 WHERE id = ?");
+            $querytoexec = $db->prepare("UPDATE " . $this->items_table . " SET quantity = 0 WHERE id = ?");
             $querytoexec->bind_param('i', $cartItemId);
-            if (!$querytoexec->execute()){
+            if (!$querytoexec->execute()) {
                 echo($querytoexec->error);
             }
         } else return null;
@@ -198,7 +205,8 @@ class CartManager{
         $db->close();
     }
 
-    public function insertCart($cart){
+    public function insertCart($cart)
+    {
 
         $conn = new Connection();
         $db = $conn->getConnection();
@@ -207,11 +215,11 @@ class CartManager{
             die("Connection failed: " . $db->connect_error);
         }
 
-        $querytoexec = $db->prepare("INSERT INTO ".$this->cart_table." (email) VALUES (?)");
+        $querytoexec = $db->prepare("INSERT INTO " . $this->cart_table . " (email) VALUES (?)");
         $cartUser = $cart->getUserId();
 
         $querytoexec->bind_param('s', $cartUser);
-        if (!$querytoexec->execute()){
+        if (!$querytoexec->execute()) {
             echo($querytoexec->error);
         }
 
@@ -228,4 +236,5 @@ class CartManager{
 
 
 }
+
 ?>
