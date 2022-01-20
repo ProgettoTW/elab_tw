@@ -77,21 +77,14 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
             <div class="dropdown"><b><?php if (admin_check($db)) {
                         echo "ADMIN";
                     } ?>
-                    <ul class="navbar-nav auth">
-                        <li class="nav-item">
-                            <a href="utenteCarrello.php"><i class="bi bi-cart3"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <?php if (admin_check($db)) {
-                                ?>
-                                <a href="venditoreRiepilogo.php"><i class="bi bi-person"></i></a>
-                                <?php
-                            } else { ?>
-                                <a href="utenteRiepilogo.php"><i class="bi bi-person"></i></a>
-                            <?php } ?>
-
-                        </li>
-                    </ul>
+            <ul class="navbar-nav auth">
+                <li class="nav-item">
+                    <a href="cart.php"><i class="bi bi-cart3"></i></a>
+                </li>
+                <li class="nav-item">
+                    <?php if (admin_check($db)) {
+                        ?>
+                        <a href="venditoreRiepilogo.php"><i class="bi bi-person"></i></a>
                     <?php
                     } else { ?>
                         <ul class="navbar-nav auth">
