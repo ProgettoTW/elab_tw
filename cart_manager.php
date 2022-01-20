@@ -6,7 +6,7 @@ require_once("includes/connection.php");
 
 class CartManager{
 
-    private $items_table = "cartItems";
+    private $items_table = "cartItem";
     private $cart_table = "cart";
     private $products_table = "products";
 
@@ -18,7 +18,7 @@ class CartManager{
             die("Connection failed: " . $db->connect_error);
         }
 
-        $querytoexec = $db->prepare("SELECT i.ID, p.productID as 'pid', p.name, i.quantity, c.cartID as 'cid' FROM ".$this->cart_table." c, ".$this->items_table." i, ".$this->products_table." p WHERE i.cartID = c.cartID AND c.email = ? AND p.productID = i.productID AND quantity > 0");
+        $querytoexec = $db->prepare("SELECT i.ID, p.productID as 'pid', p.name, i.quantity, c.cartID as 'cid' FROM ".$this->cart_table." c, ".$this->items_table." i, ".$this->products_table." p WHERE i.cartID = c.cartID AND c.email = ? AND p.productID = i.productID AND i.quantity > 0");
         $querytoexec->bind_param('s', $userId);
         //userId is te email
         $result = $querytoexec->execute();

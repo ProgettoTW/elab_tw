@@ -15,16 +15,16 @@ function sec_session_start()
 function login($email, $password, $mysqli)
 {
     //TODO Finire qui perché ho riscritto il DB e porcapaletta mi sarà sicuramente saltato qualcosa
-    if ($querytoexec = $mysqli->prepare("SELECT u.name, u.email, u.password, c.cartID, u.admin FROM users u, cart c WHERE u.email = ? AND u.email = c.email LIMIT 1")) {
+    if ($querytoexec = $mysqli->prepare("SELECT u.name, u.email, u.password, u.date, c.cartID, u.admin FROM users u, cart c WHERE u.email = ? AND u.email = c.email LIMIT 1")) {
         $querytoexec->bind_param('s', $email);
         $querytoexec->execute();
         $querytoexec->store_result();
-        $querytoexec->bind_result($name, $username, $password_hashed, $cartID, $admin);
+        $querytoexec->bind_result($name, $username, $password_hashed, $date, $cartID, $admin);
         $querytoexec->fetch();
         if ($querytoexec->num_rows == 1) {
             if (password_verify($password, $password_hashed)) {
                 //Replace all special characters and compose an user_id by concatenating the result with the user's name
-                $user_id = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $username)."-NAME-".$name;
+                $user_id = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $username) . "-NAME-" . $name;
                 $_SESSION['user_id'] = $user_id;
                 //$username = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $username); //XSS
                 $_SESSION['email'] = $username;
@@ -32,6 +32,7 @@ function login($email, $password, $mysqli)
                 $_SESSION['cart_id'] = $cartID;
                 $_SESSION['name'] = $name;
                 $_SESSION['admin'] = false;
+                $_SESSION['bday'] = $date;
                 if ($admin == 1) {
                     $_SESSION['admin'] = true;
                 }
@@ -83,7 +84,19 @@ function seller_check($mysqli)
     }
 }
 
-//TODO Funzione per controllare i tentativi di login senza successo
+function bday_check()
+{
+    if (isset($_SESSION['bday'])) {
+        $today = new DateTime("now");
+        $today = $today->format("d-m");
+        $date = new DateTime($_SESSION['bday']);
+        $date = $date->format("d-m");
+        if ($date == $today) {
+            return true;
+        }
+    }
+    return false;
 
+}
 
 ?>
