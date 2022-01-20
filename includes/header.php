@@ -50,7 +50,8 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
     <nav class="navbar navbar-expand-lg text-uppercase navbar-dark">
         <a class="navbar-brand" href="#">
             <h1 class="h1">Pastecceroo</h1></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-lg-between" id="navbarSupportedContent">
@@ -76,33 +77,33 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
             <div class="dropdown"><b><?php if (admin_check($db)) {
                         echo "ADMIN";
                     } ?>
-            <ul class="navbar-nav auth">
-                <li class="nav-item">
-                    <a href="utenteCarrello.php"><i class="bi bi-cart3"></i></a>
-                </li>
-                <li class="nav-item">
-                    <?php if (admin_check($db)) {
-                        ?>
-                        <a href="venditoreRiepilogo.php"><i class="bi bi-person"></i></a>
-                    <?php
-                    } else{?>
-                        <a href="utenteRiepilogo.php"><i class="bi bi-person"></i></a>
-                   <?php }?>
+                    <ul class="navbar-nav auth">
+                        <li class="nav-item">
+                            <a href="utenteCarrello.php"><i class="bi bi-cart3"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <?php if (admin_check($db)) {
+                                ?>
+                                <a href="venditoreRiepilogo.php"><i class="bi bi-person"></i></a>
+                                <?php
+                            } else { ?>
+                                <a href="utenteRiepilogo.php"><i class="bi bi-person"></i></a>
+                            <?php } ?>
 
-                </li>
-            </ul>
-            <?php
-            } else { ?>
-                <ul class="navbar-nav auth">
-                    <li class="nav-item">
-                        <a href="login_page.php">
-                            <button type="button" class="btn btn-secondary">Accedi/Registrati</button>
-                        </a>
-                    </li>
-                </ul>
-                <?php
-            } ?>
-        </div>
+                        </li>
+                    </ul>
+                    <?php
+                    } else { ?>
+                        <ul class="navbar-nav auth">
+                            <li class="nav-item">
+                                <a href="login_page.php">
+                                    <button type="button" class="btn btn-secondary">Accedi/Registrati</button>
+                                </a>
+                            </li>
+                        </ul>
+                        <?php
+                    } ?>
+            </div>
     </nav>
 </div>
 

@@ -28,33 +28,33 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
 $cartmanager = new CartManager();
 $products = new ProductDB();
 
-if(isset($_POST['add'])){
+if (isset($_POST['add'])) {
     $productId = intval($_POST['add']);
-    if ($cartmanager->isInCart($productId, $userId)){
+    if ($cartmanager->isInCart($productId, $userId)) {
         $row = $cartmanager->getByProductId($productId, $userId);
-        $quantity = $row[0]->getQuantity()+1;
+        $quantity = $row[0]->getQuantity() + 1;
         $cartmanager->updateQuantity($row[0]->getId(), $quantity);
     } else {
         $item = new Cart_item($productId, 1, $cartId);
         $cartmanager->insertItem($item);
     }
-} else if(isset($_POST['remove'])) {
+} else if (isset($_POST['remove'])) {
     $productId = intval($_POST['remove']);
-    if ($cartmanager->isInCart($productId, $userId)){
+    if ($cartmanager->isInCart($productId, $userId)) {
         $row = $cartmanager->getByProductId($productId, $userId);
-        $quantity = $row[0]->getQuantity()+1;
+        $quantity = $row[0]->getQuantity() + 1;
         $cartmanager->updateQuantity($row[0]->getId(), 0);
     } else {
-        echo ("Il prodotto non è nel carrello");
+        echo("Il prodotto non è nel carrello");
     }
-} else if (isset($_POST['quantity'], $_POST['product_id'])){
+} else if (isset($_POST['quantity'], $_POST['product_id'])) {
     $productId = $_POST['product_id'];
-    if ($cartmanager->isInCart($productId, $userId)){
+    if ($cartmanager->isInCart($productId, $userId)) {
         $row = $cartmanager->getByProductId($productId, $userId);
         $quantity = $_POST['quantity'];
         $cartmanager->updateQuantity($row[0]->getId(), $quantity);
     }
-} else if (isset($_POST['empty'])){
+} else if (isset($_POST['empty'])) {
     $cartmanager->emptyCart($userId);
 }
 ?>
@@ -108,10 +108,10 @@ require_once("includes/utente.php");
                             <h6 class="my-0">Offerta compleanno</h6>
                             <small>TANTI AUGURI</small>
                         </div>
-                    <span class="text-success">−50%</span>
-                </li>
-                <?php
-                }?>
+                        <span class="text-success">−50%</span>
+                    </li>
+                    <?php
+                } ?>
                 <li class="list-group-item d-flex justify-content-between">
                     <span>Totale (EUR)</span>
                     <strong>€ <?php echo $totale; ?></strong>
@@ -140,47 +140,48 @@ require_once("includes/utente.php");
                 </div>
 
                 <div class="row gy-3">
-                  <div class="col-md-6">
-                    <label for="cc-name" class="form-label">Nome sulla carta</label>
-                    <input type="text" class="form-control" id="cc-name" placeholder="" required="">
-                    <small class="text-muted">Nome del proprietario della carta</small>
-                    <div class="invalid-feedback">
-                      Il nome è obbligatorio.
+                    <div class="col-md-6">
+                        <label for="cc-name" class="form-label">Nome sulla carta</label>
+                        <input type="text" class="form-control" id="cc-name" placeholder="" required="">
+                        <small class="text-muted">Nome del proprietario della carta</small>
+                        <div class="invalid-feedback">
+                            Il nome è obbligatorio.
+                        </div>
                     </div>
-                  </div>
-      
-                  <div class="col-md-6">
-                    <label for="cc-number" class="form-label">Numero della carta</label>
-                    <input type="text" class="form-control" id="cc-number" placeholder="XXXX XXXX XXXX XXXX" required="">
-                    <div class="invalid-feedback">
-                      Il numero della carta è obbligatorio.
+
+                    <div class="col-md-6">
+                        <label for="cc-number" class="form-label">Numero della carta</label>
+                        <input type="text" class="form-control" id="cc-number" placeholder="XXXX XXXX XXXX XXXX"
+                               required="">
+                        <div class="invalid-feedback">
+                            Il numero della carta è obbligatorio.
+                        </div>
                     </div>
-                  </div>
-      
-                  <div class="col-md-3">
-                    <label for="cc-expiration" class="form-label">Scadenza</label>
-                    <input type="text" class="form-control" id="cc-expiration" placeholder="XX/XX" required="">
-                    <div class="invalid-feedback">
-                      La scadenza della carta è obbligatoria.
+
+                    <div class="col-md-3">
+                        <label for="cc-expiration" class="form-label">Scadenza</label>
+                        <input type="text" class="form-control" id="cc-expiration" placeholder="XX/XX" required="">
+                        <div class="invalid-feedback">
+                            La scadenza della carta è obbligatoria.
+                        </div>
                     </div>
-                  </div>
-      
-                  <div class="col-md-3">
-                    <label for="cc-cvv" class="form-label">CVV</label>
-                    <input type="text" class="form-control" id="cc-cvv" placeholder="XXX" required="">
-                    <div class="invalid-feedback">
-                      Il CVV è obbligatorio
+
+                    <div class="col-md-3">
+                        <label for="cc-cvv" class="form-label">CVV</label>
+                        <input type="text" class="form-control" id="cc-cvv" placeholder="XXX" required="">
+                        <div class="invalid-feedback">
+                            Il CVV è obbligatorio
+                        </div>
                     </div>
-                  </div>
                 </div>
-      
+
                 <hr class="my-4">
-      
+
                 <button class="w-100 btn btn-primary btn-lg" type="submit">Acquista</button>
-              </form>
-            </div>
-          </div>
+            </form>
         </div>
+    </div>
+</div>
 
 <?php
 require_once("includes/footer.php");

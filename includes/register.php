@@ -19,7 +19,7 @@ if (isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['born_date
         $update_stmt->bind_param('s', $email);
         $update_stmt->execute();
         $update_stmt->store_result();
-        if($update_stmt->num_rows < 1) {
+        if ($update_stmt->num_rows < 1) {
             $address = "EMPTY";
             if ($insert_stmt = $db->prepare("INSERT INTO users (name, surname, phone, address, date, email, password, admin) VALUES (?, ?, ?, ?, ?, ?, ?, 0)")) {
                 $insert_stmt->bind_param('sssssss', $name, $surname, $phone, $address, $born_date, $email, $hashed_password);
@@ -51,8 +51,7 @@ if (isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['born_date
             <a class="btn btn-primary" href="../login_page.php">Torna indietro</a>
             <?php
         }
-    }
-    else {
+    } else {
         echo "prepare error";
     }
     $update_stmt->close();
@@ -60,7 +59,7 @@ if (isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['born_date
 } else { ?>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 mx-auto bg-light" >
+            <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 mx-auto bg-light">
                 <h4> Non hai compilato tutti i campi!</h4>
                 <a class="btn btn-primary" href="/login_page.php">Torna indietro</a>
     <?php

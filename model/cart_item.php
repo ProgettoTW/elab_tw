@@ -1,58 +1,71 @@
 <?php
-class Cart_item{
 
-  private $id;
-  private $cartId;
-  private $productId;
-  private $quantity;
-  //In realtà questo potrebbe non servire
-  private $productName;
+class Cart_item
+{
 
-  public function __construct($productId, $quantity, $cartId){
-      $this->productId = $productId;
-      $this->quantity = $quantity;
-      $this->cartId = $cartId;
-  }
+    private $id;
+    private $cartId;
+    private $productId;
+    private $quantity;
+    //In realtà questo potrebbe non servire
+    private $productName;
 
-  public function getId(){
-    return $this->id;
-  }
+    public function __construct($productId, $quantity, $cartId)
+    {
+        $this->productId = $productId;
+        $this->quantity = $quantity;
+        $this->cartId = $cartId;
+    }
 
-  public function setId($id){
-    $this->id = $id;
-  }
+    public function getId()
+    {
+        return $this->id;
+    }
 
-  public function getProductId(){
-    return $this->productId;
-  }
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
 
-  public function setProductId($productId){
-    $this->productId = $productId;
-  }
+    public function getProductId()
+    {
+        return $this->productId;
+    }
 
-  public function getQuantity(){
-    return $this->quantity;
-  }
+    public function setProductId($productId)
+    {
+        $this->productId = $productId;
+    }
 
-  public function setQuantity($quantity){
-    $this->id = $quantity;
-  }
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
 
-  public function getCartId(){
-    return $this->cartId;
-  }
+    public function setQuantity($quantity)
+    {
+        $this->id = $quantity;
+    }
 
-  public function setCartId($cartId){
-    $this->id = $cartId;
-  }
+    public function getCartId()
+    {
+        return $this->cartId;
+    }
 
-  public function getProductName(){
-    return $this->productName;
-  }
+    public function setCartId($cartId)
+    {
+        $this->id = $cartId;
+    }
 
-  public function setProductName($productName){
-    $this->productName = $productName;
-  }
+    public function getProductName()
+    {
+        return $this->productName;
+    }
+
+    public function setProductName($productName)
+    {
+        $this->productName = $productName;
+    }
 
 }
 

@@ -11,47 +11,47 @@ $orders = new OrderManager();
 
 ?>
 <html lang="it">
-        <main>
-        <?php
-        require_once("includes/utente.php");
-        ?>
-        <div class="col-lg-9 my-lg-0 my-1">
-              <div class="main-content">
-                  <?php
-                  $orderlist = $orders->getAllOrders();
-                  if (!is_null($orderlist)) { ?>
+<main>
+    <?php
+    require_once("includes/utente.php");
+    ?>
+    <div class="col-lg-9 my-lg-0 my-1">
+        <div class="main-content">
+            <?php
+            $orderlist = $orders->getAllOrders();
+            if (!is_null($orderlist)) { ?>
                 <div class="text-uppercase">Tutti gli ordini</div>
-                  <?php
-                  foreach ($orderlist as $order){
+                <?php
+                foreach ($orderlist as $order) {
 
-                  ?>
-                <div class="order my-3 bg-light">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="d-flex flex-column justify-content-between order-summary">
-                                <div class="d-flex align-items-center">
-                                    <div class="text-uppercase">Nr.Ordine #<?php echo $order->getId();?></div>
-                                    <div class="blue-label ms-auto text-uppercase">Pagato</div>
+                    ?>
+                    <div class="order my-3 bg-light">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="d-flex flex-column justify-content-between order-summary">
+                                    <div class="d-flex align-items-center">
+                                        <div class="text-uppercase">Nr.Ordine #<?php echo $order->getId(); ?></div>
+                                        <div class="blue-label ms-auto text-uppercase">Pagato</div>
+                                    </div>
+                                    <div>Prodotti #03</div>
+                                    <div><?php echo $order->getTime(); ?></div>
                                 </div>
-                                <div>Prodotti #03</div>
-                                <div><?php echo $order->getTime();?></div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="d-sm-flex align-items-sm-start justify-content-sm-between">
+                                    <div class="status">Stato : Ricevuto</div>
+                                    <div class="btn btn-primary text-uppercase">info ordine</div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-8">
-                            <div class="d-sm-flex align-items-sm-start justify-content-sm-between">
-                                <div class="status">Stato : Ricevuto</div>
-                                <div class="btn btn-primary text-uppercase">info ordine</div>
-                            </div>
-                        </div>
-                      </div>
                     </div>
-                  <?php
-                  }
-                  }
-                  ?>
-                
-                  </div>
-    </main>
+                    <?php
+                }
+            }
+            ?>
+
+        </div>
+</main>
 <?php
 require_once("includes/footer.php");
 ?>
