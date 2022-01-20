@@ -21,10 +21,10 @@ if (!login_check($db)){
                           </a> 
                         </li>
                       <li> 
-                        <a href="venditoreAggiungiProdotti.php" class="d-flex">
+                        <a href="venditoreGestioneProdotti.php" class="d-flex">
                             <div><i class="bi bi-clipboard-plus"></i></div>
                                 <div class="d-flex px-3">
-                                  <div class="link">Aggiungi</div>
+                                  <div class="link">Gestione Prodotti</div>
                                 </div>
                             </a> 
                       </li>
