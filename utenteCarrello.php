@@ -78,8 +78,8 @@ require_once("includes/utente.php");
             </h4>
             <ul class="list-group mb-3">
                 <?php
+                $totale = 0;
                 if (!is_null($rows)) {
-                    $totale = 0;
                     foreach ($rows as $row) {
                         $productrows = $products->getById($row->getProductId());
                         $tmpTotale = $productrows[0]->getPrice() * $row->getQuantity();
