@@ -10,7 +10,7 @@ $allCats = $categories->getAll();
 ?>
 <html lang="it">
 
-<link rel="stylesheet" href="css/listaProdottiMainStyle.css">
+<link rel="stylesheet" href="css/listaProdottiStyle.css">
 
 <body class="bg-light">
 <!-- Container -->
@@ -43,13 +43,13 @@ $allCats = $categories->getAll();
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
                 <form method="post" action="utenteCarrello.php">
-                    <div class="row row-cols-1 row-cols-md-4 g-4">
+                    <div class="row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-around px-5">
                         <?php
                         $allProducts = $products->getAll();
                         if (!is_null($allProducts)) {
                             foreach ($allProducts as $row) { ?>
                                 <div class="col">
-                                    <div class="card text-center">
+                                    <div class="card text-center ">
                                         <img src="img/products/<?php echo $row->getId(); ?>.jpg" class="card-img-top"
                                              alt="Foto di <?php echo $row->getName(); ?>">
                                         <div class="card-body">
@@ -76,7 +76,7 @@ $allCats = $categories->getAll();
                     <div class="tab-pane fade" id="<?php echo $name; ?>" role="tabpanel"
                          aria-labelledby="<?php echo $name; ?>-tab">
                         <form method="post" action="utenteCarrello.php">
-                            <div class="row row-cols-1 row-cols-md-4 g-4">
+                            <div class="row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-around px-5">
                                 <?php
                                 $temp = $products->getByCategoryId($ID);
                                 if (!is_null($temp)) {
