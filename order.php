@@ -7,7 +7,7 @@ require_once("model/order_item.php");
 require_once("model/product.php");
 require_once("products.php");
 require_once("cart_manager.php");
-require_once("cart.php");
+require_once("order_manager.php");
 
 function newOrderFromCart($cartId, $userId)
 {
@@ -20,8 +20,9 @@ function newOrderFromCart($cartId, $userId)
     if (!is_null($items)) {
         $orderItems = array();
         foreach ($items as $item) {
-            $temp = new Order_Item($item->getProductId(), $item->getQuantity(), $order->getId());
+            $temp = new Order_Item($item->getProductId(), $item->getQuantity(), $orderId);
             $temp->setId($item->getId());
+            $temp->setProductName($item->getProductName());
             $orderItems[] = $temp;
         }
         foreach ($orderItems as $orderItem) {
@@ -37,8 +38,8 @@ function newOrderFromCart($cartId, $userId)
 }
 
 //Session check
-if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
-    $userId = $_SESSION['user_id'];
+if (isset($_SESSION['email'], $_SESSION['cart_id'])) {
+    $userId = $_SESSION['email'];
     $cartId = $_SESSION['cart_id'];
 } else  {
     ?>

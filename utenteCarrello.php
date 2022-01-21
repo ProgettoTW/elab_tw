@@ -121,7 +121,7 @@ require_once("includes/utente.php");
         </div>
         <!--INDIRIZZO DI FATTURAZIONE-->
         <div class="col-md-7 col-lg-8">
-            <form class="needs-validation" novalidate="">
+            <form class="needs-validation" novalidate="" action="order.php" method="post">
                 <h4 class="mb-3">Pagamento: </h4>
                 <div class="my-3">
                     <div class="form-check">
@@ -177,7 +177,7 @@ require_once("includes/utente.php");
 
                 <hr class="my-4">
 
-                <button class="w-100 btn btn-primary btn-lg" type="submit">Acquista</button>
+                <button class="w-100 btn btn-primary btn-lg" name="ordina" type="submit">Acquista</button>
             </form>
         </div>
     </div>

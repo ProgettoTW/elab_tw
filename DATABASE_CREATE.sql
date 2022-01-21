@@ -28,14 +28,11 @@ CREATE TABLE `cart`
 CREATE TABLE `orders`
 (
     `orderID` int         NOT NULL AUTO_INCREMENT,
-    `cartID`  int(11) NOT NULL,
     `email`   varchar(50) NOT NULL,
     `time`    datetime    NOT NULL,
     `status`  varchar(50) NOT NULL,
 
     PRIMARY KEY (`orderID`),
-    KEY       `FK_141` (`cartID`),
-    CONSTRAINT `FK_139` FOREIGN KEY `FK_141` (`cartID`) REFERENCES `cart` (`cartID`),
     KEY       `FK_145` (`email`),
     CONSTRAINT `FK_143` FOREIGN KEY `FK_145` (`email`) REFERENCES `users` (`email`)
 );
