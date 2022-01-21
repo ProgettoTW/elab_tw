@@ -59,39 +59,44 @@ if (isset($_POST['add'])) {
 }
 ?>
 <html lang="it">
-<?php
-require_once("includes/utente.php");
-?>
-<div class="d-flex justify-content-center fw-bold h3 ">Carrello</div>
-<div class="checkout-container py-5">
-    <div class="row g-5">
-        <!--CARRELLO-->
-        <div class="col-md-5 col-lg-4 order-md-last">
-            <h4 class="d-flex justify-content-between align-items-center mb-3">
-                <?php $rows = $cartmanager->getCartItems($userId);
-                ?>
-                <span class="text-primary">Il tuo carrello</span>
-                <form action="utenteCarrello.php" method="post">
+<body class="body">
+<div class="container mt-4">
+    <div class="row">
+        <?php
+        require_once("includes/utente.php");
+        ?>
+
+        <div class="d-flex justify-content-center fw-bold h3 ">Carrello</div>
+        <div class=" main-content checkout-container py-5">
+            <div class="row g-5">
+                <!--CARRELLO-->
+                <div class="col-md-5 col-lg-4 order-md-last">
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <?php $rows = $cartmanager->getCartItems($userId);
+                        ?>
+                        <span class="text-primary">Il tuo carrello</span>
+                        <form action="utenteCarrello.php" method="post">
                     <span class="badge bg-primary rounded-pill"><?php if (!is_null($rows)) {
                             echo count($rows);
                         } ?></span>
-            </h4>
-            <ul class="list-group mb-3">
-                <?php
-                $totale = 0;
-                if (!is_null($rows)) {
-                    foreach ($rows as $row) {
-                        $productrows = $products->getById($row->getProductId());
-                        $tmpTotale = $productrows[0]->getPrice() * $row->getQuantity();
-                        $totale = $totale + $tmpTotale; ?>
-                        <li class="list-group-item d-flex justify-content-between lh-sm">
-                            <div>
-                                <h6 class="my-0"><?php echo $productrows[0]->getName(); ?></h6>
-                                <small class="text-muted">Quantità: <?php echo $row->getQuantity(); ?></small>
-                            </div>
-                            <div>
-                                <button class="btn w-20 btn-group-sm btn-danger btn-sm" type="submit" name="remove"
-                                        value="<?php echo $row->getProductId(); ?>">🗑
+                    </h4>
+                    <ul class="list-group mb-3">
+                        <?php
+                        $totale = 0;
+                        if (!is_null($rows)) {
+                            foreach ($rows as $row) {
+                                $productrows = $products->getById($row->getProductId());
+                                $tmpTotale = $productrows[0]->getPrice() * $row->getQuantity();
+                                $totale = $totale + $tmpTotale; ?>
+                                <li class="list-group-item d-flex justify-content-between lh-sm">
+                                    <div>
+                                        <h6 class="my-0"><?php echo $productrows[0]->getName(); ?></h6>
+                                        <small class="text-muted">Quantità: <?php echo $row->getQuantity(); ?></small>
+                                    </div>
+                                    <div>
+                                        <button class="btn w-20 btn-group-sm btn-danger btn-sm" type="submit"
+                                                name="remove"
+                                                value="<?php echo $row->getProductId(); ?>">🗑
                                 </button>
                             </div>
                             <span class="text-muted">€ <?php echo $tmpTotale; ?></span>
@@ -180,13 +185,14 @@ require_once("includes/utente.php");
                 <button class="w-100 btn btn-primary btn-lg" name="ordina" type="submit">Acquista</button>
             </form>
         </div>
+            </div>
+        </div>
+
     </div>
 </div>
-
+</body>
 <?php
 require_once("includes/footer.php");
 ?>
-
-</body>
 
 </html>

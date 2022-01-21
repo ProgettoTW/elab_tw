@@ -73,10 +73,11 @@ if (isset($_POST['ricevuto'])) {
             </form>
         </div>
     </div>
+    </div>
+</div>
 </body>
 <?php
 require_once("includes/footer.php");
 ?>
-</body>
 
 </html>
