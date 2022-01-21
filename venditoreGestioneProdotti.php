@@ -58,7 +58,7 @@ if (isset($_POST['rimuovi'], $_POST['ID'])) {
                     $count = 1;
                     foreach ($allProducts as $row) { ?>
                         <tr>
-                            <form class="form-inline" action="venditoreGestioneProdotti.php.php" method="post">
+                            <form class="form-inline" action="venditoreGestioneProdotti.php" method="post">
                                 <th scope="row"><?php echo $count; ?></th>
                                 <td><?php echo $row->getName(); ?></td>
                                 <input type="hidden" name="ID" value="<?php echo $row->getId(); ?>">
@@ -97,7 +97,7 @@ if (isset($_POST['rimuovi'], $_POST['ID'])) {
                 </tbody>
             </table>
             <h5 class="d-flex justify-content-center mb-4">Aggiungi un prodotto:</h5>
-            <form class="form-inline" action="venditoreGestioneProdotti.php.php" method="post">
+            <form class="form-inline" action="venditoreGestioneProdotti.php" method="post">
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Nome</span>
                     <input type="text" class="form-control" placeholder="Nome prodotto" name="nome" aria-label="name"
