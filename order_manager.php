@@ -139,6 +139,35 @@ class OrderManager
         return $rows;
     }
 
+    public function getOrderOwnerId($orderId){
+        $conn = new Connection();
+        $db = $conn->getConnection();
+
+        if ($db->connect_error) {
+            die("Connection Failed: " . $db->error);
+        }
+        $querytoexec = $db->prepare("SELECT email FROM ".$this->orderTable." WHERE orderID = ?");
+        $querytoexec->bind_param('i', $orderId);
+        $result = $querytoexec->execute();
+        if (!$result) {
+            echo "echo";
+            return null;
+        }
+
+        $result = $querytoexec->get_result();
+        if ($result->num_rows > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $email = $row['email'];
+            }
+        } else {
+            return null;
+        }
+
+        $querytoexec->close();
+        $db->close();
+        return $email;
+    }
+
     public function setOrderStatus($orderId, $status)
     {
         $conn = new Connection();
@@ -149,7 +178,7 @@ class OrderManager
         }
 
         $querytoexec = $db->prepare("UPDATE " . $this->orderTable . " SET status = ? WHERE orderID = ?");
-        $querytoexec->bind_param('ii', $status, $orderId);
+        $querytoexec->bind_param('si', $status, $orderId);
         if (!$querytoexec->execute()) {
             echo($querytoexec->error);
         }

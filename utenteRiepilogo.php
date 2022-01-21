@@ -1,18 +1,26 @@
 <?php
 
 require_once("includes/header.php");
+require_once("includes/sendOrderEmail.php");
 require_once("products.php");
 require_once("model/cart.php");
 require_once("model/cart_item.php");
 require_once("cart_manager.php");
 require_once("order_manager.php");
 
-
 $products = new ProductDB();
 $orders = new OrderManager();
 $cartmanager = new CartManager();
 $orderlist = $orders->getOrdersByUserId($_SESSION['email']);
 $cartList = $cartmanager->getCartItems($_SESSION['email']);
+
+
+if (isset($_POST['ricevuto'])) {
+    $idToUpdate = $_POST['ricevuto'];
+    $orders->setOrderStatus($idToUpdate, "Consegnato");
+    $resultMail = orderReceived($idToUpdate);
+}
+
 
 ?>
 <html lang="it">
@@ -49,6 +57,7 @@ $cartList = $cartmanager->getCartItems($_SESSION['email']);
                 </div>
             </div>
             <div class="text-uppercase">Ordini Recenti</div>
+            <form method="post" action="utenteRiepilogo.php" name="changestatus">
             <?php
             if(!is_null($orderlist)){
                 if(count($orderlist) > 2){
@@ -75,7 +84,15 @@ $cartList = $cartmanager->getCartItems($_SESSION['email']);
                     </div>
                     <div class="col-lg-8">
                         <div class="d-sm-flex align-items-sm-start justify-content-sm-between">
-                            <div class="status">Stato: <?php echo $orders->getOrderStatus($order->getId()); ?></div>
+                            <div class="status">Stato: <?php $ordStatus = $orders->getOrderStatus($order->getId());
+                                echo $ordStatus;?></div>
+                            <?php
+                            if ($ordStatus == "In Consegna"){
+                                ?>
+                                <button class="btn btn-primary" name="ricevuto" value="<?php echo $order->getId(); ?>" type="submit">Conferma Ricezione</button>
+                                <?php
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -84,6 +101,7 @@ $cartList = $cartmanager->getCartItems($_SESSION['email']);
                 }
             }
             ?>
+            </form>
         </div>
     </div>
     </div>

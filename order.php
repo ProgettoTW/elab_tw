@@ -2,12 +2,14 @@
 require_once("includes/header.php");
 require_once("includes/session.php");
 require_once("includes/connection.php");
+require_once("includes/sendOrderEmail.php");
 require_once("model/order.php");
 require_once("model/order_item.php");
 require_once("model/product.php");
 require_once("products.php");
 require_once("cart_manager.php");
 require_once("order_manager.php");
+
 
 function newOrderFromCart($cartId, $userId)
 {
@@ -52,6 +54,12 @@ $products = new ProductDB();
 
 if (isset($_POST['ordina'])){
     $orderId = newOrderFromCart($cartId, $userId);
+    if($resultMail = orderCreated("luca.vombato@gmail.com",$orderId,$_SESSION['name']) ){
+        echo "MAIL INVIATA";
+    } else{
+        echo "Niente mail";
+    }
+
     ?>
     <div class="container-fluid">
         <div class="row">

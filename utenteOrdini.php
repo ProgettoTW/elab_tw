@@ -1,6 +1,7 @@
 <?php
 
 require_once("includes/header.php");
+require_once("includes/sendOrderEmail.php");
 require_once("products.php");
 require_once("model/cart.php");
 require_once("model/cart_item.php");
@@ -8,6 +9,12 @@ require_once("order_manager.php");
 
 $products = new ProductDB();
 $orders = new OrderManager();
+
+if (isset($_POST['ricevuto'])) {
+    $idToUpdate = $_POST['ricevuto'];
+    $orders->setOrderStatus($idToUpdate, "Consegnato");
+    $resultMail = orderReceived($idToUpdate);
+}
 
 ?>
 <html lang="it">
@@ -20,9 +27,10 @@ $orders = new OrderManager();
     <div class="col-lg-9 my-lg-0 my-1">
         <div class="main-content">
             <?php
-            $orderlist = $orders->getAllOrders();
+            $orderlist = $orders->getOrdersByUserId($_SESSION['email']);
             if (!is_null($orderlist)) { ?>
                 <div class="text-uppercase">Tutti gli ordini</div>
+            <form method="post" action="utenteOrdini.php" name="changestatus">
                 <?php
                 foreach ($orderlist as $order) {
 
@@ -43,7 +51,15 @@ $orders = new OrderManager();
                             </div>
                             <div class="col-lg-8">
                                 <div class="d-sm-flex align-items-sm-start justify-content-sm-between">
-                                    <div class="status">Stato: <?php echo $orders->getOrderStatus($order->getId()); ?></div>
+                                    <div class="status">Stato: <?php $ordStatus = $orders->getOrderStatus($order->getId());
+                                        echo $ordStatus;?></div>
+                                    <?php
+                                    if ($ordStatus == "In Consegna"){
+                                        ?>
+                                        <button class="btn btn-primary" name="ricevuto" value="<?php echo $order->getId(); ?>" type="submit">Conferma Ricezione</button>
+                                        <?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -54,6 +70,7 @@ $orders = new OrderManager();
                 }
             }
             ?>
+            </form>
         </div>
     </div>
 </body>
