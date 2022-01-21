@@ -24,6 +24,10 @@
 
 .auth li {
   padding: 0 10px 5px 20px;
+
+  animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
 }
 
 .content {
@@ -31,6 +35,10 @@
 }
 .content li {
   padding-left: 10px;
+
+  animation-name: moveInBottom;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
 }
 .img-fluid {
   border-radius: 10px;
@@ -40,12 +48,17 @@
   font-family: "Bree Serif", serif;
   line-height: 200%;
   letter-spacing: 4px;
+
+  animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
 }
 
 .checkout-container {
   max-width: 960px;
   margin-right: auto;
   margin-left: auto;
+  
 }
 
 svg{
@@ -54,17 +67,59 @@ svg{
 
 .bi-person, .bi-cart3{
   color: white;
-  font-size: 1.7rem;
-    
+  font-size: 1.7rem;    
 }
 
-.searchbar{
-  color: black!important;
-}
 
 .body {
   background-color: #eee ;
   /*#a8a8a8;*/
   overflow: hidden;
   overflow-y: visible;
+}
+
+
+@keyframes moveInLeft{
+  0%{
+      opacity:0;
+      transform: translateX(-100px);
+
+  }
+
+  80%{
+      transform: translateX(10px);
+  }
+
+  100%{
+      opacity:1;
+      transform: translate(0);
+  }
+}
+
+@keyframes moveInRight{
+  0%{
+      opacity:0;
+      transform: translateX(1000px);
+  }
+
+  80%{
+      transform: translateX(-10px);
+  }
+
+  100%{
+      opacity:1;
+      transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom{
+  0%{
+      opacity:0;
+      transform: translateY(40px);
+  }
+
+  100%{
+      opacity:1;
+      transform: translate(0);
+  }
 }
