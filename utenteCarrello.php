@@ -66,8 +66,9 @@ if (isset($_POST['add'])) {
         require_once("includes/utente.php");
         ?>
 
-        <div class="d-flex justify-content-center fw-bold h3 ">Carrello</div>
+
         <div class=" main-content checkout-container py-5">
+            <div class="d-flex justify-content-center fw-bold h3 ">Carrello</div>
             <div class="row g-5">
                 <!--CARRELLO-->
                 <div class="col-md-5 col-lg-4 order-md-last">
