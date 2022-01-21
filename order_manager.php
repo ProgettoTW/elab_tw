@@ -217,11 +217,12 @@ class OrderManager
             die("Connection failed: " . $db->connect_error);
         }
 
-        $querytoexec = $db->prepare("INSERT INTO " . $this->orderItemTable . " (productID, orderID, quantity) VALUES (?, ?, ?)");
+        $querytoexec = $db->prepare("INSERT INTO " . $this->orderItemTable . " (productID, orderID, quantity, name) VALUES (?, ?, ?, ?)");
         $itProductId = $orderItem->getProductId();
         $itOrderId = $orderItem->getOrderId();
         $itQuantity = $orderItem->getQuantity();
-        $querytoexec->bind_param('iii', $itProductId, $itOrderId, $itQuantity);
+        $itName = $orderItem->getProductName();
+        $querytoexec->bind_param('iiis', $itProductId, $itOrderId, $itQuantity, $itName);
         if (!$querytoexec->execute()) {
             echo($querytoexec->error);
         }
@@ -245,11 +246,14 @@ class OrderManager
         if ($db->connect_error) {
             die("Connection failed: " . $db->connect_error);
         }
+        $now = new DateTime("now");
+        $pagato = "PAGATO";
+        $ora = $now->format('Y-m-d H:i:s.u');
 
-        $querytoexec = $db->prepare("INSERT INTO " . $this->orderTable . " (email, status) VALUES (?, 0)");
+        $querytoexec = $db->prepare("INSERT INTO " . $this->orderTable . " (email, status, time) VALUES (?, ?, ?)");
         $ordUser = $order->getUserId();
 
-        $querytoexec->bind_param('s', $ordUser);
+        $querytoexec->bind_param('sss', $ordUser, $pagato, $ora);
         if (!$querytoexec->execute()) {
             echo($querytoexec->error);
         }
