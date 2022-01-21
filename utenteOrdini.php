@@ -35,14 +35,15 @@ $orders = new OrderManager();
                                         <div class="text-uppercase">Nr.Ordine #<?php echo $order->getId(); ?></div>
                                         <div class="blue-label ms-auto text-uppercase">Pagato</div>
                                     </div>
-                                    <div>Prodotti #03</div>
+                                    <div>Numero Prodotti: <?php
+                                        echo $orders->getOrderItemsNum($order->getId());
+                                        ?></div>
                                     <div><?php echo $order->getTime(); ?></div>
                                 </div>
                             </div>
                             <div class="col-lg-8">
                                 <div class="d-sm-flex align-items-sm-start justify-content-sm-between">
-                                    <div class="status">Stato : Ricevuto</div>
-                                    <div class="btn btn-primary text-uppercase">info ordine</div>
+                                    <div class="status">Stato: <?php echo $orders->getOrderStatus($order->getId()); ?></div>
                                 </div>
                             </div>
                         </div>

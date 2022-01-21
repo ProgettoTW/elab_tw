@@ -22,7 +22,7 @@ class OrderManager
         if ($db->connect_error) {
             die("Connection Failed: " . $db->error);
         }
-        $querytoexec = $db->prepare("SELECT i.ID, p.productID as 'pid', p.name, i.quantity, o.orderID as 'oid' FROM" . $this->orderTable . " o, " . $this->cartItemTable . " i, " . $this->productTable . " p WHERE i.orderID = o.orderID AND o.orderID = ? AND p.productID = i.productID AND quantity > 0 ORDER BY o.time");
+        $querytoexec = $db->prepare("SELECT i.ID, p.productID as 'pid', p.name, i.quantity, o.orderID as 'oid' FROM ".$this->orderTable." o, ".$this->orderItemTable." i, ".$this->orderItemTable." p WHERE i.orderID = o.orderID AND i.orderID = ? AND p.productID = i.productID AND p.quantity > 0 ORDER BY o.time");
         $querytoexec->bind_param('i', $orderId);
         $result = $querytoexec->execute();
         if (!$result) {
@@ -47,6 +47,24 @@ class OrderManager
         $db->close();
 
         return $rows;
+    }
+
+    public function getOrderItemsNum($orderId){
+        $conn = new Connection();
+        $db = $conn->getConnection();
+
+        if ($db->connect_error) {
+            die("Connection Failed: " . $db->error);
+        }
+        $querytoexec = $db->prepare("SELECT * FROM ".$this->orderItemTable." WHERE orderID = ?");
+        $querytoexec->bind_param('i', $orderId);
+        $result = $querytoexec->execute();
+        if (!$result) {
+            echo "error";
+            return null;
+        }
+        $result = $querytoexec->get_result();
+        return $result->num_rows;
     }
 
     public function getOrdersByUserId($userId)
@@ -156,7 +174,7 @@ class OrderManager
             die("Connection failed: " . $db->connect_error);
         }
 
-        $querytoexec = $db->prepare("SELECT orderID, status FROM" . $this->orderTable . "WHERE orderID = ? ");
+        $querytoexec = $db->prepare("SELECT orderID, status FROM " . $this->orderTable . " WHERE orderID = ? ");
         $querytoexec->bind_param('i', $orderId);
         $result = $querytoexec->execute();
         if (!$result) {
@@ -247,13 +265,13 @@ class OrderManager
             die("Connection failed: " . $db->connect_error);
         }
         $now = new DateTime("now");
-        $pagato = "PAGATO";
+        $ricevuto = "Ricevuto";
         $ora = $now->format('Y-m-d H:i:s.u');
 
         $querytoexec = $db->prepare("INSERT INTO " . $this->orderTable . " (email, status, time) VALUES (?, ?, ?)");
         $ordUser = $order->getUserId();
 
-        $querytoexec->bind_param('sss', $ordUser, $pagato, $ora);
+        $querytoexec->bind_param('sss', $ordUser, $ricevuto, $ora);
         if (!$querytoexec->execute()) {
             echo($querytoexec->error);
         }
