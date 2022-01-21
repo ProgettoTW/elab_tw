@@ -265,21 +265,16 @@ class OrderManager
             die("Connection failed: " . $db->connect_error);
         }
         $now = new DateTime("now");
-<<<<<<< HEAD
+
         $ricevuto = "Ricevuto";
-=======
-        $pagato = "PAGATO";
->>>>>>> main
+
         $ora = $now->format('Y-m-d H:i:s.u');
 
         $querytoexec = $db->prepare("INSERT INTO " . $this->orderTable . " (email, status, time) VALUES (?, ?, ?)");
         $ordUser = $order->getUserId();
 
-<<<<<<< HEAD
         $querytoexec->bind_param('sss', $ordUser, $ricevuto, $ora);
-=======
-        $querytoexec->bind_param('sss', $ordUser, $pagato, $ora);
->>>>>>> main
+
         if (!$querytoexec->execute()) {
             echo($querytoexec->error);
         }
