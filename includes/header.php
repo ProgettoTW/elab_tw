@@ -59,14 +59,6 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
                 <li class="nav-item">
                     <a class="nav-link active" href="chiSiamo.php">Chi Siamo</a>
                 </li>
-                <li class="nav-item">
-                    <form class="d-flex input-group">
-                        <input type="search" class="form-control" placeholder="Search" aria-label="Search"/>
-                        <span class="input-group-text border-0">
-                  <i class="bi bi-search"></i>
-                </span>
-                    </form>
-                </li>
             </ul><?php if (login_check($db)) { ?>
             <div class="dropdown"><?php if (admin_check($db)) {
                         echo "ADMIN";
