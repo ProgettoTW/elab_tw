@@ -13,14 +13,7 @@
 .dropdown-menu {
   max-width: 100px;
 }
-.dropdown-menu a {
-  color: black;
-  text-transform: capitalize;
-}
 
-.btn-secondary {
-  background: orange;
-}
 
 .bi {
     font-size: 1.7rem;

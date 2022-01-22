@@ -12,17 +12,16 @@ $products = new ProductDB();
 
 <body class="body">
 <!-- Container -->
-<div class="py-5 align-items-center d-flex">
-    <div class="container py-5">
-        <div class="row">
-            <div class="col-md-6 px-md-5">
-                <h1 class="display-3 mb-4">Giornata Pesante?</h1>
-                <p class="lead mb-4">Rilassati con qualche dolce!<br></p> <a href="products_list.php"
-                                                                             class="btn btn-lg btn-primary">Vai
-                    allo Shop!</a>
+<link rel="stylesheet" href="css/indexStyle.css">
+<div class="py-3 align-items-center d-flex">
+    <div class="container">
+        <div class="row flex-md-row-reverse">
+            <div class="col-md-6"><img class="img-fluid d-block" src="img/img1.jpg" alt=""></div>
+            <div class="text col-md-6 text-center my-auto">
+                <div><h1 class="mt-5">Giornata Pesante?</h1></div>
+                <div><p class=" mb-4">Rilassati con qualche dolce!<br></p> </div>
+                <a href="products_list.php" id="shop"class="btn-shop">Vai allo Shop!</a>
             </div>
-            <div class="col-md-6"><img class="img-fluid d-block" src="img/img1.jpg"
-                                       alt="Ragazza che effettua un ordine su Pastecceroo"></div>
         </div>
     </div>
 </div>

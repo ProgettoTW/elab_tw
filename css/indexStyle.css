@@ -1,55 +1,30 @@
-.img1 {
-  max-width: calc(100vw);
-}
-
-.primary-text .btn-main .btn {
+.body .btn-shop{
+  text-decoration: none;
+  font-family: "Bree Serif", serif;
+  color: black;
   padding: 0.5rem 3.75rem;
-  display: block;
   border-radius: 30px;
   background: orange;
-  transition: all 0.4s;
+  transition: all .2s;
 }
 
-.img2 {
-  width: calc(100%);
-  border: 20px solid white;
-  border-radius: 40px;
+p,h1,.btn-shop{
+  font-family: "Bree Serif", serif;
+  padding-bottom: 10px;
+}
+.body a:hover{
+  color: black;
+}
+.body .btn-shop:hover {
+  color: black;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+  padding: 3%;
+  font-size: 1.3rem;
 }
 
-@media screen and (min-width: 576px) {
-  .img1 {
-    max-width: calc(55%);
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .primary-text {
-    display: inline-block;
-  }
-
-  .first-image {
-    justify-content: end !important;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  .primary-text .btn-main .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  }
-
-  .primary-text .btn-main .btn:active {
-    transform: translateY(-1px);
+.body .btn-shop:active {
+  transform: translateY(-1px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
-  }
-}
 
-@media screen and (min-width: 1200px) {
-}
-
-@media screen and (min-width: 1400px) {
-  .img1 {
-    max-width: calc(70%);
-  
-  }
 }
