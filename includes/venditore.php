@@ -46,4 +46,8 @@ if (!login_check($db)){
                       </li>
                  </ul>
               </div>
+<<<<<<< Updated upstream
             </div>
+=======
+            </div>
+>>>>>>> Stashed changes
