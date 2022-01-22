@@ -31,11 +31,6 @@
     background-color: #0d434be0;
 }
 
-li a .icon {
-    padding-top: 0.1rem;
-}
-
-
 .aside ul li a .link {
     color: #fff;
     font-weight: 500;
@@ -89,12 +84,11 @@ li a .icon {
 }
 
 .order .btn.btn-primary:hover {
-    /*background-color: white;*/
     color: #0d6efd;
 }
 
 .bg-light {
-    background-color: #f0ecec !important
+    background-color: #f0ecec !important;
 }
 
 .order {

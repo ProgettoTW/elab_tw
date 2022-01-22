@@ -10,9 +10,6 @@
 .navbar a {
   color: white;
 }
-.dropdown-menu {
-  max-width: 100px;
-}
 
 a:hover{
   color:black;
@@ -42,7 +39,7 @@ a:hover{
     animation-timing-function: ease-out;
 }
 .img-fluid {
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .h1 {
@@ -55,13 +52,13 @@ a:hover{
     animation-timing-function: ease-in;
 }
 
+/*
 .checkout-container {
   max-width: 960px;
   margin-right: auto;
   margin-left: auto;
-  
 }
-
+*/
 svg{
   transform: scale(1.8);
 }
