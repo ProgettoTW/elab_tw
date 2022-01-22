@@ -41,3 +41,18 @@ function orderCreated($toEmail, $order, $name)
     }
     return false;
 }
+
+
+function prodottoTerminato($toEmail, $prodotto)
+{
+    $subjectHeader = " Prodotto terminato n. ";
+    $messageHeader = "Messaggio che non so che cosa debba contenere, boh ci mettiamo magari un riepilogo dell'ordine, non so";
+    // Iposto i messaggi definitivi
+    $subject = $subjectHeader . $prodotto;
+    $message = $messageHeader . "Altro";
+    //TODO Qui ci va la mail dell'admin
+    if (mail("luca.vombato@gmail.com", $subject, $message, "From: mail@pastecceroo.com")) {
+        return true;
+    }
+    return false;
+}

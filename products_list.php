@@ -47,7 +47,8 @@ $allCats = $categories->getAll();
                         <?php
                         $allProducts = $products->getAll();
                         if (!is_null($allProducts)) {
-                            foreach ($allProducts as $row) { ?>
+                            foreach ($allProducts as $row) {
+                                $quantity = $row->getQuantity(); ?>
                                 <div class="col">
                                     <div class="card text-center ">
                                         <img src="img/products/<?php echo $row->getId(); ?>.jpg" class="card-img-top"
@@ -55,9 +56,20 @@ $allCats = $categories->getAll();
                                         <div class="card-body">
                                             <h5 class="card-title"><?php echo $row->getName(); ?></h5>
                                             <p class="card-text">Prezzo: <?php echo $row->getPrice(); ?> €</p>
-                                            <button class="btn btn-primary" name="add" type="submit"
-                                                    value="<?php echo $row->getId(); ?>">Aggiungi al Carrello
-                                            </button>
+                                            <?php
+                                            if ($quantity > 0) {
+                                                ?>
+                                                <button class="btn btn-primary" name="add" type="submit"
+                                                        value="<?php echo $row->getId(); ?>">Aggiungi al Carrello
+                                                </button>
+                                                <?php
+                                            } else { ?>
+                                                <button class="btn btn-light" name="add" type="button"
+                                                        value="esaurito">ESAURITO
+                                                </button>
+                                                <?php
+                                            }
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
@@ -80,7 +92,8 @@ $allCats = $categories->getAll();
                                 <?php
                                 $temp = $products->getByCategoryId($ID);
                                 if (!is_null($temp)) {
-                                    foreach ($temp as $row) { ?>
+                                    foreach ($temp as $row) {
+                                        $quantity = $row->getQuantity(); ?>
                                         <div class="col">
                                             <div class="card text-center">
                                                 <img src="img/products/<?php echo $row->getId(); ?>.jpg"
@@ -89,9 +102,20 @@ $allCats = $categories->getAll();
                                                 <div class="card-body">
                                                     <h5 class="card-title"><?php echo $row->getName(); ?></h5>
                                                     <p class="card-text">Prezzo: <?php echo $row->getPrice(); ?> €</p>
-                                                    <button class="btn btn-primary" name="add" type="submit"
-                                                            value="<?php echo $row->getId(); ?>">Aggiungi al Carrello
-                                                    </button>
+                                                    <?php
+                                                    if ($quantity > 0) {
+                                                        ?>
+                                                        <button class="btn btn-primary" name="add" type="submit"
+                                                                value="<?php echo $row->getId(); ?>">Aggiungi al Carrello
+                                                        </button>
+                                                        <?php
+                                                    } else { ?>
+                                                        <button class="btn btn-light" name="add" type="button"
+                                                                value="esaurito">ESAURITO
+                                                        </button>
+                                                        <?php
+                                                    }
+                                                    ?>
                                                 </div>
                                             </div>
                                         </div>
