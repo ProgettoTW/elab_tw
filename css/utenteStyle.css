@@ -32,8 +32,12 @@
 }
 
 .bi {
-    font-size: 1.3rem;
+    font-size: 1.7rem;
     color:white;
+    
+}
+li a .icon {
+    padding-top: 0.1rem;
 }
 
 

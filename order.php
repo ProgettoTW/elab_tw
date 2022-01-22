@@ -17,6 +17,8 @@ function newOrderFromCart($cartId, $userId)
     $orderMan = new OrderManager();
     $orderId = $orderMan->insertOrder($order);
     $cartmanager = new CartManager();
+    $products = new ProductDB();
+
     $items = $cartmanager->getCartItems($userId);
     //Check if items are null
     if (!is_null($items)) {
@@ -26,6 +28,10 @@ function newOrderFromCart($cartId, $userId)
             $temp->setId($item->getId());
             $temp->setProductName($item->getProductName());
             $orderItems[] = $temp;
+            $products->removeQuant($item->getQuantity(), $item->getProductId());
+            if ($products->isTerminatd($item->getProductId())) {
+                $resultMail = prodottoTerminato("luca.vombato@gmail.com", $item->getProductName());
+            }
         }
         foreach ($orderItems as $orderItem) {
             $orderMan->insertItem($orderItem);
@@ -43,30 +49,29 @@ function newOrderFromCart($cartId, $userId)
 if (isset($_SESSION['email'], $_SESSION['cart_id'])) {
     $userId = $_SESSION['email'];
     $cartId = $_SESSION['cart_id'];
-} else  {
+} else {
     ?>
     <meta http-equiv="refresh" content="0;url=login_page.php">
-<?php
+    <?php
 }
 
 $ordermanager = new OrderManager();
 $products = new ProductDB();
 
-if (isset($_POST['ordina'])){
+if (isset($_POST['ordina'])) {
     $orderId = newOrderFromCart($cartId, $userId);
-    if($resultMail = orderCreated("luca.vombato@gmail.com",$orderId,$_SESSION['name']) ){
+    if ($resultMail = orderCreated("luca.vombato@gmail.com", $orderId, $_SESSION['name'])) {
         echo "MAIL INVIATA";
-    } else{
+    } else {
         echo "Niente mail";
     }
 
     ?>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 mx-auto bg-light colonna modulo_colonna" >
+            <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 mx-auto bg-light colonna modulo_colonna">
                 <h4 class="text-success"><i class="fa fa-check" aria-hidden="true"></i>L'ordine è stato effettuato!</h4>
-                <h1>ORDINE OK!</h1>
-                <a class="btn btn-primary" href="/index.php">Torna alla Home</a>
+                <a class="btn btn-primary" href="index.php">Torna alla Home</a>
     <?php
 } else {
     echo "Errore!";

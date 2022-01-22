@@ -240,7 +240,90 @@ class ProductDB
         $db->close();
     }
 
-    //TODO La logica c'è, bisogna definire come vogliamo gestire le categorie e il resto
+    public function removeQuant($quantity, $ID)
+    {
+        $conn = new Connection();
+        $db = $conn->getConnection();
+        if ($db->connect_error) {
+            die("Connection failed: " . $db->connect_error);
+        }
+
+        $querytoexec = $db->prepare("SELECT quantity FROM " . $this->products_table." WHERE productID = ?");
+        $querytoexec->bind_param('i', $ID);
+        $result = $querytoexec->execute();
+        if (!$result) {
+            echo "error";
+            return null;
+
+        }
+        $result = $querytoexec->get_result();
+        if ($result->num_rows > 0) {
+            $rows = array();
+            while ($row = mysqli_fetch_assoc($result)) {
+                $actualQuantity = $row["quantity"];
+            }
+        } else {
+            echo "Empty\n";
+            return null;
+        }
+        $newQuantity = $actualQuantity - $quantity;
+        $querytoexec1 = $db->prepare("UPDATE " . $this->products_table . " SET quantity = ? WHERE productID = ?");
+
+        $querytoexec1->bind_param('ii', $newQuantity, $ID);
+
+        if (!$querytoexec1->execute()) {
+            echo($querytoexec1->error);
+        }
+
+        $result = $querytoexec1->get_result();
+
+        if ($result) {
+        } else {
+
+            echo($querytoexec1->error);
+            return null;
+        }
+
+        $querytoexec->close();
+        $querytoexec1->close();
+        $db->close();
+    }
+
+    public function isTerminatd($ID){
+        $conn = new Connection();
+        $db = $conn->getConnection();
+        if ($db->connect_error) {
+            die("Connection failed: " . $db->connect_error);
+        }
+
+        $querytoexec = $db->prepare("SELECT quantity FROM " . $this->products_table." WHERE productID = ?");
+        $querytoexec->bind_param('i', $ID);
+        $result = $querytoexec->execute();
+        if (!$result) {
+            echo "error";
+            return null;
+
+        }
+        $result = $querytoexec->get_result();
+        if ($result->num_rows > 0) {
+            $rows = array();
+            while ($row = mysqli_fetch_assoc($result)) {
+                $actualQuantity = $row["quantity"];
+            }
+        } else {
+            echo "Empty\n";
+            return null;
+        }
+        $querytoexec->close();
+        $db->close();
+
+        if($actualQuantity <= 0){
+            return true;
+        }
+        return false;
+    }
+
+
     public function searchProduct($string)
     {
 

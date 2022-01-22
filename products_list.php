@@ -10,7 +10,7 @@ $allCats = $categories->getAll();
 ?>
 <html lang="it">
 
-<link rel="stylesheet" href="css/listaProdottiMainStyle.css">
+<link rel="stylesheet" href="css/listaProdottiStyle.css">
 
 <body class="bg-light">
 <!-- Container -->
@@ -43,21 +43,33 @@ $allCats = $categories->getAll();
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
                 <form method="post" action="utenteCarrello.php">
-                    <div class="row row-cols-1 row-cols-md-4 g-4">
+                    <div class="row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-around px-5">
                         <?php
                         $allProducts = $products->getAll();
                         if (!is_null($allProducts)) {
-                            foreach ($allProducts as $row) { ?>
+                            foreach ($allProducts as $row) {
+                                $quantity = $row->getQuantity(); ?>
                                 <div class="col">
-                                    <div class="card text-center">
+                                    <div class="card text-center ">
                                         <img src="img/products/<?php echo $row->getId(); ?>.jpg" class="card-img-top"
                                              alt="Foto di <?php echo $row->getName(); ?>">
                                         <div class="card-body">
                                             <h5 class="card-title"><?php echo $row->getName(); ?></h5>
                                             <p class="card-text">Prezzo: <?php echo $row->getPrice(); ?> €</p>
-                                            <button class="btn btn-primary" name="add" type="submit"
-                                                    value="<?php echo $row->getId(); ?>">Aggiungi al Carrello
-                                            </button>
+                                            <?php
+                                            if ($quantity > 0) {
+                                                ?>
+                                                <button class="btn btn-primary" name="add" type="submit"
+                                                        value="<?php echo $row->getId(); ?>">Aggiungi al Carrello
+                                                </button>
+                                                <?php
+                                            } else { ?>
+                                                <button class="btn btn-light" name="add" type="button"
+                                                        value="esaurito">ESAURITO
+                                                </button>
+                                                <?php
+                                            }
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
@@ -76,11 +88,12 @@ $allCats = $categories->getAll();
                     <div class="tab-pane fade" id="<?php echo $name; ?>" role="tabpanel"
                          aria-labelledby="<?php echo $name; ?>-tab">
                         <form method="post" action="utenteCarrello.php">
-                            <div class="row row-cols-1 row-cols-md-4 g-4">
+                            <div class="row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-around px-5">
                                 <?php
                                 $temp = $products->getByCategoryId($ID);
                                 if (!is_null($temp)) {
-                                    foreach ($temp as $row) { ?>
+                                    foreach ($temp as $row) {
+                                        $quantity = $row->getQuantity(); ?>
                                         <div class="col">
                                             <div class="card text-center">
                                                 <img src="img/products/<?php echo $row->getId(); ?>.jpg"
@@ -89,9 +102,21 @@ $allCats = $categories->getAll();
                                                 <div class="card-body">
                                                     <h5 class="card-title"><?php echo $row->getName(); ?></h5>
                                                     <p class="card-text">Prezzo: <?php echo $row->getPrice(); ?> €</p>
-                                                    <button class="btn btn-primary" name="add" type="submit"
-                                                            value="<?php echo $row->getId(); ?>">Aggiungi al Carrello
-                                                    </button>
+                                                    <?php
+                                                    if ($quantity > 0) {
+                                                        ?>
+                                                        <button class="btn btn-primary" name="add" type="submit"
+                                                                value="<?php echo $row->getId(); ?>">Aggiungi al
+                                                            Carrello
+                                                        </button>
+                                                        <?php
+                                                    } else { ?>
+                                                        <button class="btn btn-light" name="add" type="button"
+                                                                value="esaurito">ESAURITO
+                                                        </button>
+                                                        <?php
+                                                    }
+                                                    ?>
                                                 </div>
                                             </div>
                                         </div>

@@ -13,7 +13,7 @@ if (!login_check($db)) {
                 <ul>
                     <li>
                         <a href="utenteRiepilogo.php" class="d-flex">
-                            <div><i class="bi bi-boxes"></i></div>
+                            <div class="icon"><i class="bi bi-boxes"></i></div>
                             <div class="d-flex px-3">
                                 <div class="link">Riepilogo</div>
                             </div>
@@ -21,7 +21,7 @@ if (!login_check($db)) {
                     </li>
                     <li>
                         <a href="utenteProfilo.php" class="d-flex">
-                            <div><i class="bi bi-person-lines-fill"></i></div>
+                            <div class="icon"><i class="bi bi-person-lines-fill"></i></div>
                             <div class="d-flex px-3">
                                 <div class="link">Profilo</div>
                             </div>
@@ -29,7 +29,7 @@ if (!login_check($db)) {
                     </li>
                     <li>
                         <a href="utenteOrdini.php" class="d-flex">
-                            <div><i class="bi bi-shop-window"></i></div>
+                            <div class="icon"><i class="bi bi-shop-window"></i></div>
                             <div class="d-flex px-3">
                                 <div class="link">Ordini</div>
                             </div>
@@ -37,7 +37,7 @@ if (!login_check($db)) {
                     </li>
                     <li>
                         <a href="utenteCarrello.php" class="d-flex">
-                            <div><i class="bi bi-cart-dash"></i></div>
+                            <div class="icon"><i class="bi bi-cart-dash"></i></div>
                             <div class="d-flex px-3">
                                 <div class="link">Carrello</div>
                             </div>
@@ -45,7 +45,7 @@ if (!login_check($db)) {
                     </li>
                     <li>
                         <a href="utenteSupporto.php" class="d-flex">
-                            <div><i class="bi bi-info-lg"></i></div>
+                            <div class="icon"><i class="bi bi-info-lg"></i></div>
                             <div class="d-flex px-3">
                                 <div class="link">Supporto</div>
                             </div>
@@ -53,7 +53,7 @@ if (!login_check($db)) {
                     </li>
                     <li>
                         <a href="./includes/logout.php" class="d-flex">
-                            <div><i class="bi bi-door-open"></i></div>
+                            <div class="icon"><i class="bi bi-door-open"></i></div>
                             <div class="d-flex px-3">
                                 <div class="link">Disconnetti</div>
                             </div>
