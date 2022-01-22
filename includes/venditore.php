@@ -6,13 +6,8 @@ if (!login_check($db)){
 <?php
 }
 ?>
-<<<<<<< Updated upstream
 <link rel="stylesheet" href="css/utenteStyle.css">
 
-=======
-      <div class="container mt-4">
-        <div class="row">
->>>>>>> Stashed changes
           <div class="col-lg-3 my-lg-0 my-md-1">
             <div class="aside">
               <div class="h4 text-white">Profilo</div>
@@ -26,7 +21,6 @@ if (!login_check($db)){
                           </a> 
                         </li>
                       <li> 
-<<<<<<< Updated upstream
                         <a href="venditoreGestioneProdotti.php" class="d-flex">
                             <div class="icon"><i class="bi bi-clipboard-plus"></i></div>
                                 <div class="d-flex px-3">
@@ -35,7 +29,6 @@ if (!login_check($db)){
                             </a> 
                       </li>
                       <li> 
-<<<<<<< Updated upstream
                         <a href="venditoreSupporto.php" class="d-flex">
                           <div class="icon"><i class="bi bi-info-lg"></i></div>
                               <div class="d-flex px-3">
@@ -54,7 +47,3 @@ if (!login_check($db)){
                  </ul>
               </div>
             </div>
-<<<<<<< Updated upstream
-=======
-            </div>
->>>>>>> Stashed changes
