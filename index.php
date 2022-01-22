@@ -25,29 +25,42 @@ $products = new ProductDB();
         </div>
     </div>
 </div>
-<div class="text-center py-5">
+<div class="py-3 align-items-center d-flex">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1 class="mb-3">Gusta i tuoi dolci direttamente al Campus!</h1>
-            </div>
+        <div class="row flex-md-row-reverse">
+        <div class="text col-md-6 text-center my-auto">
+                <div class=" py-3 col-md-12  my-auto text-center">
+                    <h2 class="mb-3">Scegli tra centinaia di prodotti</h2>
+                </div>
+        </div>
+            <div class="col-md-6"><img class="img-fluid d-block" src="img/img2.jpg" alt=""></div>
         </div>
     </div>
 </div>
-<div class="py-5">
+<div class="py-3 align-items-center d-flex">
     <div class="container">
         <div class="row">
-            <div class="col-md-6"><img class="img-fluid d-block" src="img/img2.jpg"
-                                       alt="Uomo che consulta diversi dolci esposti in vetrina"></div>
-            <div class="col-md-6">
-                <div class="px-md-5 p-3 col-md-12 d-flex flex-column align-items-start justify-content-center">
-                    <h1>Lorem Ipsum</h1>
-                    <p class="mb-3 lead">Boh non so che scrivere qui... Aggiungiamo qualche descrizione? Qualche aiuto
-                        per scegliere i dolci?</p>
+        <div class="text col-md-6 text-center my-auto">
+                <div class=" py-3 col-md-12  my-auto text-center">
+                    <h2 class="mb-3">Aggiungili al Carrello</h2>
                 </div>
-            </div>
+        </div>
+            <div class="col-md-6"><img class="img-fluid d-block" src="img/img3.jpg" alt=""></div>
         </div>
     </div>
+</div>
+<div class="py-3 align-items-center d-flex">
+    <div class="container">
+        <div class="row flex-md-row-reverse">
+        <div class="text col-md-6 text-center my-auto">
+                <div class=" py-3 col-md-12  my-auto text-center">
+                    <h2 class="mb-3">Gusta i tuoi dolci direttamente al Campus</h2>
+                </div>
+        </div>
+            <div class="col-md-6"><img class=" img2 img-fluid d-block" src="img/img6.jpg" alt=""></div>
+        </div>
+    </div>
+</div>
 </div>
 <?php
 require_once("includes/footer.php");

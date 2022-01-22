@@ -12,6 +12,10 @@ p,h1,.btn-shop{
   font-family: "Bree Serif", serif;
   padding-bottom: 10px;
 }
+
+h2{
+  font-family: "Bree Serif", serif;
+}
 .body a:hover{
   color: black;
 }
