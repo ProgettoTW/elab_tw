@@ -67,11 +67,11 @@ if (isset($_POST['add'])) {
         ?>
 
 
-        <div class=" main-content checkout-container py-5">
+        <div class="col main-content checkout-container py-5">
             <div class="d-flex justify-content-center fw-bold h3 ">Carrello</div>
             <div class="row g-5">
                 <!--CARRELLO-->
-                <div class="col-md-5 col-lg-4 order-md-last">
+                <div class="col-md-7 col-lg-6 order-md-last">
                     <h4 class="d-flex justify-content-between align-items-center mb-3">
                         <?php $rows = $cartmanager->getCartItems($userId);
                         ?>
@@ -94,15 +94,12 @@ if (isset($_POST['add'])) {
                                         <h6 class="my-0"><?php echo $productrows[0]->getName(); ?></h6>
                                         <small class="text-muted">Quantità: <?php echo $row->getQuantity(); ?></small>
                                     </div>
+                                    <span class="text-muted">€ <?php echo $tmpTotale; ?></span>
                                     <div>
-                                        <button class="btn w-20 btn-group-sm btn-danger btn-sm" type="submit"
-                                                name="remove"
-                                                value="<?php echo $row->getProductId(); ?>">🗑
-                                </button>
-                            </div>
-                            <span class="text-muted">€ <?php echo $tmpTotale; ?></span>
-                        </li>
-                    <?php }
+                                        <button type="submit" class="btn-close" aria-label="Close" name="remove" value="<?php echo $row->getProductId(); ?>"></button>
+                                    </div>
+                                </li>
+                        <?php }
                 } else {
                     echo "Il carrello è vuoto!";
                 }
@@ -126,7 +123,7 @@ if (isset($_POST['add'])) {
             </form>
         </div>
         <!--INDIRIZZO DI FATTURAZIONE-->
-        <div class="col-md-7 col-lg-8">
+        <div class="col-md-5 col-lg-6">
             <form class="needs-validation" novalidate="" action="order.php" method="post">
                 <h4 class="mb-3">Pagamento: </h4>
                 <div class="my-3">
@@ -144,27 +141,25 @@ if (isset($_POST['add'])) {
                         <label class="form-check-label" for="paypal">PayPal</label>
                     </div>
                 </div>
+                <div class="col-7">
+                    <label for="cc-name" class="form-label">Nome sulla carta</label>
+                    <input type="text" class="form-control" id="cc-name" placeholder="" required="">
+                    <small class="text-muted">Nome del proprietario della carta</small>
+                    <div class="invalid-feedback">
+                        Il nome è obbligatorio.
+                    </div>
+                </div>
 
+                <div class="col-7">
+                    <label for="cc-number" class="form-label">Numero della carta</label>
+                    <input type="text" class="form-control" id="cc-number" placeholder="XXXX XXXX XXXX XXXX"
+                            required="">
+                    <div class="invalid-feedback">
+                        Il numero della carta è obbligatorio.
+                    </div>
+                </div>
                 <div class="row gy-3">
-                    <div class="col-md-6">
-                        <label for="cc-name" class="form-label">Nome sulla carta</label>
-                        <input type="text" class="form-control" id="cc-name" placeholder="" required="">
-                        <small class="text-muted">Nome del proprietario della carta</small>
-                        <div class="invalid-feedback">
-                            Il nome è obbligatorio.
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <label for="cc-number" class="form-label">Numero della carta</label>
-                        <input type="text" class="form-control" id="cc-number" placeholder="XXXX XXXX XXXX XXXX"
-                               required="">
-                        <div class="invalid-feedback">
-                            Il numero della carta è obbligatorio.
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
+                    <div class="col-3">
                         <label for="cc-expiration" class="form-label">Scadenza</label>
                         <input type="text" class="form-control" id="cc-expiration" placeholder="XX/XX" required="">
                         <div class="invalid-feedback">
@@ -172,7 +167,7 @@ if (isset($_POST['add'])) {
                         </div>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-3">
                         <label for="cc-cvv" class="form-label">CVV</label>
                         <input type="text" class="form-control" id="cc-cvv" placeholder="XXX" required="">
                         <div class="invalid-feedback">

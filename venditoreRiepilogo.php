@@ -9,7 +9,6 @@ require_once("model/cart.php");
 require_once("model/cart_item.php");
 require_once("model/category.php");
 
-
 $products = new ProductDB();
 $orders = new OrderManager();
 $manager = new UserManager();

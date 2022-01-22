@@ -31,7 +31,7 @@ if (isset($_GET['error'])) {
                 </li>
             </ul>
         </nav>
-        <div class="tab-content" id="myTabContent">
+        <div class="tab-content my-4" id="myTabContent">
             <!-- ACCEDI -->
             <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
                 <div class="row align-items-center justify-content-center">
@@ -40,18 +40,18 @@ if (isset($_GET['error'])) {
                     </div>
                     <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1 text-center">
                         <form action="includes/login.php" method="post" name="login_form" id="login_form">
-                            <div class="form-floating mb-3">
-                                <input type="email" class="form-control flex-grow-0 m-1 mx-auto p-3 text-left w-75"
+                            <div class="form-floating m-4">
+                                <input type="email" class="form-control"
                                        id="floatingInput" placeholder="name@example.com" name="email">
-                                <label for="floatingInput" class="text-center w-50 h-50">Email</label>
+                                <label for="floatingInput">Email</label>
                             </div>
-                            <div class="form-floating mb-4">
-                                <input type="password" class="form-control flex-grow-0 m-1 mx-auto p-3 text-left w-75"
+                            <div class="form-floating m-4">
+                                <input type="password" class="form-control"
                                        id="floatingPassword" placeholder="Password" name="p">
-                                <label for="floatingPassword" class="text-center h-50 w-50">Password</label>
+                                <label for="floatingPassword">Password</label>
                             </div>
                             <button type="submit"
-                                    class="btn btn-primary btn-block btn-lg align-items-center flex-grow-1 justify-content-center w-25">
+                                    class="btn btn-primary btn-block btn-lg align-items-center flex-grow-1 justify-content-center w-25 my-2">
                                 Accedi
                             </button>
                         </form>
@@ -65,44 +65,44 @@ if (isset($_GET['error'])) {
                     <div class="col-md-8 col-lg-7 col-xl-5">
                         <img src="./img/login.svg" class="img-fluid" alt=""/>
                     </div>
-                    <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+                    <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1 text-center">
                         <form action="includes/register.php" method="post" name="login_form" id="login_form">
-                            <div class="row">
-                                <div class="col form-floating mb-3">
-                                    <input type="text" class="form-control flex-grow-0" placeholder="nome" name="name">
-                                    <label class="mx-sm-2" for="floatingInput">Nome</label>
+                            <div class="row mx-0">
+                                <div class="col form-floating ps-0 m-2">
+                                    <input type="text" class="form-control" id="floatingInput" placeholder="nome" name="name">
+                                    <label for="floatingInput">Nome</label>
                                 </div>
-                                <div class="col form-floating">
-                                    <input type="text" class="form-control flex-grow-0" placeholder="cognome"
+                                <div class="col form-floating ps-0 m-2">
+                                    <input type="text" class="form-control" placeholder="cognome"
                                            name="surname">
-                                    <label class="mx-sm-2" for="floatingInput">Cognome</label>
-                                </div>
-                                <div class="col form-floating">
-                                    <input type="text" class="form-control flex-grow-0" placeholder="numero di telefono"
-                                           name="phone">
-                                    <label class="mx-sm-2" for="floatingInput">Numero di Telefono</label>
+                                    <label for="floatingInput">Cognome</label>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col mb-3 mx-sm-1">
+
+                            <div class="row mx-0">
+                                <div class="col form-floating ps-0 m-2">
+                                    <input type="text" class="form-control" placeholder="telefono" name="phone">
+                                    <label for="floatingInput">Telefono</label>
+                                </div>
+                                <div class="col mx-sm-1">
                                     <label for="date">Data di Nascita: </label>
-                                    <input type="date" id="date" name="born_date">
-                                </div>
-                                <div class="col">
-                                    <p>Il giorno del tuo compleanno avrai uno sconto del 50% su tutti i prodotti!</p>
+                                    <input class="py-1" type="date" id="date" name="born_date">
                                 </div>
                             </div>
-                            <div class="form-floating mb-3">
+
+                            <p>Il giorno del tuo compleanno avrai uno sconto del 50% su tutti i prodotti!</p>
+
+                            <div class="form-floating m-3">
                                 <input type="email" class="form-control flex-grow-0" id="floatingInput"
                                        placeholder="name@example.com" name="email">
                                 <label for="floatingInput">Email</label>
                             </div>
-                            <div class="form-floating mb-4">
+                            <div class="form-floating m-3">
                                 <input type="password" class="form-control flex-grow-0" id="floatingPassword"
                                        placeholder="Password" name="p">
                                 <label for="floatingPassword">Password</label>
                             </div>
-                            <button type="submit" class="btn btn-primary">Registrati</button>
+                            <button type="submit" class="btn btn-primary btn-lg mt-4">Registrati</button>
                         </form>
                     </div>
                 </div>
