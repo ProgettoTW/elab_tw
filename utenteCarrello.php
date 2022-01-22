@@ -71,7 +71,7 @@ if (isset($_POST['add'])) {
             <div class="d-flex justify-content-center fw-bold h3 ">Carrello</div>
             <div class="row g-5">
                 <!--CARRELLO-->
-                <div class="col-md-7 col-lg-6 order-md-last">
+                <div class="col-md-5 col-lg-5 order-md-last">
                     <h4 class="d-flex justify-content-between align-items-center mb-3">
                         <?php $rows = $cartmanager->getCartItems($userId);
                         ?>
@@ -94,8 +94,8 @@ if (isset($_POST['add'])) {
                                         <h6 class="my-0"><?php echo $productrows[0]->getName(); ?></h6>
                                         <small class="text-muted">Quantità: <?php echo $row->getQuantity(); ?></small>
                                     </div>
-                                    <span class="text-muted">€ <?php echo $tmpTotale; ?></span>
-                                    <div>
+                                    <span class="text-muted pt-2">€ <?php echo $tmpTotale; ?></span>
+                                    <div class="pt-2">
                                         <button type="submit" class="btn-close" aria-label="Close" name="remove" value="<?php echo $row->getProductId(); ?>"></button>
                                     </div>
                                 </li>
@@ -123,7 +123,7 @@ if (isset($_POST['add'])) {
             </form>
         </div>
         <!--INDIRIZZO DI FATTURAZIONE-->
-        <div class="col-md-5 col-lg-6">
+        <div class="col-md-7 col-lg-7">
             <form class="needs-validation" novalidate="" action="order.php" method="post">
                 <h4 class="mb-3">Pagamento: </h4>
                 <div class="my-3">

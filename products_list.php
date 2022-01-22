@@ -43,15 +43,15 @@ $allCats = $categories->getAll();
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
                 <form method="post" action="utenteCarrello.php">
-                    <div class="row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-around px-5 mx-0">
+                    <div class="row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-around mx-0">
                         <?php
                         $allProducts = $products->getAll();
                         if (!is_null($allProducts)) {
                             foreach ($allProducts as $row) {
                                 $quantity = $row->getQuantity(); ?>
                                 <div class="col">
-                                    <div class="card text-center ">
-                                        <img src="img/products/<?php echo $row->getId(); ?>.jpg" class="card-img-top"
+                                    <div class="card text-center">
+                                        <img src="img/products/<?php echo $row->getId(); ?>.jpg" class="card-img-top card-image"
                                              alt="Foto di <?php echo $row->getName(); ?>">
                                         <div class="card-body">
                                             <h5 class="card-title"><?php echo $row->getName(); ?></h5>
