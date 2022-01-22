@@ -22,6 +22,11 @@
   background: orange;
 }
 
+.bi {
+    font-size: 1.7rem;
+    color:white;
+}
+
 .auth li {
   padding: 0 10px 5px 20px;
 

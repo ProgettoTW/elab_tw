@@ -53,30 +53,38 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="index.php">Pagina iniziale</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="products_list.php">Prodotti</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="chiSiamo.php">Chi Siamo</a>
-                </li>
+                <?php if (!admin_check($db)) { ?>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="products_list.php">Prodotti</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="chiSiamo.php">Chi Siamo</a>
+                    </li>
+                <?php } ?>
             </ul><?php if (login_check($db)) { ?>
-            <div class="dropdown"><?php if (admin_check($db)) {
+            <div class="dropdown">
+                <ul class="navbar-nav auth">
+                    <?php if (admin_check($db)) {
                         echo "ADMIN";
-                    } ?>
-                    <ul class="navbar-nav auth">
-                        <li class="nav-item">
-                            <a href="utenteCarrello.php"><i class="bi bi-cart3"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <?php if (admin_check($db)) {
-                                ?>
-                                <a href="venditoreRiepilogo.php"><i class="bi bi-person"></i></a>
-                                <?php
-                            } else { ?>
-                                <a href="utenteRiepilogo.php"><i class="bi bi-person"></i></a>
-                            <?php } ?>
+                    } else {
 
+                        ?>
+                        <li class="nav-item">
+                            <a class="bi bi-cart3" href="utenteCarrello.php"></a>
                         </li>
+                        <?php
+                    }
+                    ?>
+                    <li class="nav-item">
+                        <?php if (admin_check($db)) {
+                            ?>
+                            <a class="bi bi-speedometer2" href="venditoreRiepilogo.php"></a>
+                            <?php
+                        } else { ?>
+                            <a class="bi bi-person" href="utenteRiepilogo.php"></a>
+                        <?php } ?>
+
+                    </li>
                     </ul>
                     <?php
                     } else { ?>
