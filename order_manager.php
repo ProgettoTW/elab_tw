@@ -22,11 +22,7 @@ class OrderManager
         if ($db->connect_error) {
             die("Connection Failed: " . $db->error);
         }
-<<<<<<< Updated upstream
-        $querytoexec = $db->prepare("SELECT i.ID, p.productID as 'pid', p.name, i.quantity, o.orderID as 'oid' FROM ".$this->orderTable." o, ".$this->orderItemTable." i, ".$this->orderItemTable." p WHERE i.orderID = o.orderID AND i.orderID = ? AND p.productID = i.productID AND p.quantity > 0 ORDER BY o.time");
-=======
         $querytoexec = $db->prepare("SELECT i.ID, p.productID as 'pid', p.name, i.quantity, o.orderID as 'oid' FROM" . $this->orderTable . " o, " . $this->cartItemTable . " i, " . $this->productTable . " p WHERE i.orderID = o.orderID AND o.orderID = ? AND p.productID = i.productID AND quantity > 0 ORDER BY o.time");
->>>>>>> Stashed changes
         $querytoexec->bind_param('i', $orderId);
         $result = $querytoexec->execute();
         if (!$result) {
@@ -53,27 +49,6 @@ class OrderManager
         return $rows;
     }
 
-<<<<<<< Updated upstream
-    public function getOrderItemsNum($orderId){
-        $conn = new Connection();
-        $db = $conn->getConnection();
-
-        if ($db->connect_error) {
-            die("Connection Failed: " . $db->error);
-        }
-        $querytoexec = $db->prepare("SELECT * FROM ".$this->orderItemTable." WHERE orderID = ?");
-        $querytoexec->bind_param('i', $orderId);
-        $result = $querytoexec->execute();
-        if (!$result) {
-            echo "error";
-            return null;
-        }
-        $result = $querytoexec->get_result();
-        return $result->num_rows;
-    }
-
-=======
->>>>>>> Stashed changes
     public function getOrdersByUserId($userId)
     {
         $conn = new Connection();
@@ -146,38 +121,6 @@ class OrderManager
         return $rows;
     }
 
-<<<<<<< Updated upstream
-    public function getOrderOwnerId($orderId){
-        $conn = new Connection();
-        $db = $conn->getConnection();
-
-        if ($db->connect_error) {
-            die("Connection Failed: " . $db->error);
-        }
-        $querytoexec = $db->prepare("SELECT email FROM ".$this->orderTable." WHERE orderID = ?");
-        $querytoexec->bind_param('i', $orderId);
-        $result = $querytoexec->execute();
-        if (!$result) {
-            echo "echo";
-            return null;
-        }
-
-        $result = $querytoexec->get_result();
-        if ($result->num_rows > 0) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                $email = $row['email'];
-            }
-        } else {
-            return null;
-        }
-
-        $querytoexec->close();
-        $db->close();
-        return $email;
-    }
-
-=======
->>>>>>> Stashed changes
     public function setOrderStatus($orderId, $status)
     {
         $conn = new Connection();
@@ -188,11 +131,7 @@ class OrderManager
         }
 
         $querytoexec = $db->prepare("UPDATE " . $this->orderTable . " SET status = ? WHERE orderID = ?");
-<<<<<<< Updated upstream
-        $querytoexec->bind_param('si', $status, $orderId);
-=======
         $querytoexec->bind_param('ii', $status, $orderId);
->>>>>>> Stashed changes
         if (!$querytoexec->execute()) {
             echo($querytoexec->error);
         }
@@ -217,11 +156,7 @@ class OrderManager
             die("Connection failed: " . $db->connect_error);
         }
 
-<<<<<<< Updated upstream
-        $querytoexec = $db->prepare("SELECT orderID, status FROM " . $this->orderTable . " WHERE orderID = ? ");
-=======
         $querytoexec = $db->prepare("SELECT orderID, status FROM" . $this->orderTable . "WHERE orderID = ? ");
->>>>>>> Stashed changes
         $querytoexec->bind_param('i', $orderId);
         $result = $querytoexec->execute();
         if (!$result) {
@@ -282,20 +217,11 @@ class OrderManager
             die("Connection failed: " . $db->connect_error);
         }
 
-<<<<<<< Updated upstream
-        $querytoexec = $db->prepare("INSERT INTO " . $this->orderItemTable . " (productID, orderID, quantity, name) VALUES (?, ?, ?, ?)");
-        $itProductId = $orderItem->getProductId();
-        $itOrderId = $orderItem->getOrderId();
-        $itQuantity = $orderItem->getQuantity();
-        $itName = $orderItem->getProductName();
-        $querytoexec->bind_param('iiis', $itProductId, $itOrderId, $itQuantity, $itName);
-=======
         $querytoexec = $db->prepare("INSERT INTO " . $this->orderItemTable . " (productID, orderID, quantity) VALUES (?, ?, ?)");
         $itProductId = $orderItem->getProductId();
         $itOrderId = $orderItem->getOrderId();
         $itQuantity = $orderItem->getQuantity();
         $querytoexec->bind_param('iii', $itProductId, $itOrderId, $itQuantity);
->>>>>>> Stashed changes
         if (!$querytoexec->execute()) {
             echo($querytoexec->error);
         }
@@ -319,25 +245,11 @@ class OrderManager
         if ($db->connect_error) {
             die("Connection failed: " . $db->connect_error);
         }
-<<<<<<< Updated upstream
-        $now = new DateTime("now");
-
-        $ricevuto = "Ricevuto";
-
-        $ora = $now->format('Y-m-d H:i:s.u');
-
-        $querytoexec = $db->prepare("INSERT INTO " . $this->orderTable . " (email, status, time) VALUES (?, ?, ?)");
-        $ordUser = $order->getUserId();
-
-        $querytoexec->bind_param('sss', $ordUser, $ricevuto, $ora);
-
-=======
 
         $querytoexec = $db->prepare("INSERT INTO " . $this->orderTable . " (email, status) VALUES (?, 0)");
         $ordUser = $order->getUserId();
 
         $querytoexec->bind_param('s', $ordUser);
->>>>>>> Stashed changes
         if (!$querytoexec->execute()) {
             echo($querytoexec->error);
         }

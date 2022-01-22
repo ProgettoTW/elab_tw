@@ -67,7 +67,7 @@ if (isset($_POST['add'])) {
         ?>
 
 
-        <div class=" main-content checkout-container py-5">
+        <div class="col main-content checkout-container py-5">
             <div class="d-flex justify-content-center fw-bold h3 ">Carrello</div>
             <div class="row g-5">
                 <!--CARRELLO-->
@@ -98,11 +98,11 @@ if (isset($_POST['add'])) {
                                         <button class="btn w-20 btn-group-sm btn-danger btn-sm" type="submit"
                                                 name="remove"
                                                 value="<?php echo $row->getProductId(); ?>">🗑
-                                </button>
-                            </div>
-                            <span class="text-muted">€ <?php echo $tmpTotale; ?></span>
-                        </li>
-                    <?php }
+                                        </button>
+                                    </div>
+                                    <span class="text-muted">€ <?php echo $tmpTotale; ?></span>
+                                </li>
+                        <?php }
                 } else {
                     echo "Il carrello è vuoto!";
                 }
