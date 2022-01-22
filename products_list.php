@@ -106,7 +106,8 @@ $allCats = $categories->getAll();
                                                     if ($quantity > 0) {
                                                         ?>
                                                         <button class="btn btn-primary" name="add" type="submit"
-                                                                value="<?php echo $row->getId(); ?>">Aggiungi al Carrello
+                                                                value="<?php echo $row->getId(); ?>">Aggiungi al
+                                                            Carrello
                                                         </button>
                                                         <?php
                                                     } else { ?>

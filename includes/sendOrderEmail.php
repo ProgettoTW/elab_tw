@@ -35,7 +35,7 @@ function orderCreated($toEmail, $order, $name)
     $subject = $name . $subjectHeader . $order;
     $message = $messageHeader . "Altro";
     //DEBUG
-    mail("luca.vombato@gmail.com", "ORDINE RICEVUTO", "Ricevuto ordine numero".$order, "From: mail@pastecceroo.com");
+    mail("luca.vombato@gmail.com", "ORDINE RICEVUTO", "Ricevuto ordine numero" . $order, "From: mail@pastecceroo.com");
     if (mail($toEmail, $subject, $message, "From: mail@pastecceroo.com")) {
         return true;
     }
