@@ -43,7 +43,7 @@ $allCats = $categories->getAll();
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
                 <form method="post" action="utenteCarrello.php">
-                    <div class="row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-around px-5">
+                    <div class="row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-around px-5 mx-0">
                         <?php
                         $allProducts = $products->getAll();
                         if (!is_null($allProducts)) {
