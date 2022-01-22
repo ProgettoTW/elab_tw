@@ -36,7 +36,7 @@ if (isset($_POST['rimuovi'], $_POST['ID'])) {
     <?php
     require_once("includes/venditore.php");
     ?>
-        <div class="col-lg-6 my-lg-0 my-1">
+        <div class="col-lg-8 my-lg-0 my-1">
         <div class="main-content">
         <div class="d-flex my-4 flex-column">
             <h2 class="mb-4">I tuoi prodotti:</h2>
