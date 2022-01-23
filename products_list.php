@@ -57,17 +57,19 @@ $allCats = $categories->getAll();
                                             <h5 class="card-title"><?php echo $row->getName(); ?></h5>
                                             <p class="card-text">Prezzo: <?php echo $row->getPrice(); ?> €</p>
                                             <?php
-                                            if ($quantity > 0) {
-                                                ?>
-                                                <button class="btn btn-primary" name="add" type="submit"
-                                                        value="<?php echo $row->getId(); ?>">Aggiungi al Carrello
-                                                </button>
-                                                <?php
-                                            } else { ?>
-                                                <button class="btn btn-light" name="add" type="button"
-                                                        value="esaurito">ESAURITO
-                                                </button>
-                                                <?php
+                                            if (login_check($db)) {
+                                                if ($quantity > 0) {
+                                                    ?>
+                                                    <button class="btn btn-primary" name="add" type="submit"
+                                                            value="<?php echo $row->getId(); ?>">Aggiungi al Carrello
+                                                    </button>
+                                                    <?php
+                                                } else { ?>
+                                                    <button class="btn btn-light" name="add" type="button"
+                                                            value="esaurito">ESAURITO
+                                                    </button>
+                                                    <?php
+                                                }
                                             }
                                             ?>
                                         </div>
