@@ -6,6 +6,10 @@ if (isset($_POST['email'], $_POST['p'])) {
     $password = $_POST['p'];
     if (login($email, $password, $db) == true) {
         echo "LOGIN OK";
+        if(bday_check()){ ?>
+            <meta http-equiv="refresh" content="0;url=../compleanno.html">
+            <?php
+        }
         ?>
         <meta http-equiv="refresh" content="0;url=../index.php">
         <?php
