@@ -94,9 +94,9 @@ if (isset($_POST['add'])) {
                                         <h6 class="my-0"><?php echo $productrows[0]->getName(); ?></h6>
                                         <small class="text-muted">Quantità: <?php echo $row->getQuantity(); ?></small>
                                     </div>
-                                    <span class="text-muted pt-2">€ <?php echo $tmpTotale; ?></span>
+                                    <span class="text-muted pt-2" aria-label="Prezzo">€ <?php echo $tmpTotale; ?></span>
                                     <div class="pt-2">
-                                        <button type="submit" class="btn-close" aria-label="Close" name="remove" value="<?php echo $row->getProductId(); ?>"></button>
+                                        <button type="submit" class="btn-close" aria-label="Rimuovi prodotto" name="remove" value="<?php echo $row->getProductId(); ?>"></button>
                                     </div>
                                 </li>
                         <?php }
