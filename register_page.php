@@ -17,7 +17,7 @@ require_once("includes/header.php");
     <fieldset>
         <div class="row">
             <div class="form-group">
-                <label for="name">Nome</label>
+                <label for="nome">Nome</label>
                 <input class="form-control" id="nome" type="text" name="nome" placeholder="Nome">
             </div>
             <div class="form-group">
@@ -27,16 +27,14 @@ require_once("includes/header.php");
             <div class="form-group">
                 <label for="indirizzo">Indirizzo</label>
                 <input class="form-control" id="autocomplete" placeholder="Indirizzo" onFocus="geolocate()" type="text"
-                       name="Indirizzo"></input>
+                       name="Indirizzo">
             </div>
-
             <div class="form-group">
                 <label for="data">Data di Nascita</label>
                 <input type="data" name="born_date"
                        value="2000-01-01"
                        min="1990-01-01" max="2020-12-31">
             </div>
-
             <div class="form-group">
                 <label for="telefono">Telefono</label>
                 <input class="form-control" id="telefono" type="text" name="telefono" placeholder="3312345678">
@@ -52,7 +50,6 @@ require_once("includes/header.php");
                     Almeno 8 caratteri, una maiuscola e un numero.
                 </small>
             </div>
-
             <div class="form-group">
                 <label for="conferma_password">Conferma Password</label>
                 <input class="form-control" id="conferma_password" type="password" name="conferma_password">

@@ -7,17 +7,13 @@ $.validator.addMethod('password', function (value, element) {
 }, "Password non valida.");
 
 $(document).ready(function(){
-  $('#register_form').validate({
+  $('#register_page').validate({
     rules:{
       nome:{
         minlength: 2,
         required: true
       },
       cognome:{
-        minlength: 2,
-        required: true
-      },
-      indirizzo:{
         minlength: 2,
         required: true
       },
