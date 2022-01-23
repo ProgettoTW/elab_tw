@@ -65,7 +65,7 @@ $allCats = $categories->getAll();
                                                     </button>
                                                     <?php
                                                 } else { ?>
-                                                    <button class="btn btn-light" name="add" type="button"
+                                                    <button class="btn btn-outline-secondary" name="add" type="button"
                                                             value="esaurito">ESAURITO
                                                     </button>
                                                     <?php
@@ -113,7 +113,8 @@ $allCats = $categories->getAll();
                                                         </button>
                                                         <?php
                                                     } else { ?>
-                                                        <button class="btn btn-light" name="add" type="button"
+                                                        <button class="btn btn-outline-secondary" name="add"
+                                                                type="button"
                                                                 value="esaurito">ESAURITO
                                                         </button>
                                                         <?php
