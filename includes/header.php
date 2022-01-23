@@ -70,7 +70,7 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
 
                         ?>
                         <li class="nav-item">
-                            <a class="bi bi-cart3" href="utenteCarrello.php"></a>
+                            <a class="bi bi-cart3"  href="utenteCarrello.php"><span class="visually-hidden">Carrello</span></a>
                         </li>
                         <?php
                     }
@@ -78,10 +78,10 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
                     <li class="nav-item">
                         <?php if (admin_check($db)) {
                             ?>
-                            <a class="bi bi-speedometer2" href="venditoreRiepilogo.php"></a>
+                            <a class="bi bi-speedometer2" href="venditoreRiepilogo.php"><span class="visually-hidden">Profilo Venditore</span></a>
                             <?php
                         } else { ?>
-                            <a class="bi bi-person" href="utenteRiepilogo.php"></a>
+                            <a class="bi bi-person" href="utenteRiepilogo.php"><span class="visually-hidden">Profilo utente</span></a>
                         <?php } ?>
 
                     </li>
