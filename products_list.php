@@ -4,6 +4,7 @@ require_once("categories.php");
 require_once("includes/header.php");
 require_once("cart_manager.php");
 require_once("images.php");
+require_once("model/image.php");
 
 
 $products = new ProductDB();
@@ -78,11 +79,12 @@ if (isset($_POST['add'])) {
                         $allProducts = $products->getAll();
                         if (!is_null($allProducts)) {
                             foreach ($allProducts as $row) {
-                                $quantity = $row->getQuantity(); ?>
+                                $quantity = $row->getQuantity();
+                                $img = $images->getById($row->getId())[0]; ?>
                                 <div class="col">
                                     <div class="card text-center">
-                                        <img src="img/products/<?php echo $row->getId(); ?>.jpg" class="card-img-top card-image"
-                                             alt="Foto di <?php echo $row->getName(); ?>">
+                                        <img src="<?php echo $img->getUrl();?>" class="card-img-top card-image"
+                                             alt="<?php echo $img->getAlt();?>">
                                         <div class="card-body">
                                             <h5 class="card-title"><?php echo $row->getName(); ?></h5>
                                             <p class="card-text">Prezzo: <?php echo $row->getPrice(); ?> €</p>
@@ -116,7 +118,8 @@ if (isset($_POST['add'])) {
             if (!is_null($allCats)) {
                 foreach ($allCats as $row1) {
                     $name = $row1->getName();
-                    $ID = $row1->getId(); ?>
+                    $ID = $row1->getId();
+                    ?>
                     <div class="tab-pane fade" id="<?php echo $name; ?>" role="tabpanel"
                          aria-labelledby="<?php echo $name; ?>-tab">
                         <form method="post" action="products_list.php">
@@ -125,12 +128,13 @@ if (isset($_POST['add'])) {
                                 $temp = $products->getByCategoryId($ID);
                                 if (!is_null($temp)) {
                                     foreach ($temp as $row) {
-                                        $quantity = $row->getQuantity(); ?>
+                                        $quantity = $row->getQuantity();
+                                        $img1 = $images->getById($row->getId())[0]; ?>
                                         <div class="col">
                                             <div class="card text-center">
-                                                <img src="img/products/<?php echo $row->getId(); ?>.jpg"
+                                                <img src="<?php echo $img1->getUrl();?>"
                                                      class="card-img-top card-image"
-                                                     alt="Foto di <?php echo $row->getName(); ?>">
+                                                     alt="<?php echo $img1->getAlt();?>">
                                                 <div class="card-body">
                                                     <h5 class="card-title"><?php echo $row->getName(); ?></h5>
                                                     <p class="card-text">Prezzo: <?php echo $row->getPrice(); ?> €</p>

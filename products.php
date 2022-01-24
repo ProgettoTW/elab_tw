@@ -216,7 +216,7 @@ class ProductDB
 
         $querytoexec = $db->prepare("UPDATE " . $this->products_table . " SET price = ?, quantity = ? WHERE productID = ?");
 
-        $querytoexec->bind_param('iii', $price, $quantity, $ID);
+        $querytoexec->bind_param('dii', $price, $quantity, $ID);
 
         if (!$querytoexec->execute()) {
             echo($querytoexec->error);

@@ -9,7 +9,7 @@ class ImageDB
 
     private string $imagesTable = "images";
 
-    public function getById($imageId)
+    public function getById($productId)
     {
         $conn = new Connection();
         $db = $conn->getConnection();
@@ -18,8 +18,8 @@ class ImageDB
             die("Connection failed: " . $db->connect_error);
         }
 
-        $querytoexec = $db->prepare("SELECT * FROM " . $this->imagesTable . " WHERE imageID = ?");
-        $querytoexec->bind_param('i', $imageId);
+        $querytoexec = $db->prepare("SELECT * FROM " . $this->imagesTable . " WHERE productID = ?");
+        $querytoexec->bind_param('i', $productId);
         $result = $querytoexec->execute();
         if (!$result) {
             echo "error";
