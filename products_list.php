@@ -45,7 +45,7 @@ if (isset($_POST['add'])) {
 
 <body class="bg-light">
 <!-- Container -->
-<div class="container-fluid">
+<div class="container-fluid" id="main-content">
     <main>
         <!-- FILTER NAVS-->
         <nav>

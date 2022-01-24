@@ -68,7 +68,7 @@ if (isset($_POST['add'])) {
         ?>
 
 
-        <div class="col main-content checkout-container py-5">
+        <div class="col main-content checkout-container py-5" id="main-content">
             <div class="d-flex justify-content-center fw-bold h3 ">Carrello</div>
             <div class="row g-5">
                 <!--CARRELLO-->

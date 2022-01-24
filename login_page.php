@@ -14,7 +14,7 @@ if (isset($_GET['error'])) {
 <html lang="it">
 
 <body class="body">
-<div class="container-fluid">
+<div class="container-fluid" id="main-content">
     <div class="row">
         <!-- FILTER NAVS-->
         <nav>

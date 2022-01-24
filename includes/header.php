@@ -41,6 +41,7 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
 </head>
 
 <div class="header justify-content-evenly px-4">
+    <a type="button" class="btn btn-light visually-hidden-focusable" href="#main-content">Vai al contenuto principale</a>
     <nav class="navbar navbar-expand-lg text-uppercase navbar-dark">
         <a class="navbar-brand" href="#">
             <h1 class="h1">Pastecceroo</h1></a>

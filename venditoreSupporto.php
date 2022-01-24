@@ -32,7 +32,7 @@ if(isset($_POST['rimuovi'], $_POST['ID'])){
 ?>
 <html lang="it">
 <body class="body">
-<div class="container mt-4">
+<div class="container mt-4" id="main-content">
     <div class="row">
     <?php
     require_once("includes/venditore.php");
