@@ -9,7 +9,7 @@ sec_session_start();
 $conn = new Connection();
 $db = $conn->getConnection();
 
-
+$bday = bday_check();
 if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
     $userId = $_SESSION['user_id'];
     $cartId = $_SESSION['cart_id'];
@@ -20,6 +20,12 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" ></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -27,7 +33,15 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"
             style=""></script>
     <!-- CSS -->
+    <?php if($bday){
+        ?>
+    <link rel="stylesheet" href="css/compleannoTest.css">
+    <?php
+    } else {?>
     <link rel="stylesheet" href="css/headerStyle.css">
+    <?php
+    }
+    ?>
     <!--Google Font-->
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
     <!--Bootstrap icons-->
@@ -43,8 +57,25 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
 <div class="header justify-content-evenly px-4">
     <a type="button" class="btn btn-light visually-hidden-focusable" href="#main-content">Vai al contenuto principale</a>
     <nav class="navbar navbar-expand-lg text-uppercase navbar-dark">
+
+        <?php
+        if($bday){
+
+        ?>
+        <img src="img/balloons.png" alt="" width="40" style="-webkit-transform: scaleX(-1); transform: scaleX(-1);">
+        <a class="navbar-brand" href="#">
+            <h1 class="h1">Pastecceroo</h1>
+        </a>
+        <img src="img/balloons.png" alt="" width="40" >
+        <?php
+
+        } else {
+        ?>
         <a class="navbar-brand" href="#">
             <h1 class="h1">Pastecceroo</h1></a>
+        <?php
+        }
+        ?>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
