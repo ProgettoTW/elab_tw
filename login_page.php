@@ -9,6 +9,7 @@ if (isset($_GET['error'])) {
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/additional-methods.min.js"></script>
 <script src="js/login_module.js"></script>
+<script src="js/register_module.js"></script>
 <script src="js/jquery_validation_messages.js"></script>
 
 <html lang="it">
@@ -42,12 +43,12 @@ if (isset($_GET['error'])) {
                         <form action="includes/login.php" method="post" name="login_form" id="login_form">
                             <div class="form-floating m-4">
                                 <input type="email" class="form-control"
-                                       id="floatingInput" placeholder="name@example.com" name="email">
+                                       id="floatingInput" placeholder="name@example.com" name="emailLogin">
                                 <label for="floatingInput">Email</label>
                             </div>
                             <div class="form-floating m-4">
                                 <input type="password" class="form-control"
-                                       id="floatingPassword" placeholder="Password" name="p">
+                                       id="floatingPassword" placeholder="Password" name="passwordLogin">
                                 <label for="floatingPassword">Password</label>
                             </div>
                             <button type="submit"
@@ -66,7 +67,7 @@ if (isset($_GET['error'])) {
                         <img src="./img/login.svg" class="img-fluid" alt=""/>
                     </div>
                     <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1 text-center">
-                        <form action="includes/register.php" method="post" name="login_form" id="login_form">
+                        <form action="includes/register.php" method="post" name="register_form" id="register_form">
                             <div class="row mx-0">
                                 <div class="col form-floating ps-0 m-2">
                                     <input type="text" class="form-control" id="floatingInput" placeholder="nome" name="name">
