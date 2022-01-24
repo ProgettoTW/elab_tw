@@ -34,7 +34,7 @@
 }
 
 .aside ul li a .link:hover{
-    color: #5C0995;
+    color: black;
     transition: all .2s;
 }
 .aside ul li a:hover{
@@ -113,10 +113,10 @@
 }
 
 .btn.btn-primary, .bg-primary{
-    background:  #5c0995 !important;;
-    border-color:  #5c0995 ;
+    background:  black!important;
+    border-color:  black ;
 }
 
 .text-primary{
-color: #5c0995 !important;
+color: black;
 }

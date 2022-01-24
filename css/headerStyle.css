@@ -61,12 +61,22 @@ svg{
   font-size: 1.7rem;    
 }
 
+.btn-primary{
+  background-color: #156470;
+  border-color: #156470;
+}
+
+.btn-primary:hover{
+  background-color: #135661;
+}
+
 .btn-secondary{
   background:orange;
+  border-color: orange;
 }
 
 .btn-secondary:hover{
-  background:orange;
+  background:rgb(216, 140, 0);
 }
 
 .body {

@@ -41,8 +41,17 @@ if (isset($_POST['add'])) {
 ?>
 <html lang="it">
 
-<link rel="stylesheet" href="css/listaProdottiStyle.css">
 
+<?php if($bday){
+        ?>
+    
+    <link rel="stylesheet" href="css/listaProdottiStyle.css">
+    <?php
+    } else {?>
+    <link rel="stylesheet" href="css/listaProdottiCompleannoStyle.css">
+    <?php
+    }
+    ?>
 <body class="bg-light">
 <!-- Container -->
 <div class="container-fluid" id="main-content">

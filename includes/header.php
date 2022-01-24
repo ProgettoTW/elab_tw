@@ -63,7 +63,7 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
 
         ?>
         <img src="img/balloons.png" alt="" width="40" style="-webkit-transform: scaleX(-1); transform: scaleX(-1);">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="index.php">
             <h1 class="h1">Pastecceroo</h1>
         </a>
         <img src="img/balloons.png" alt="" width="40" >
@@ -71,7 +71,7 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
 
         } else {
         ?>
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="index.php">
             <h1 class="h1">Pastecceroo</h1></a>
         <?php
         }
