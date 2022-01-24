@@ -94,15 +94,29 @@ CREATE TABLE `cartItem`
 
 CREATE TABLE `images`
 (
-    `imageID`   int NOT NULL AUTO_INCREMENT ,
-    `url`       varchar(50) NOT NULL ,
-    `productID` int(11) NOT NULL ,
-    `alt`       varchar(50) NOT NULL ,
+    `imageID`   int         NOT NULL AUTO_INCREMENT,
+    `url`       varchar(50) NOT NULL,
+    `productID` int(11) NOT NULL,
+    `alt`       varchar(50) NOT NULL,
 
     PRIMARY KEY (`imageID`),
-    KEY `FK_185` (`productID`),
+    KEY         `FK_185` (`productID`),
     CONSTRAINT `FK_183` FOREIGN KEY `FK_185` (`productID`) REFERENCES `products` (`productID`)
 );
+
+CREATE TABLE `notifications`
+(
+    `ID`     int(11) NOT NULL AUTO_INCREMENT,
+    `time`   datetime    NOT NULL,
+    `email`  varchar(50) NOT NULL,
+    `status` varchar(50) NOT NULL,
+    `seen`   bit(1)      NOT NULL,
+
+    PRIMARY KEY (`ID`),
+    KEY      `FK_193` (`email`),
+    CONSTRAINT `FK_191` FOREIGN KEY `FK_193` (`email`) REFERENCES `users` (`email`)
+);
+
 
 
 
