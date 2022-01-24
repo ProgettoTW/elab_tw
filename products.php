@@ -137,9 +137,6 @@ class ProductDB
         if ($result) {
             echo "Insert OK";
         } else {
-            $querytoexec->close();
-            $db->close();
-            return null;
         }
         $id = mysqli_stmt_insert_id($querytoexec);
 

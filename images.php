@@ -58,11 +58,11 @@ class ImageDB
         $querytoexec = $db->prepare("SELECT * FROM " . $this->imagesTable);
         $result = $querytoexec->execute();
 
-        if (!$result) {
+        if ($result) {
+            echo "Query OK";
+        } else {
             echo "error";
             return null;
-        } else {
-            //Boh
         }
 
         $result = $querytoexec->get_result();
@@ -115,7 +115,7 @@ class ImageDB
 
     }
 
-    public function delete($id)
+    public function delete($prodId)
     {
         $conn = new Connection();
         $db = $conn->getConnection();
@@ -124,8 +124,8 @@ class ImageDB
             die("Connection failed: " . $db->connect_error);
         }
 
-        $querytoexec = $db->prepare("DELETE FROM " . $this->imagesTable . " WHERE imageID = ?");
-        $querytoexec->bind_param('i', $id);
+        $querytoexec = $db->prepare("DELETE FROM " . $this->imagesTable . " WHERE productID = ?");
+        $querytoexec->bind_param('i', $prodId);
         if (!$querytoexec->execute()) {
             echo($querytoexec->error);
         }
@@ -134,7 +134,7 @@ class ImageDB
         if ($result) {
             echo "Delete OK";
         } else {
-            return null;
+
         }
 
         $querytoexec->close();
