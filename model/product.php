@@ -3,12 +3,12 @@
 class Product
 {
 
-    private $id;
-    private $ProductName;
-    private $Description;
+    private int $id;
+    private string $ProductName;
+    private string $Description;
     private $Customizable;
-    private $Quantity;
-    private $CategoryId;
+    private int $Quantity;
+    private int $CategoryId;
     private $UnitPrice;
 
     public function __construct($name, $price, $description, $customizable, $categoryId, $quantity)

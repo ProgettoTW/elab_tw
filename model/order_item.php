@@ -3,11 +3,11 @@
 class Order_Item
 {
 
-    private $ID;
-    private $orderID;
-    private $productID;
-    private $quantity;
-    private $productName;
+    private int $ID;
+    private int $orderID;
+    private int $productID;
+    private int $quantity;
+    private string $productName;
 
     //Boh non so se è necessario il name intanto lo metto
 

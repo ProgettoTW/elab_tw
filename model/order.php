@@ -3,9 +3,9 @@
 class Order
 {
 
-    private $id;
-    private $userId;
-    private $time;
+    private int $id;
+    private string $userId;
+    private string $time;
 
     public function __construct($userId)
     {

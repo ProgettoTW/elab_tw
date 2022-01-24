@@ -92,6 +92,17 @@ CREATE TABLE `cartItem`
     CONSTRAINT `FK_77` FOREIGN KEY `FK_79` (`productID`) REFERENCES `products` (`productID`)
 );
 
+CREATE TABLE `images`
+(
+    `imageID`   int NOT NULL AUTO_INCREMENT ,
+    `url`       varchar(50) NOT NULL ,
+    `productID` int(11) NOT NULL ,
+    `alt`       varchar(50) NOT NULL ,
+
+    PRIMARY KEY (`imageID`),
+    KEY `FK_185` (`productID`),
+    CONSTRAINT `FK_183` FOREIGN KEY `FK_185` (`productID`) REFERENCES `products` (`productID`)
+);
 
 
 

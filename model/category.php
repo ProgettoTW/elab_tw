@@ -3,9 +3,9 @@
 class Category
 {
 
-    private $id;
-    private $name;
-    private $descr;
+    private int $id;
+    private string $name;
+    private string $descr;
 
     public function __construct($name, $descr)
     {
