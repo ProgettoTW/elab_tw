@@ -9,9 +9,12 @@ if (isset($_POST['emailLogin'], $_POST['passwordLogin'])) {
         if(bday_check()){ ?>
             <meta http-equiv="refresh" content="0;url=../compleanno.html">
             <?php
+        } else {
+            ?>
+            <meta http-equiv="refresh" content="0;url=../index.php">
+                <?php
         }
         ?>
-        <meta http-equiv="refresh" content="0;url=../index.php">
         <?php
     } else {
         ?>
