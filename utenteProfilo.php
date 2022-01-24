@@ -13,7 +13,7 @@ if (isset($_POST['old_pw'], $_POST['new_pw'], $_SESSION['email'])) {
     //Check new change
     $result = $manager->setnewPass($_SESSION['email'], $_POST['new_pw']);
     if (!$result) {
-        echo "AO c'è stato un errore nel cambiare psw forse non era giusta o forse ho rotto qualcosa";
+        echo "C'è stato un errore nel cambio della password";
     }
 }
 
@@ -56,6 +56,5 @@ if (isset($_POST['old_pw'], $_POST['new_pw'], $_SESSION['email'])) {
 <?php
 require_once("includes/footer.php");
 ?>
-</body>
 
 </html>

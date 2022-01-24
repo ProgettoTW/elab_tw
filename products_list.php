@@ -1,12 +1,42 @@
 <?php
-include_once("products.php");
-include_once("categories.php");
-include_once("includes/header.php");
+require_once("products.php");
+require_once("categories.php");
+require_once("includes/header.php");
+require_once("cart_manager.php");
+require_once("images.php");
 
 
 $products = new ProductDB();
 $categories = new CategoryDB();
+$cartmanager = new CartManager();
+$images = new ImageDB();
+
 $allCats = $categories->getAll();
+
+if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
+    $userId = $_SESSION['email'];
+    $cartId = $_SESSION['cart_id'];
+    $bday = false;
+    if (isset($_SESSION['bday'])) {
+        $bday = bday_check();
+    }
+
+}
+
+if (isset($_POST['add'])) {
+    $productId = intval($_POST['add']);
+    if ($cartmanager->isInCart($productId, $userId)) {
+        $row = $cartmanager->getByProductId($productId, $userId);
+        $quantity = $row[0]->getQuantity() + 1;
+        $cartmanager->updateQuantity($row[0]->getId(), $quantity);
+    } else {
+        $item = new Cart_item($productId, 1, $cartId);
+        $cartmanager->insertItem($item);
+    }
+}
+
+
+
 ?>
 <html lang="it">
 
@@ -42,7 +72,7 @@ $allCats = $categories->getAll();
         </nav>
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
-                <form method="post" action="utenteCarrello.php">
+                <form method="post" action="products_list.php">
                     <div class="row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-around mx-0">
                         <?php
                         $allProducts = $products->getAll();
@@ -89,7 +119,7 @@ $allCats = $categories->getAll();
                     $ID = $row1->getId(); ?>
                     <div class="tab-pane fade" id="<?php echo $name; ?>" role="tabpanel"
                          aria-labelledby="<?php echo $name; ?>-tab">
-                        <form method="post" action="utenteCarrello.php">
+                        <form method="post" action="products_list.php">
                             <div class="row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-around px-5">
                                 <?php
                                 $temp = $products->getByCategoryId($ID);

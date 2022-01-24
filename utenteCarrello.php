@@ -20,9 +20,10 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
         $bday = bday_check();
     }
 
-
 } else {
-//TODO REDIRECT SE SESSIONE NON È CREATA
+    ?>
+    <meta http-equiv="refresh" content="0;url=index.php">
+    <?php
 }
 
 $cartmanager = new CartManager();
