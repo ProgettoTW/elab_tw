@@ -44,4 +44,3 @@ if (isset($_POST['emailLogin'], $_POST['passwordLogin'])) {
     echo 'Invalid Request';
 }
 
-?>
