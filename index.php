@@ -10,11 +10,14 @@ $products = new ProductDB();
 ?>
 <html lang="it">
 
-<body class="body">
-<!-- Container -->
 <link rel="stylesheet" href="css/indexStyle.css">
+
+<body class="body">
+
+
+<!-- Container -->
 <div class="py-3 align-items-center d-flex">
-    <div class="container">
+    <div class="container" id="main-content">
         <div class="row flex-md-row-reverse">
             <div class="col-md-6"><img class="img-fluid d-block" src="img/img1.jpg" alt=""></div>
             <div class="text col-md-6 text-center my-auto">
@@ -61,8 +64,11 @@ $products = new ProductDB();
         </div>
     </div>
 </div>
-</div>
+
+
+
 <?php
+
 require_once("includes/footer.php");
 ?>
 </body>

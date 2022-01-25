@@ -14,7 +14,6 @@ function sec_session_start()
 
 function login($email, $password, $mysqli)
 {
-    //TODO Finire qui perché ho riscritto il DB e porcapaletta mi sarà sicuramente saltato qualcosa
     if ($querytoexec = $mysqli->prepare("SELECT u.name, u.email, u.password, u.date, c.cartID, u.admin FROM users u, cart c WHERE u.email = ? AND u.email = c.email LIMIT 1")) {
         $querytoexec->bind_param('s', $email);
         $querytoexec->execute();

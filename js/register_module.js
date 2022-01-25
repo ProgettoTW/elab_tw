@@ -7,7 +7,7 @@ $.validator.addMethod('password', function (value, element) {
 }, "Password non valida.");
 
 $(document).ready(function(){
-  $('#register_page').validate({
+  $('#register_form').validate({
     rules:{
       nome:{
         minlength: 2,
@@ -15,6 +15,9 @@ $(document).ready(function(){
       },
       cognome:{
         minlength: 2,
+        required: true
+      },
+      born_date:{
         required: true
       },
       telefono:{
@@ -28,10 +31,6 @@ $(document).ready(function(){
       password:{
         password: true,
         required: true
-      },
-      conferma_password:{
-        required: true,
-        equalTo: "#password"
       },
     },
     highlight: function (element){

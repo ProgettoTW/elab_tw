@@ -45,7 +45,7 @@ if(isset($_POST['rimuovi'], $_POST['ID'])){
 ?>
 <html lang="it">
 <body class="body">
-<div class="container mt-4">
+<div class="container mt-4" id="main-content">
     <div class="row">
         <?php
         require_once("includes/venditore.php");
@@ -148,7 +148,7 @@ if(isset($_POST['rimuovi'], $_POST['ID'])){
                             <label class="input-group-text" for="inputGroupFile01">Immagine prodotto</label>
                             <input type="file" class="form-control" id=immagine" name="immagine">
                         </div>
-                        <button class="btn btn-success" type="submit">Aggiungi</button>
+                        <button class="btn btn-primary" type="submit">Aggiungi</button>
                     </form>
                 </div>
             </div>

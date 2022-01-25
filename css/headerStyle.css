@@ -52,13 +52,6 @@ a:hover{
     animation-timing-function: ease-in;
 }
 
-/*
-.checkout-container {
-  max-width: 960px;
-  margin-right: auto;
-  margin-left: auto;
-}
-*/
 svg{
   transform: scale(1.8);
 }
@@ -68,6 +61,23 @@ svg{
   font-size: 1.7rem;    
 }
 
+.btn-primary{
+  background-color: #156470;
+  border-color: #156470;
+}
+
+.btn-primary:hover{
+  background-color: #135661;
+}
+
+.btn-secondary{
+  background:orange;
+  border-color: orange;
+}
+
+.btn-secondary:hover{
+  background:rgb(216, 140, 0);
+}
 
 .body {
   background-color: #eee ;

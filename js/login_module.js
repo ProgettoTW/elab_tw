@@ -1,11 +1,11 @@
 $(document).ready(function(){
   $('#login_form').validate({
     rules:{
-      email:{
+      emailLogin:{
         email: true,
         required: true
       },
-      password:{
+      passwordLogin:{
         required: true
       },
     },

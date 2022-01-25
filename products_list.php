@@ -34,6 +34,12 @@ if (isset($_POST['add'])) {
         $item = new Cart_item($productId, 1, $cartId);
         $cartmanager->insertItem($item);
     }
+    ?>
+    <script>
+    $('.toast').toast();
+    $('#aggCart').toast('show');</script>
+<?php
+
 }
 
 
@@ -41,11 +47,23 @@ if (isset($_POST['add'])) {
 ?>
 <html lang="it">
 
-<link rel="stylesheet" href="css/listaProdottiStyle.css">
 
+<?php if($bday){
+        ?>
+    
+    <link rel="stylesheet" href="css/listaProdottiStyle.css">
+    <?php
+    } else {?>
+    <link rel="stylesheet" href="css/listaProdottiCompleannoStyle.css">
+    <?php
+    }
+    ?>
 <body class="bg-light">
+<?php
+require_once("includes/toasts.php");
+?>
 <!-- Container -->
-<div class="container-fluid">
+<div class="container-fluid" id="main-content">
     <main>
         <!-- FILTER NAVS-->
         <nav>

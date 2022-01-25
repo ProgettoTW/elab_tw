@@ -36,7 +36,7 @@ body{
 
 @keyframes move{
 	0%{
-		transform: translateY(1000px);
+		transform: translateY(1500px);
 
 	}
     80%{
@@ -103,13 +103,13 @@ body{
 }
 
 .balloon:nth-child(10){
-	left: 80%;
+	left: 65%;
 	top: 40%;
 	background-color: #FB646E;
 	animation-duration: 2.6s;
 }
 .balloon:nth-child(11){
-	left: 90%;
+	left: 75%;
 	top: 40%;
 	background-color: #89DF42;
 	animation-duration: 4.9s;
@@ -133,7 +133,7 @@ body{
 	animation-duration: 3s;
 }
 .balloon:nth-child(15){
-	left: 85%;
+	left: 35%;
 	top: 40%;
 	background-color: #F99825;
 	animation-duration: 6.2s;

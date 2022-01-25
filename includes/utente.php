@@ -6,7 +6,16 @@ if (!login_check($db)) {
     <?php
 }
 ?>
-<link rel="stylesheet" href="css/utenteStyle.css">
+
+<?php if($bday){
+        ?>
+    <link rel="stylesheet" href="css/utenteCompleannoStyle.css">
+    <?php
+    } else {?>
+    <link rel="stylesheet" href="css/utenteStyle.css">
+    <?php
+    }
+    ?>
 <div class="col-lg-3 my-lg-0 my-md-1">
             <div class="aside">
                 <div class="h4 text-white">Profilo</div>

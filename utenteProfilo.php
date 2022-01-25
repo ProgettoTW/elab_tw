@@ -21,7 +21,7 @@ if (isset($_POST['old_pw'], $_POST['new_pw'], $_SESSION['email'])) {
 ?>
 <html lang="it">
 <body class="body">
-<div class="container mt-4">
+<div class="container mt-4" id="main-content">
     <div class="row">
     <?php
     require_once("includes/utente.php");
