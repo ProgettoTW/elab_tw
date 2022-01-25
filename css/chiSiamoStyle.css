@@ -1,7 +1,10 @@
-*{
-    box-sizing: border-box;
+
+.aside {
+    padding: 15px 0px 15px 0px;
+    border-radius: 10px;
+    background-color: #15647065;
 }
-ul.presentazione{
+.presentazione{
     line-height: 1;
 }
 .presentazione li{
@@ -9,19 +12,32 @@ ul.presentazione{
 }
 
 .div-presentazione{
-    border: 20px  white solid;
-    background-color:white;
     border-radius: 15px;
     padding-left: 30px;
+    background-color: white;
 }
-.div-tecnologie{
-    border: 20px  white solid;
-    background-color:white;
-    border-radius: 15px;
-    padding-left: 30px;
+
+.presentazione,p{
+    font-size: 1.2rem;
+}
+
+.aside ul li {
+    padding: 10px 0;
+    display: block;
+
+}
+
+.aside ul li a {
+    text-decoration: none;
+    align-items: start;
+}
+
+.aside ul li .link {
+    text-transform: capitalize;
+    color: black;
+    font-weight: 400;
+    font-size: 1.3rem;
 }
 
 
-ul.tecnologie{
-    list-style-type: none;
-}
+
