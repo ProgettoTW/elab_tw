@@ -9,7 +9,7 @@
 ### Specifiche del progetto
 
 Il progetto consiste nella realizzazione di una piattaforma di Delivery di Torte e prodotti di pasticceria nel Campus di
-Cesena. Il nome della piattaforma è **Pasticceroo** (Pronunciato `pasticcerù`).
+Cesena. Il nome della piattaforma è **Pastecceroo** (Pronunciato `pasticcerù`).
 
 ### Linguaggi utilizzati
 
