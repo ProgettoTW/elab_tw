@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box;
+}
+ul.presentazione{
+    line-height: 1;
+}
+.presentazione li{
+    padding-left:1%;
+}
+
+.div-presentazione{
+    border: 20px  white solid;
+    background-color:white;
+    border-radius: 15px;
+    padding-left: 30px;
+}
+.div-tecnologie{
+    border: 20px  white solid;
+    background-color:white;
+    border-radius: 15px;
+    padding-left: 30px;
+}
+
+
+ul.tecnologie{
+    list-style-type: none;
+}
