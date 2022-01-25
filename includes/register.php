@@ -43,11 +43,21 @@ if (isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['born_date
                 $insert_stmt->close();
             }
         } else { ?>
-            <div class="container-fluid">
-            <div class="row">
-            <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 mx-auto bg-light" >
-            <h4> Questa mail è già registrata!</h4>
-            <a class="btn btn-primary" href="../login_page.php">Torna indietro</a>
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+             integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+            <div class="page-wrap d-flex flex-row align-items-center" style="margin 3%;">
+                <div class="container" style="background-color: #156470; border-radius: 10px; margin-top: 5%;">
+                    <div class="row justify-content-center">
+                        <div class="col-md-12 text-center mt-5 py-5" style="color: white;">
+                            <div class="display-1 bi bi-emoji-frown"></div>
+                            <span class="display-1 d-block">Errore!</span>
+                            <div class="mb-4 lead">Questa mail è già stata registrata!</div>
+                            <a class="btn btn-danger mb-5" href="../login_page.php">Torna indietro</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <?php
         }
     } else {
@@ -56,11 +66,21 @@ if (isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['born_date
     $update_stmt->close();
     $db->close();
 } else { ?>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 mx-auto bg-light">
-                <h4> Non hai compilato tutti i campi!</h4>
-                <a class="btn btn-primary" href="../login_page.php">Torna indietro</a>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <div class="page-wrap d-flex flex-row align-items-center" style="margin 3%;">
+        <div class="container" style="background-color: #156470; border-radius: 10px; margin-top: 5%;">
+            <div class="row justify-content-center">
+                <div class="col-md-12 text-center mt-5 py-5" style="color: white;">
+                    <div class="display-1 bi bi-emoji-frown"></div>
+                    <span class="display-1 d-block">Errore!</span>
+                    <div class="mb-4 lead">Non hai compilato tutti i campi!</div>
+                    <a class="btn btn-danger mb-5" href="../login_page.php">Torna indietro</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <?php
 }
 ?>
