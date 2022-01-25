@@ -13,10 +13,11 @@ $notifications = new NotificationManager();
 
 
 $bday = bday_check();
-$notFlag = $notifications->getUnreadByUser($_SESSION['email']);
+$notFlag = false;
 if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
     $userId = $_SESSION['user_id'];
     $cartId = $_SESSION['cart_id'];
+    $notifications->getUnreadByUser($_SESSION['email']);
 }
 
 
