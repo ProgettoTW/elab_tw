@@ -19,7 +19,7 @@ if (isset($_POST['emailLogin'], $_POST['passwordLogin'])) {
     } else {
         ?>
 
-        <h4 class="text-danger"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> L'email o la password non
+        <h4 class="text-danger"><i class="bi bi-exclamation-triangle" aria-hidden="true"></i> L'email o la password non
             corrispondono</h4>
         <a class="btn btn-primary" href="../login_module.php">Torna indietro</a>
         <?php
