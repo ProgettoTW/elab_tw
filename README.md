@@ -71,9 +71,9 @@ Una volta creato sarà possibile popolarlo direttamente dalla dashboard venditor
 ![Francesco Esposito](img/fra.png)![Luca Bandini](img/luca.png)
 
 
- - **Davide Carità e Francesco Esposito: Front-End**
+ - **Davide Carità e Francesco Esposito:** Front-End
 
 
- - **Luca Bandini: Back-End**
+ - **Luca Bandini:** Back-End
 
 
