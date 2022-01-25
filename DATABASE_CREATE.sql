@@ -118,5 +118,26 @@ CREATE TABLE `notifications`
 );
 
 
+--- INSERT CATEGORIE
+INSERT INTO `categories` (`categoryID`, `name`, `description`)
+VALUES (1, 'Torte', 'Torte'),
+       (2, 'Muffin', 'Muffin'),
+       (3, 'Biscotti', 'Biscotti');
+
+ALTER TABLE `categories`
+    ADD PRIMARY KEY (`categoryID`);
+
+ALTER TABLE `categories`
+    MODIFY `categoryID` int (11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--- INSERT CART
+INSERT INTO `cart` (`cartID`, `status`, `email`)
+VALUES (1, 'NEW', 'pasticceroo@protonmail.com'),
+
+--- INSERT USERS
+INSERT INTO `users` (`email`, `name`, `surname`, `phone`, `address`, `date`, `password`, `admin`)
+VALUES ('pasticceroo@protonmail.com', 'Admin', 'Pastecceroo', '1111', 'EMPTY', '1991-01-01',
+    '$2y$10$zhItn.u3sujQVCvgyS56P.eA6GgP12XiJ8Hb5XqhC8V2yrepGf7kO', b'1'),
+    COMMIT;
 
 

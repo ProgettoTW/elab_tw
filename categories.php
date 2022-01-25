@@ -21,7 +21,7 @@ class CategoryDB
         $querytoexec->bind_param('i', $categoryId);
         $result = $querytoexec->execute();
         if (!$result) {
-            echo "E vabbè, c'è stato un errore, spiaze";
+            echo "Errore nella query";
             return null;
         }
 
@@ -56,7 +56,7 @@ class CategoryDB
         $querytoexec->bind_param('i', $productId);
         $result = $querytoexec->execute();
         if (!$result) {
-            echo "E vabbè, c'è stato un errore, spiaze";
+            echo "Errore nella query";
             return null;
         }
 
@@ -89,7 +89,7 @@ class CategoryDB
         $querytoexec = $db->prepare("SELECT * FROM " . $this->categories_table);
         $result = $querytoexec->execute();
         if (!$result) {
-            echo "E vabbè, c'è stato un errore, spiaze";
+            echo "Errore nella query";
             return null;
         }
 
