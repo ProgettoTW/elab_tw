@@ -17,7 +17,7 @@ $notFlag = false;
 if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
     $userId = $_SESSION['user_id'];
     $cartId = $_SESSION['cart_id'];
-    $notifications->getUnreadByUser($_SESSION['email']);
+    $notFlag = $notifications->getUnreadByUser($_SESSION['email']);
 }
 
 

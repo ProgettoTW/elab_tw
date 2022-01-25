@@ -81,7 +81,7 @@ require_once("includes/toasts.php");
         <?php
         if (isset($_POST['ordina'])) {
         $orderId = newOrderFromCart($cartId, $userId);
-        if (orderCreated("pasticceroo@protonmail.com", $orderId, $_SESSION['name'])) {
+        if (orderCreated($_SESSION['email'], $orderId, $_SESSION['name'])) {
             ?>
             <script>
                 $('.toast').toast();
