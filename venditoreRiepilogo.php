@@ -30,10 +30,9 @@ if (isset($_POST['consegna'])) {
     $name = $manager->getUserName($email);
     $date = new DateTime('NOW');
     $now = $date->format('Y-m-d H:i:s');
-    if (orderSent($email, $idToUpdate, $name)) {
-        $tmpNot = new Notification($email, $now, $status);
-        $notificationMan->insert($tmpNot);
-    } else {
+    $tmpNot = new Notification($email, $now, $status);
+    $notificationMan->insert($tmpNot);
+    if (!orderSent($email, $idToUpdate, $name)) {
         echo "Errore nell'invio della mail";
     }
 }

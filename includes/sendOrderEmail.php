@@ -6,7 +6,7 @@ function orderSent($toEmail, $order, $name): bool
     $messageHeader = "Il tuo ordine è stato spedito, ricordati di confermare la ricezione appena lo ritiri!";
     // Iposto i messaggi definitivi
     $subject = $name . $subjectHeader . $order;
-    $message = $messageHeader . "Altro";
+    $message = $messageHeader;
     if (mail($toEmail, $subject, $message, "From: mail@pastecceroo.com")) {
         return true;
     }
@@ -19,7 +19,7 @@ function orderReceived($toEmail, $order): bool
     $messageHeader = "La transazione si è conclusa corretamente, il cliente ha ricevuto l'ordine";
     // Iposto i messaggi definitivi
     $subject = $subjectHeader . $order;
-    $message = $messageHeader . "Altro";
+    $message = $messageHeader;
 
     if (mail($toEmail, $subject, $message, "From: mail@pastecceroo.com")) {
         return true;
@@ -33,7 +33,7 @@ function orderCreated($toEmail, $order, $name): bool
     $messageHeader = "Il tuo ordine è stato inviato, ti notificheremo non appena andrà in consegna!";
     // Iposto i messaggi definitivi
     $subject = $name . $subjectHeader . $order;
-    $message = $messageHeader . "Altro";
+    $message = $messageHeader;
     //DEBUG
     if (mail($toEmail, $subject, $message, "From: mail@pastecceroo.com")) {
         return true;
@@ -56,7 +56,7 @@ function prodottoTerminato($toEmail, $prodotto): bool
     $messageHeader = "Riempi nuovamente il magazzino";
     // Iposto i messaggi definitivi
     $subject = $subjectHeader . $prodotto;
-    $message = $messageHeader . "Altro";
+    $message = $messageHeader;
     if (mail("$toEmail", $subject, $message, "From: mail@pastecceroo.com")) {
         return true;
     }

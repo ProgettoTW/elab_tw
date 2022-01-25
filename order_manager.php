@@ -77,7 +77,7 @@ class OrderManager
             die("Connection failed: " . $db->connect_error);
         }
 
-        $querytoexec = $db->prepare("SELECT orderID, email, time FROM " . $this->orderTable . " WHERE email = ?");
+        $querytoexec = $db->prepare("SELECT orderID, email, time FROM " . $this->orderTable . " WHERE email = ? order by time desc");
         $querytoexec->bind_param('s', $userId);
         $result = $querytoexec->execute();
         if (!$result) {

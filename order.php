@@ -81,23 +81,22 @@ require_once("includes/toasts.php");
         <?php
         if (isset($_POST['ordina'])) {
         $orderId = newOrderFromCart($cartId, $userId);
-        if (orderCreated($_SESSION['email'], $orderId, $_SESSION['name'])) {
-            ?>
-            <script>
-                $('.toast').toast();
-                $('#ordCreato').toast('show');</script>
-            <?php
-            $date = new DateTime('NOW');
-            $now = $date->format('Y-m-d H:i:s');
-            $allAdmins = $usermanager->getAllAdmin();
-            foreach ($allAdmins as $admin) {
-                $tmpNot = new Notification($admin, $now, "Pagato");
-                $notificationManager->insert($tmpNot);
-                if (!orderCreatedToAdmin($admin, $cartId)) {
-                    echo "Errore nell'invio della mail";
-                }
-            }
-        } else {
+        ?>
+        <script>
+            $('.toast').toast();
+            $('#ordCreato').toast('show');</script>
+        <?php
+        $date = new DateTime('NOW');
+        $now = $date->format('Y-m-d H:i:s');
+        $allAdmins = $usermanager->getAllAdmin();
+        foreach ($allAdmins as $admin) {
+            $tmpNot = new Notification($admin, $now, "Pagato");
+            $notificationManager->insert($tmpNot);
+        }
+        if (!orderCreated($_SESSION['email'], $orderId, $_SESSION['name'])) {
+            echo "Errore nell'invio della mail";
+        }
+        if (!orderCreatedToAdmin($admin, $cartId)) {
             echo "Errore nell'invio della mail";
         }
 
