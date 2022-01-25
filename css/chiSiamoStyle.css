@@ -11,14 +11,15 @@
     padding-left:1%;
 }
 
+
 .div-presentazione{
     border-radius: 15px;
-    padding-left: 30px;
+    padding: 20px 50px;
     background-color: white;
 }
 
 .presentazione,p{
-    font-size: 1.2rem;
+    font-size: 1.25rem;
 }
 
 .aside ul li {
