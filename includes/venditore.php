@@ -28,14 +28,6 @@ if (!admin_check($db)) {
                 </a>
             </li>
             <li>
-                <a href="venditoreSupporto.php" class="d-flex">
-                    <div class="icon"><i class="bi bi-info-lg"></i></div>
-                    <div class="d-flex px-3">
-                        <div class="link">Supporto</div>
-                    </div>
-                </a>
-            </li>
-            <li>
                 <a href="./includes/logout.php" class="d-flex">
                     <div class="icon"><i class="bi bi-door-open"></i></div>
                     <div class="d-flex px-3">

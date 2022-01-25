@@ -112,10 +112,7 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
             </ul><?php if (login_check($db)) { ?>
             <div class="dropdown">
                 <ul class="navbar-nav auth">
-                    <?php if (admin_check($db)) {
-                        echo "ADMIN";
-                    } else {
-
+                    <?php if (!admin_check($db)) {
                         ?>
                         <li class="nav-item">
                             <a class="bi bi-cart3" href="utenteCarrello.php"><span
