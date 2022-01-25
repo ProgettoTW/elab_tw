@@ -37,7 +37,7 @@ if (isset($_POST['ricevuto'])) {
         }
     }
 
-    if (orderReceived($idToUpdate)) {
+    if (orderReceived($email, $idToUpdate)) {
         $tmpNot = new Notification($email, $now, $status);
         $notificationMan->insert($tmpNot);
     } else {
