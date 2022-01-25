@@ -6,6 +6,10 @@
     background-color: #ad006b;
 }
 
+.navbar-brand{
+    margin:0;
+}
+
 .container-fluid {
     padding: 0 !important;
 }
@@ -50,8 +54,7 @@ a:hover {
 .h1 {
     font-family: "Bree Serif", serif;
     line-height: 200%;
-    letter-spacing: 4px;
-
+    text-transform: capitalize!important;
     animation-name: moveInLeft;
     animation-duration: 1s;
     animation-timing-function: ease-in;

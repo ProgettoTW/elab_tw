@@ -70,7 +70,7 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
     <title>Pastecceroo</title>
 </head>
 
-<div class="header justify-content-evenly px-2">
+<div class="header justify-content-evenly">
     <a type="button" class="btn btn-light visually-hidden-focusable" href="#main-content">Vai al contenuto
         principale</a>
     <nav class="navbar navbar-expand-lg text-uppercase navbar-dark">
