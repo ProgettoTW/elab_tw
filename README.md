@@ -65,10 +65,15 @@ Questa query creerà anche un account Venditore di prova dalle credenziali:
 
 Una volta creato sarà possibile popolarlo direttamente dalla dashboard venditore sul sito.
 
-#Il Team:
+# Il Team:
 
 ![Davide Carità](img/davide.png)
 ![Francesco Esposito](img/fra.png)![Luca Bandini](img/luca.png)
 
+
+ - **Davide Carità e Francesco Esposito: Front-End**
+
+
+ - **Luca Bandini: Back-End**
 
 
