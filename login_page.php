@@ -69,22 +69,22 @@ if (isset($_GET['error'])) {
                             <div class="row mx-0">
                                 <div class="col ps-0 m-2">
                                     <label for="nameInput" class="visually-hidden">Nome</label>
-                                    <input type="text" class="form-control py-4" id="nameInput" placeholder="Nome" name="nameRegister">
+                                    <input type="text" class="form-control py-4" id="nameInput" placeholder="Nome" name="name">
                                 </div>
                                 <div class="col ps-0 m-2">
                                     <label for="surnameInput" class="visually-hidden">Cognome</label>
-                                    <input type="text" class="form-control py-4" id="surnameInput" placeholder="Cognome" name="surnameRegister">
+                                    <input type="text" class="form-control py-4" id="surnameInput" placeholder="Cognome" name="surname">
                                 </div>
                             </div>
 
                             <div class="row mx-0">
                                 <div class="col ps-0 m-2 my-4">
                                     <label for="cellphoneInput" class="visually-hidden">Telefono</label>
-                                    <input type="text" class="form-control py-4" placeholder="Telefono" name="phoneRegister">
+                                    <input type="text" class="form-control py-4" placeholder="Telefono" name="phone">
                                 </div>
                                 <div class="col ps-0 m-2">
                                     <label for="date">Data di Nascita: </label>
-                                    <input type="date" class="form-control" id="date" name="birthdayRegister">
+                                    <input type="date" class="form-control" id="date" name="born_date">
                                 </div>
                             </div>
 
@@ -92,11 +92,11 @@ if (isset($_GET['error'])) {
 
                             <div class="mb-4 ms-2">
                                 <label for="emailInput" class="visually-hidden">Email</label>
-                                <input type="email" class="form-control py-4" id="emailInput" placeholder="Email" name="emailLogin">
+                                <input type="email" class="form-control py-4" id="emailInput" placeholder="Email" name="email">
                             </div>
                             <div class="mb-4 ms-2">
                                 <label for="passwordInput" class="visually-hidden">Password</label>
-                                <input type="password" class="form-control py-4" id="passwordInput" placeholder="Password" name="passwordLogin">
+                                <input type="password" class="form-control py-4" id="passwordInput" placeholder="Password" name="p">
                             </div>
 
                             <button type="submit" class="btn btn-primary btn-lg ms-4 w-25">Registrati</button>
