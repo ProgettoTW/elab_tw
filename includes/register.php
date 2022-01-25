@@ -36,7 +36,7 @@ if (isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['born_date
                     <div class="container-fluid">
                     <div class="row">
                     <div>Registrazione completata!</div>
-                    <a class="btn btn-primary" href="../login_page.php">Vai al login</a> <?php
+                    <meta http-equiv="refresh" content="0;url=../index.php"> <?php
                 } else {
                     echo "prepare error";
                 }
@@ -60,7 +60,7 @@ if (isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['born_date
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 mx-auto bg-light">
                 <h4> Non hai compilato tutti i campi!</h4>
-                <a class="btn btn-primary" href="/login_page.php">Torna indietro</a>
+                <a class="btn btn-primary" href="../login_page.php">Torna indietro</a>
     <?php
 }
 ?>
