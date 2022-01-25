@@ -5,13 +5,16 @@ require_once("products.php");
 require_once("categories.php");
 require_once("order_manager.php");
 require_once("user_manager.php");
+require_once("notifications.php");
 require_once("model/cart.php");
 require_once("model/cart_item.php");
 require_once("model/category.php");
+require_once("model/notification.php");
 
 $products = new ProductDB();
 $orders = new OrderManager();
 $manager = new UserManager();
+$notificationMan = new NotificationManager();
 
 if (!admin_check($db)){
     ?>
@@ -21,13 +24,18 @@ if (!admin_check($db)){
 
 if (isset($_POST['consegna'])) {
     $idToUpdate = $_POST['consegna'];
-    $orders->setOrderStatus($idToUpdate,"In Consegna");
+    $status = "In Consegna";
+    $orders->setOrderStatus($idToUpdate, $status);
     $email = $orders->getOrderOwnerId($idToUpdate);
     $name = $manager->getUserName($email);
-    //THIS IS FOR DEBUG
-    $resultMail = orderSent("luca.vombato@gmail.com",$idToUpdate,$name);
-    //THIS IS DEFINITIVE
-    //$resultMail = orderSent($email,$idToUpdate,$name);
+    $date = new DateTime('NOW');
+    $now = $date->format('Y-m-d H:i:s');
+    if(orderSent($email,$idToUpdate,$name)){
+        $tmpNot = new Notification($email,$now,$status);
+        $notificationMan->insert($tmpNot);
+    }  else {
+        echo "Errore nell'invio della mail";
+    }
 }
 
 ?>

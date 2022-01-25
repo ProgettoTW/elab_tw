@@ -34,11 +34,6 @@ if (isset($_POST['add'])) {
         $item = new Cart_item($productId, 1, $cartId);
         $cartmanager->insertItem($item);
     }
-    ?>
-    <script>
-    $('.toast').toast();
-    $('#aggCart').toast('show');</script>
-<?php
 
 }
 
@@ -190,6 +185,14 @@ require_once("includes/toasts.php");
     </main>
     <?php
     require_once("includes/footer.php");
+    if(isset($_POST['add'])){
+    ?>
+    <script>
+        $('.toast').toast();
+        $('#aggCart').toast('show');</script>
+    <?php
+
+    }
     ?>
 </div>
 </body>

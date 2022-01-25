@@ -6,7 +6,7 @@ require_once("includes/connection.php");
 class NotificationManager
 {
 
-    private $notTable = "notifications";
+    private string $notTable = "notifications";
 
     public function getByUser($userId)
     {
@@ -18,6 +18,43 @@ class NotificationManager
         }
 
         $querytoexec = $db->prepare("SELECT * FROM " . $this->notTable . " WHERE email = ? order by time desc");
+        $querytoexec->bind_param('s', $userId);
+        $result = $querytoexec->execute();
+        if (!$result) {
+            echo "error";
+            return null;
+        }
+
+        $result = $querytoexec->get_result();
+        if ($result->num_rows > 0) {
+            $rows = array();
+            while ($row = mysqli_fetch_assoc($result)) {
+                $temp = new Notification($row["email"], $row["time"], $row["status"]);
+                $temp->setId($row["ID"]);
+                $temp->setSeen($row['seen']);
+                $rows[] = $temp;
+            }
+        } else {
+            return null;
+        }
+
+        $querytoexec->close();
+        $db->close();
+
+        return $rows;
+
+    }
+
+    public function getUnreadByUser($userId)
+    {
+        $conn = new Connection();
+        $db = $conn->getConnection();
+
+        if ($db->connect_error) {
+            die("Connection failed: " . $db->connect_error);
+        }
+
+        $querytoexec = $db->prepare("SELECT * FROM " . $this->notTable . " WHERE email = ? and seen = 0 order by time desc");
         $querytoexec->bind_param('s', $userId);
         $result = $querytoexec->execute();
         if (!$result) {
@@ -98,6 +135,39 @@ class NotificationManager
 
         $querytoexec->close();
         $db->close();
+    }
+
+    public function checkUnseen($userId)
+    {
+        $conn = new Connection();
+        $db = $conn->getConnection();
+
+        if ($db->connect_error) {
+            die("Connection failed: " . $db->connect_error);
+        }
+
+        $querytoexec = $db->prepare("SELECT * FROM " . $this->notTable . " WHERE email = ? AND seen = 0");
+        $querytoexec->bind_param('s', $userId);
+        $result = $querytoexec->execute();
+        if (!$result) {
+            echo "error";
+            return null;
+        }
+
+        $result = $querytoexec->get_result();
+        if ($result->num_rows > 0) {
+            $querytoexec->close();
+            $db->close();
+
+            return true;
+        } else {
+            $querytoexec->close();
+            $db->close();
+
+            return false;
+        }
+
+
     }
 
 }
