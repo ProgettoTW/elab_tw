@@ -14,7 +14,6 @@ require_once("user_manager.php");
 require_once("notifications.php");
 
 
-
 function newOrderFromCart($cartId, $userId)
 {
     $order = new Order($userId);
@@ -39,10 +38,10 @@ function newOrderFromCart($cartId, $userId)
                 $date = new DateTime('NOW');
                 $now = $date->format('Y-m-d H:i:s');
                 $allAdmins = $usermanager->getAllAdmin();
-                foreach ($allAdmins as $admin){
-                    $tmpNot = new Notification($admin,$now,"Articolo Terminato! Nome: ".$item->getProductName());
+                foreach ($allAdmins as $admin) {
+                    $tmpNot = new Notification($admin, $now, "Articolo Terminato! Nome: " . $item->getProductName());
                     $notificationMan->insert($tmpNot);
-                    if(!prodottoTerminato($admin, $item->getProductName())){
+                    if (!prodottoTerminato($admin, $item->getProductName())) {
                         echo "Errore nell'invio della mail";
                     }
                 }
@@ -76,41 +75,55 @@ $usermanager = new UserManager();
 $notificationManager = new NotificationManager();
 
 require_once("includes/toasts.php");
-
-if (isset($_POST['ordina'])) {
-    $orderId = newOrderFromCart($cartId, $userId);
-    if (orderCreated("pasticceroo@protonmail.com", $orderId, $_SESSION['name'])) {
-        ?>
-        <script>
-            $('.toast').toast();
-            $('#ordCreato').toast('show');</script>
+?>
+    <body class="body">
+    <main>
         <?php
-        $date = new DateTime('NOW');
-        $now = $date->format('Y-m-d H:i:s');
-        $allAdmins = $usermanager->getAllAdmin();
-        foreach ($allAdmins as $admin){
-            $tmpNot = new Notification($admin,$now,"Pagato");
-            $notificationManager->insert($tmpNot);
-            if(!orderCreatedToAdmin($admin,$cartId)){
-                echo "Errore nell'invio della mail";
+        if (isset($_POST['ordina'])) {
+        $orderId = newOrderFromCart($cartId, $userId);
+        if (orderCreated("pasticceroo@protonmail.com", $orderId, $_SESSION['name'])) {
+            ?>
+            <script>
+                $('.toast').toast();
+                $('#ordCreato').toast('show');</script>
+            <?php
+            $date = new DateTime('NOW');
+            $now = $date->format('Y-m-d H:i:s');
+            $allAdmins = $usermanager->getAllAdmin();
+            foreach ($allAdmins as $admin) {
+                $tmpNot = new Notification($admin, $now, "Pagato");
+                $notificationManager->insert($tmpNot);
+                if (!orderCreatedToAdmin($admin, $cartId)) {
+                    echo "Errore nell'invio della mail";
+                }
             }
+        } else {
+            echo "Errore nell'invio della mail";
         }
-    } else {
-        echo "Errore nell'invio della mail";
-    }
 
 
-    ?>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 mx-auto bg-light colonna modulo_colonna">
-                <h4 class="text-success"><i class="fa fa-check" aria-hidden="true"></i>L'ordine è stato effettuato!</h4>
-                <a class="btn btn-primary" href="index.php">Torna alla Home</a>
-    <?php
-} else {
-    echo "Errore!";
-}
+        ?>
+        <div class="py-3 align-items-center d-flex">
+            <div class="container" id="main-content">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 mx-auto bg-light colonna modulo_colonna">
+                        <h4 class="text-success"><i class="bi bi-check" style="color: #135661" aria-hidden="true"></i>L'ordine
+                            è stato inviato!</h4>
+                        <hr>
+                        <a class="btn btn-primary" href="index.php">Torna alla Home</a>
+                        <?php
+                        } else {
+                            echo "Errore!";
+                        }
+                        ?>
 
-
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    </body>
+<?php
+require_once("includes/footer.php");
 
 

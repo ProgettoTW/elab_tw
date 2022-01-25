@@ -38,21 +38,20 @@ if (isset($_POST['add'])) {
 }
 
 
-
 ?>
 <html lang="it">
 
 
-<?php if($bday){
-        ?>
-    
+<?php if ($bday) {
+    ?>
+
     <link rel="stylesheet" href="css/listaProdottiStyle.css">
     <?php
-    } else {?>
+} else { ?>
     <link rel="stylesheet" href="css/listaProdottiCompleannoStyle.css">
     <?php
-    }
-    ?>
+}
+?>
 <body class="bg-light">
 <?php
 require_once("includes/toasts.php");
@@ -96,8 +95,8 @@ require_once("includes/toasts.php");
                                 $img = $images->getById($row->getId())[0]; ?>
                                 <div class="col">
                                     <div class="card text-center">
-                                        <img src="<?php echo $img->getUrl();?>" class="card-img-top card-image"
-                                             alt="<?php echo $img->getAlt();?>">
+                                        <img src="<?php echo $img->getUrl(); ?>" class="card-img-top card-image"
+                                             alt="<?php echo $img->getAlt(); ?>">
                                         <div class="card-body">
                                             <h5 class="card-title"><?php echo $row->getName(); ?></h5>
                                             <p class="card-text">Prezzo: <?php echo $row->getPrice(); ?> €</p>
@@ -145,9 +144,9 @@ require_once("includes/toasts.php");
                                         $img1 = $images->getById($row->getId())[0]; ?>
                                         <div class="col">
                                             <div class="card text-center">
-                                                <img src="<?php echo $img1->getUrl();?>"
+                                                <img src="<?php echo $img1->getUrl(); ?>"
                                                      class="card-img-top card-image"
-                                                     alt="<?php echo $img1->getAlt();?>">
+                                                     alt="<?php echo $img1->getAlt(); ?>">
                                                 <div class="card-body">
                                                     <h5 class="card-title"><?php echo $row->getName(); ?></h5>
                                                     <p class="card-text">Prezzo: <?php echo $row->getPrice(); ?> €</p>
@@ -156,11 +155,13 @@ require_once("includes/toasts.php");
                                                         if ($quantity > 0) {
                                                             ?>
                                                             <button class="btn btn-primary" name="add" type="submit"
-                                                                    value="<?php echo $row->getId(); ?>">Aggiungi al Carrello
+                                                                    value="<?php echo $row->getId(); ?>">Aggiungi al
+                                                                Carrello
                                                             </button>
                                                             <?php
                                                         } else { ?>
-                                                            <button class="btn btn-outline-secondary" name="add" type="button"
+                                                            <button class="btn btn-outline-secondary" name="add"
+                                                                    type="button"
                                                                     value="esaurito">ESAURITO
                                                             </button>
                                                             <?php
@@ -185,12 +186,12 @@ require_once("includes/toasts.php");
     </main>
     <?php
     require_once("includes/footer.php");
-    if(isset($_POST['add'])){
-    ?>
-    <script>
-        $('.toast').toast();
-        $('#aggCart').toast('show');</script>
-    <?php
+    if (isset($_POST['add'])) {
+        ?>
+        <script>
+            $('.toast').toast();
+            $('#aggCart').toast('show');</script>
+        <?php
 
     }
     ?>

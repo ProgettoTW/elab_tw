@@ -70,7 +70,8 @@ if (isset($_GET['error'])) {
                         <form action="includes/register.php" method="post" name="register_form" id="register_form">
                             <div class="row mx-0">
                                 <div class="col form-floating ps-0 m-2">
-                                    <input type="text" class="form-control" id="floatingInput" placeholder="nome" name="name">
+                                    <input type="text" class="form-control" id="floatingInput" placeholder="nome"
+                                           name="name">
                                     <label for="floatingInput">Nome</label>
                                 </div>
                                 <div class="col form-floating ps-0 m-2">

@@ -8,7 +8,7 @@ $notifications = new NotificationManager();
 
 $rows = $notifications->getByUser($_SESSION['email']);
 
-if(isset($_POST['setasseen'])){
+if (isset($_POST['setasseen'])) {
     $notifications->setAllSeen($_SESSION['email']);
 }
 
@@ -21,7 +21,11 @@ if(isset($_POST['setasseen'])){
         <div class="col-lg-9 my-lg-0 my-1">
             <div class="main-content">
                 <h2 class="page_title">Tutte le notifiche</h2>
-                <form method="post" action="utenteNotifiche.php" name="setasread"><button class="btn btn-primary" type="submit" value="setasseen" name="setasseen">Segna tutte come lette</button>
+                <form method="post" action="utenteNotifiche.php" name="setasread">
+                    <button class="btn btn-primary" type="submit" value="setasseen" name="setasseen">Segna tutte come
+                        lette
+                    </button>
+                </form>
                 <table class="table fixed">
                     <tr>
                         <th>Ora</th>
@@ -58,15 +62,15 @@ if(isset($_POST['setasseen'])){
                             ?>
                         </td>
                         <td>
-                        <?php
-                            if(!$row->getSeen()){
-                            ?>
-                                <button class="btn btn-success">Da leggere</button>
-                        <?php
+                            <?php
+                            if (!$row->getSeen()) {
+                                ?>
+                                <div class="blue-label ms-auto">Da leggere</div>
+                                <?php
                             } else {
-                            ?>
-                                <button class="btn btn-outline-secondary">Letta</button>
-                        <?php
+                                ?>
+                                <div class="form-label ms-auto">Letta</div>
+                                <?php
                             }
                             }
                             } ?>

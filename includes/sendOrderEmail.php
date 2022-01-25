@@ -43,7 +43,7 @@ function orderCreated($toEmail, $order, $name): bool
 
 function orderCreatedToAdmin($toEmail, $order): bool
 {
-    if(mail($toEmail, "ORDINE RICEVUTO", "Ricevuto ordine numero" . $order, "From: mail@pastecceroo.com")){
+    if (mail($toEmail, "ORDINE RICEVUTO", "Ricevuto ordine numero" . $order, "From: mail@pastecceroo.com")) {
         return true;
     }
     return false;

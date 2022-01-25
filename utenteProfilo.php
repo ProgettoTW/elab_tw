@@ -23,35 +23,35 @@ if (isset($_POST['old_pw'], $_POST['new_pw'], $_SESSION['email'])) {
 <body class="body">
 <div class="container mt-4" id="main-content">
     <div class="row">
-    <?php
-    require_once("includes/utente.php");
-    ?>
-    <div class="col-lg-6 my-lg-0 my-1">
-        <div class="main-content">
-            <form action="utenteProfilo.php" method="post" name="edit_pw" id="edit_pw">
-                <div class="d-flex my-4 flex-column">
+        <?php
+        require_once("includes/utente.php");
+        ?>
+        <div class="col-lg-6 my-lg-0 my-1">
+            <div class="main-content">
+                <form action="utenteProfilo.php" method="post" name="edit_pw" id="edit_pw">
+                    <div class="d-flex my-4 flex-column">
 
-                    <div class="h5 d-flex justify-content-center mb-4">Modifica la password e salva</div>
-                    <div class="d-flex fw-bold my-4">Credenziali</div>
-                    <div class="form-group mb-3">
-                        <label for="vecchia_pw" class="h6">Vecchia password</label>
-                        <input type="password" name="old_pw" class="form-control" id="vecchia_pw"
-                               placeholder="Inserisci la vecchia password">
+                        <div class="h5 d-flex justify-content-center mb-4">Modifica la password e salva</div>
+                        <div class="d-flex fw-bold my-4">Credenziali</div>
+                        <div class="form-group mb-3">
+                            <label for="vecchia_pw" class="h6">Vecchia password</label>
+                            <input type="password" name="old_pw" class="form-control" id="vecchia_pw"
+                                   placeholder="Inserisci la vecchia password">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="nuova_pw" class="h6">Nuova password</label>
+                            <input type="password" name="new_pw" class="form-control" id="nuova_pw"
+                                   placeholder="Inserisci la nuova password">
+                        </div>
                     </div>
-                    <div class="form-group mb-3">
-                        <label for="nuova_pw" class="h6">Nuova password</label>
-                        <input type="password" name="new_pw" class="form-control" id="nuova_pw"
-                               placeholder="Inserisci la nuova password">
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary">Conferma</button>
                     </div>
-                </div>
-                <div class="d-flex justify-content-between">
-                    <button type="submit" class="btn btn-primary">Conferma</button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-    </div>
-    </div>
+</div>
 </body>
 <?php
 require_once("includes/footer.php");

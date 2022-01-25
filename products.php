@@ -245,7 +245,7 @@ class ProductDB
             die("Connection failed: " . $db->connect_error);
         }
 
-        $querytoexec = $db->prepare("SELECT quantity FROM " . $this->products_table." WHERE productID = ?");
+        $querytoexec = $db->prepare("SELECT quantity FROM " . $this->products_table . " WHERE productID = ?");
         $querytoexec->bind_param('i', $ID);
         $result = $querytoexec->execute();
         if (!$result) {
@@ -286,14 +286,15 @@ class ProductDB
         $db->close();
     }
 
-    public function isTerminatd($ID){
+    public function isTerminatd($ID)
+    {
         $conn = new Connection();
         $db = $conn->getConnection();
         if ($db->connect_error) {
             die("Connection failed: " . $db->connect_error);
         }
 
-        $querytoexec = $db->prepare("SELECT quantity FROM " . $this->products_table." WHERE productID = ?");
+        $querytoexec = $db->prepare("SELECT quantity FROM " . $this->products_table . " WHERE productID = ?");
         $querytoexec->bind_param('i', $ID);
         $result = $querytoexec->execute();
         if (!$result) {
@@ -314,7 +315,7 @@ class ProductDB
         $querytoexec->close();
         $db->close();
 
-        if($actualQuantity <= 0){
+        if ($actualQuantity <= 0) {
             return true;
         }
         return false;

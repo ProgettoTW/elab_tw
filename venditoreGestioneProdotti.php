@@ -13,29 +13,29 @@ $products = new ProductDB();
 $categories = new CategoryDB();
 $images = new ImageDB();
 
-if (!admin_check($db)){
+if (!admin_check($db)) {
     ?>
     <meta http-equiv="refresh" content="0;url=index.php">
     <?php
 }
-if (isset($_POST['nome'], $_POST['descrizione'], $_POST['categoria'], $_POST['prezzo'], $_POST['quantita'], $_FILES['immagine'])){
+if (isset($_POST['nome'], $_POST['descrizione'], $_POST['categoria'], $_POST['prezzo'], $_POST['quantita'], $_FILES['immagine'])) {
     $prod = new Product($_POST['nome'], $_POST['prezzo'], $_POST['descrizione'], 0, $_POST['categoria'], $_POST['quantita']);
     $prodId = $products->insert($prod);
-    $filename=$_FILES["immagine"]["name"];
+    $filename = $_FILES["immagine"]["name"];
     $arr = explode(".", $filename);
-    $extension=end($arr);
-    if (!move_uploaded_file($_FILES['immagine']['tmp_name'], './img/products/'.$prodId.".".$extension)) {
+    $extension = end($arr);
+    if (!move_uploaded_file($_FILES['immagine']['tmp_name'], './img/products/' . $prodId . "." . $extension)) {
         echo "Errore nel caricamento dell'immagine";
     }
 
-    $image = new Image($prodId,"img/products/".$prodId.".".$extension,$prod->getName());
+    $image = new Image($prodId, "img/products/" . $prodId . "." . $extension, $prod->getName());
     $images->insert($image);
 }
-if (isset($_POST['aggiorna'], $_POST['prezzo'], $_POST['quantita'], $_POST['ID'])){
+if (isset($_POST['aggiorna'], $_POST['prezzo'], $_POST['quantita'], $_POST['ID'])) {
     $products->updatePriceQuant($_POST['prezzo'], $_POST['quantita'], $_POST['ID']);
 }
 
-if(isset($_POST['rimuovi'], $_POST['ID'])){
+if (isset($_POST['rimuovi'], $_POST['ID'])) {
     $images->delete($_POST['ID']);
     $products->delete($_POST['ID']);
 
@@ -81,7 +81,8 @@ if(isset($_POST['rimuovi'], $_POST['ID'])){
                                             <div class="input-group mb-3 w-75">
                                                 <span class="input-group-text" id="basic-addon1">Q.tà</span>
                                                 <input type="number" min="0" step="1" name="quantita"
-                                                       value="<?php echo $row->getQuantity(); ?>" id="exampleInputAmount"
+                                                       value="<?php echo $row->getQuantity(); ?>"
+                                                       id="exampleInputAmount"
                                                        class="form-control" placeholder="Quantità">
                                             </div>
                                         </td>
@@ -94,7 +95,8 @@ if(isset($_POST['rimuovi'], $_POST['ID'])){
                                             </div>
                                         </td>
                                         <td>
-                                            <button type="submit" class="btn btn-primary" name="aggiorna" value="aggiorna">
+                                            <button type="submit" class="btn btn-primary" name="aggiorna"
+                                                    value="aggiorna">
                                                 Aggiorna
                                             </button>
                                         </td>
@@ -112,10 +114,12 @@ if(isset($_POST['rimuovi'], $_POST['ID'])){
                         </tbody>
                     </table>
                     <h5 class="d-flex justify-content-center mb-4">Aggiungi un prodotto:</h5>
-                    <form class="form-inline" action="venditoreGestioneProdotti.php" method="post" enctype="multipart/form-data">
+                    <form class="form-inline" action="venditoreGestioneProdotti.php" method="post"
+                          enctype="multipart/form-data">
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">Nome</span>
-                            <input type="text" class="form-control" placeholder="Nome prodotto" name="nome" aria-label="name"
+                            <input type="text" class="form-control" placeholder="Nome prodotto" name="nome"
+                                   aria-label="name"
                                    aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group mb-3">
@@ -125,7 +129,8 @@ if(isset($_POST['rimuovi'], $_POST['ID'])){
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">€</span>
-                            <input type="number" min="0.00" step="0.01" value="1.00" id="exampleInputAmount" name="prezzo"
+                            <input type="number" min="0.00" step="0.01" value="1.00" id="exampleInputAmount"
+                                   name="prezzo"
                                    class="form-control" placeholder="Prezzo">
                         </div>
                         <div class="input-group mb-3">

@@ -20,7 +20,6 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
 }
 
 
-
 ?>
 <head>
     <meta charset="utf-8">
@@ -126,7 +125,9 @@ if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
                     }
                     ?>
                     <li class="nav-item">
-                        <a class="bi bi-bell<?php if ($notFlag) {echo "-fill";}?>" href="utenteNotifiche.php"><span
+                        <a class="bi bi-bell<?php if ($notFlag) {
+                            echo "-fill";
+                        } ?>" href="utenteNotifiche.php"><span
                                     class="visually-hidden">Notifiche</span></a>
                     </li>
                     <li class="nav-item">

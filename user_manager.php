@@ -9,7 +9,8 @@ class UserManager
 
     private $users_table = "users";
 
-    public function getUserName($email){
+    public function getUserName($email)
+    {
         $conn = new Connection();
         $db = $conn->getConnection();
         if ($db->connect_error) {
@@ -35,7 +36,6 @@ class UserManager
         $querytoexec->close();
         $db->close();
         return $name;
-
 
 
     }
@@ -97,7 +97,8 @@ class UserManager
 
     }
 
-    public function getAllAdmin(){
+    public function getAllAdmin()
+    {
 
         $conn = new Connection();
         $db = $conn->getConnection();

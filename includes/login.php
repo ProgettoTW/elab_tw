@@ -11,13 +11,13 @@ if (isset($_POST['emailLogin'], $_POST['passwordLogin'])) {
     $password = $_POST['passwordLogin'];
     if (login($email, $password, $db)) {
         echo "LOGIN OK";
-        if(bday_check()){ ?>
+        if (bday_check()) { ?>
             <meta http-equiv="refresh" content="0;url=../compleanno.html">
             <?php
         } else {
             ?>
             <meta http-equiv="refresh" content="0;url=../index.php">
-                <?php
+            <?php
         }
         ?>
         <?php
