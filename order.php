@@ -6,9 +6,13 @@ require_once("includes/sendOrderEmail.php");
 require_once("model/order.php");
 require_once("model/order_item.php");
 require_once("model/product.php");
+require_once("model/notification.php");
 require_once("products.php");
 require_once("cart_manager.php");
 require_once("order_manager.php");
+require_once("user_manager.php");
+require_once("notifications.php");
+
 
 
 function newOrderFromCart($cartId, $userId)
@@ -18,6 +22,8 @@ function newOrderFromCart($cartId, $userId)
     $orderId = $orderMan->insertOrder($order);
     $cartmanager = new CartManager();
     $products = new ProductDB();
+    $usermanager = new UserManager();
+    $notificationMan = new NotificationManager();
 
     $items = $cartmanager->getCartItems($userId);
     //Check if items are null
@@ -30,7 +36,16 @@ function newOrderFromCart($cartId, $userId)
             $orderItems[] = $temp;
             $products->removeQuant($item->getQuantity(), $item->getProductId());
             if ($products->isTerminatd($item->getProductId())) {
-                $resultMail = prodottoTerminato("luca.vombato@gmail.com", $item->getProductName());
+                $date = new DateTime('NOW');
+                $now = $date->format('Y-m-d H:i:s');
+                $allAdmins = $usermanager->getAllAdmin();
+                foreach ($allAdmins as $admin){
+                    $tmpNot = new Notification($admin,$now,"Articolo Terminato! Nome: ".$item->getProductName());
+                    $notificationMan->insert($tmpNot);
+                    if(!prodottoTerminato($admin, $item->getProductName())){
+                        echo "Errore nell'invio della mail";
+                    }
+                }
             }
         }
         foreach ($orderItems as $orderItem) {
@@ -57,14 +72,33 @@ if (isset($_SESSION['email'], $_SESSION['cart_id'])) {
 
 $ordermanager = new OrderManager();
 $products = new ProductDB();
+$usermanager = new UserManager();
+$notificationManager = new NotificationManager();
+
+require_once("includes/toasts.php");
 
 if (isset($_POST['ordina'])) {
     $orderId = newOrderFromCart($cartId, $userId);
-    if ($resultMail = orderCreated("luca.vombato@gmail.com", $orderId, $_SESSION['name'])) {
-        echo "MAIL INVIATA";
+    if (orderCreated("pasticceroo@protonmail.com", $orderId, $_SESSION['name'])) {
+        ?>
+        <script>
+            $('.toast').toast();
+            $('#ordCreato').toast('show');</script>
+        <?php
+        $date = new DateTime('NOW');
+        $now = $date->format('Y-m-d H:i:s');
+        $allAdmins = $usermanager->getAllAdmin();
+        foreach ($allAdmins as $admin){
+            $tmpNot = new Notification($admin,$now,"Pagato");
+            $notificationManager->insert($tmpNot);
+            if(!orderCreatedToAdmin($admin,$cartId)){
+                echo "Errore nell'invio della mail";
+            }
+        }
     } else {
-        echo "Niente mail";
+        echo "Errore nell'invio della mail";
     }
+
 
     ?>
     <div class="container-fluid">

@@ -17,9 +17,6 @@ if(isset($_POST['setasseen'])){
 <body class="body">
 <div class="container mt-4" id="main-content">
     <div class="row">
-        <?php
-        require_once("includes/utente.php");
-        ?>
 
         <div class="col-lg-9 my-lg-0 my-1">
             <div class="main-content">

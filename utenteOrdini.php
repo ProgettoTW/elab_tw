@@ -5,15 +5,32 @@ require_once("includes/sendOrderEmail.php");
 require_once("products.php");
 require_once("model/cart.php");
 require_once("model/cart_item.php");
+require_once("model/notification.php");
 require_once("order_manager.php");
+require_once("notifications.php");
+require_once("user_manager.php");
 
 $products = new ProductDB();
 $orders = new OrderManager();
+$notificationMan = new NotificationManager();
+$usermanager = new UserManager();
 
 if (isset($_POST['ricevuto'])) {
     $idToUpdate = $_POST['ricevuto'];
-    $orders->setOrderStatus($idToUpdate, "Consegnato");
-    $resultMail = orderReceived($idToUpdate);
+    $status = "Consegnato";
+    $orders->setOrderStatus($idToUpdate, $status);
+    $date = new DateTime('NOW');
+    $now = $date->format('Y-m-d H:i:s');
+
+    $allAdmins = $usermanager->getAllAdmin();
+    foreach ($allAdmins as $admin){
+        $tmpNot = new Notification($admin,$now,$status);
+        $notificationMan->insert($tmpNot);
+        if(!orderReceived($admin, $idToUpdate)){
+            echo "Errore nell'invio della mail";
+        }
+    }
+
 }
 
 ?>

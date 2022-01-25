@@ -97,4 +97,38 @@ class UserManager
 
     }
 
+    public function getAllAdmin(){
+
+        $conn = new Connection();
+        $db = $conn->getConnection();
+
+        if ($db->connect_error) {
+            die("Connection failed: " . $db->connect_error);
+        }
+        $querytoexec = $db->prepare("SELECT * FROM " . $this->users_table . " WHERE admin = 1");
+        $result = $querytoexec->execute();
+        if (!$result) {
+            echo "error";
+            return null;
+
+        }
+
+        $result = $querytoexec->get_result();
+        if ($result->num_rows > 0) {
+            $rows = array();
+            while ($row = mysqli_fetch_assoc($result)) {
+                $temp = $row['email'];
+                $rows[] = $temp;
+            }
+        } else {
+            echo "Empty\n";
+            return null;
+        }
+
+        $querytoexec->close();
+        $db->close();
+
+        return $rows;
+    }
+
 }

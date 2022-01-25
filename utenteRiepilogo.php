@@ -5,20 +5,46 @@ require_once("includes/sendOrderEmail.php");
 require_once("products.php");
 require_once("model/cart.php");
 require_once("model/cart_item.php");
+require_once("model/notification.php");
+require_once("notifications.php");
 require_once("cart_manager.php");
 require_once("order_manager.php");
+require_once("user_manager.php");
 
 $products = new ProductDB();
 $orders = new OrderManager();
 $cartmanager = new CartManager();
+$notificationMan = new NotificationManager();
+$usermanager = new UserManager();
 $orderlist = $orders->getOrdersByUserId($_SESSION['email']);
 $cartList = $cartmanager->getCartItems($_SESSION['email']);
 
 
+
+
 if (isset($_POST['ricevuto'])) {
     $idToUpdate = $_POST['ricevuto'];
-    $orders->setOrderStatus($idToUpdate, "Consegnato");
-    $resultMail = orderReceived($idToUpdate);
+    $status = "Consegnato";
+    $email = $_SESSION['email'];
+    $orders->setOrderStatus($idToUpdate, $status);
+    $date = new DateTime('NOW');
+    $now = $date->format('Y-m-d H:i:s');
+
+    $allAdmins = $usermanager->getAllAdmin();
+    foreach ($allAdmins as $admin){
+        $tmpNot = new Notification($admin,$now,$status);
+        $notificationMan->insert($tmpNot);
+        if(!orderReceived($admin, $idToUpdate)){
+            echo "Errore nell'invio della mail";
+        }
+    }
+
+    if(orderReceived($idToUpdate)){
+        $tmpNot = new Notification($email,$now,$status);
+        $notificationMan->insert($tmpNot);
+    }  else {
+        echo "Errore nell'invio della mail";
+    }
 }
 
 
@@ -52,7 +78,7 @@ if (isset($_POST['ricevuto'])) {
                     <img src="./img/delivery-svgrepo-com.svg" alt="">
                     <div class="d-flex align-items-center mt-2">
                         <div class="tag">Ordini Effettuati</div>
-                        <div class="ms-auto number"><?php echo count($orderlist); ?></div>
+                        <div class="ms-auto number"><?php if(is_null($orderlist)){echo "Nessuno";} else { echo count($orderlist);}; ?></div>
                     </div>
                 </div>
             </div>

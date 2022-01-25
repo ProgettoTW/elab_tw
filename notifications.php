@@ -6,7 +6,7 @@ require_once("includes/connection.php");
 class NotificationManager
 {
 
-    private $notTable = "notifications";
+    private string $notTable = "notifications";
 
     public function getByUser($userId)
     {
@@ -135,6 +135,39 @@ class NotificationManager
 
         $querytoexec->close();
         $db->close();
+    }
+
+    public function checkUnseen($userId)
+    {
+        $conn = new Connection();
+        $db = $conn->getConnection();
+
+        if ($db->connect_error) {
+            die("Connection failed: " . $db->connect_error);
+        }
+
+        $querytoexec = $db->prepare("SELECT * FROM " . $this->notTable . " WHERE email = ? AND seen = 0");
+        $querytoexec->bind_param('s', $userId);
+        $result = $querytoexec->execute();
+        if (!$result) {
+            echo "error";
+            return null;
+        }
+
+        $result = $querytoexec->get_result();
+        if ($result->num_rows > 0) {
+            $querytoexec->close();
+            $db->close();
+
+            return true;
+        } else {
+            $querytoexec->close();
+            $db->close();
+
+            return false;
+        }
+
+
     }
 
 }
