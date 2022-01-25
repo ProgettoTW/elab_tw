@@ -50,7 +50,6 @@ a:hover {
 .h1 {
     font-family: "Bree Serif", serif;
     line-height: 200%;
-    letter-spacing: 4px;
 
     animation-name: moveInLeft;
     animation-duration: 1s;

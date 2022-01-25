@@ -69,7 +69,7 @@ require_once("includes/header.php");
     </div>
     </div>
         <div class="col-lg-8 my-lg-0 my-1">
-            <div class="d-flex my-4 flex-column div-presentazione">
+            <div class="d-flex flex-column div-presentazione">
             <h3 class="text-center mb-4">Presentazione</h3>
             <p>Il progetto consiste nella realizzazione di una piattaforma di Delivery di Torte e prodotti di pasticceria nel Campus di
                 Cesena.</br>Il nome della piattaforma è <em>Pastecceroo</em> (Pronunciato pasticcerù).</br>La piattaforma permette ai clienti di:</p>
