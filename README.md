@@ -1,8 +1,6 @@
-
-
 # Progetto per l'esame di Tecnologie Web 2021/22
 
-## Membri Gruppo: 
+## Membri Gruppo:
 
 - Luca Bandini
 - Francesco Esposito
@@ -10,10 +8,11 @@
 
 ### Specifiche del progetto
 
-Il progetto consiste nella realizzazione di una piattaforma di Delivery di Torte e prodotti di pasticceria nel Campus di Cesena.
-Il nome della piattaforma è **Pasticceroo** (Pronunciato `pasticcerù`).
+Il progetto consiste nella realizzazione di una piattaforma di Delivery di Torte e prodotti di pasticceria nel Campus di
+Cesena. Il nome della piattaforma è **Pasticceroo** (Pronunciato `pasticcerù`).
 
 ### Linguaggi utilizzati
+
 + HTML5
 + PHP
 + CSS (Bootstrap and Fontawesome)

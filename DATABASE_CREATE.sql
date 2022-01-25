@@ -1,13 +1,13 @@
 CREATE TABLE `users`
 (
-    `email`    varchar(50) NOT NULL,
-    `name`     varchar(50) NOT NULL,
-    `surname`  varchar(50) NOT NULL,
-    `phone`    varchar(50) NOT NULL,
-    `address`  varchar(50) NOT NULL,
+    `email`    varchar(50)  NOT NULL,
+    `name`     varchar(50)  NOT NULL,
+    `surname`  varchar(50)  NOT NULL,
+    `phone`    varchar(50)  NOT NULL,
+    `address`  varchar(50)  NOT NULL,
     `date`     date NULL DEFAULT NULL,
     `password` varchar(128) NOT NULL,
-    `admin`    bit(1) NOT NULL DEFAULT b'0',
+    `admin`    bit(1)       NOT NULL DEFAULT b'0',
 
     PRIMARY KEY (`email`)
 ) ENGINE=INNODB;

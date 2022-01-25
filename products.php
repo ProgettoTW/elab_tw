@@ -120,7 +120,6 @@ class ProductDB
         if ($db->connect_error) {
             die("Connection failed: " . $db->connect_error);
         }
-        //TODO Need to add customizable, I still need to think about it, maybe I'll just stick with a single flag in every insertion
         $querytoexec = $db->prepare("INSERT INTO products (name, price, description, categoryID, customizable, quantity) VALUES (?, ?, ?, ?, 0, ?)");
         $prName = $product->getName();
         $prPrice = $product->getPrice();

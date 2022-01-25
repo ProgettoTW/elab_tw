@@ -15,8 +15,9 @@ require_once("model/cart_item.php");
 if (isset($_SESSION['user_id'], $_SESSION['cart_id'])) {
     $userId = $_SESSION['user_id'];
     $cartId = $_SESSION['cart_id'];
-} else {
-//TODO REDIRECT SE SESSIONE NON È CREATA
+} else { ?>
+    <meta http-equiv="refresh" content="0;url=index.php">
+    <?php
 }
 
 $cartmanager = new CartManager();

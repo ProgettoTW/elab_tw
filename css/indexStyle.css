@@ -1,34 +1,36 @@
-.body .btn-shop{
-  text-decoration: none;
-  font-family: "Bree Serif", serif;
-  color: black;
-  padding: 0.5rem 3.75rem;
-  border-radius: 30px;
-  background: orange;
-  transition: all .2s;
+.body .btn-shop {
+    text-decoration: none;
+    font-family: "Bree Serif", serif;
+    color: black;
+    padding: 0.5rem 3.75rem;
+    border-radius: 30px;
+    background: orange;
+    transition: all .2s;
 }
 
-p,h1,.btn-shop{
-  font-family: "Bree Serif", serif;
-  padding-bottom: 10px;
+p, h1, .btn-shop {
+    font-family: "Bree Serif", serif;
+    padding-bottom: 10px;
 }
 
-h2{
-  font-family: "Bree Serif", serif;
+h2 {
+    font-family: "Bree Serif", serif;
 }
-.body a:hover{
-  color: black;
+
+.body a:hover {
+    color: black;
 }
+
 .body .btn-shop:hover {
-  color: black;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
-  padding: 3%;
-  font-size: 1.3rem;
+    color: black;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+    padding: 3%;
+    font-size: 1.3rem;
 }
 
 .body .btn-shop:active {
-  transform: translateY(-1px);
+    transform: translateY(-1px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
 
 }

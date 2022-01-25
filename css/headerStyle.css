@@ -1,133 +1,138 @@
 .header {
-  background-color: #156470;
-}
-.navbar {
-  background-color: #156470;
-}
-.container-fluid {
-  padding: 0 !important;
-}
-.navbar a {
-  color: white;
+    background-color: #156470;
 }
 
-a:hover{
-  color:black;
+.navbar {
+    background-color: #156470;
+}
+
+.container-fluid {
+    padding: 0 !important;
+}
+
+.navbar a {
+    color: white;
+}
+
+a:hover {
+    color: black;
 }
 
 .bi {
     font-size: 1.7rem;
-    color:white;
+    color: white;
 }
 
 .auth li {
-  padding: 0 10px 5px 20px;
+    padding: 0 10px 5px 20px;
 
-  animation-name: moveInRight;
+    animation-name: moveInRight;
     animation-duration: 1s;
     animation-timing-function: ease-out;
 }
 
 .content {
-  padding-right: 50px;
+    padding-right: 50px;
 }
-.content li {
-  padding-left: 10px;
 
-  animation-name: moveInBottom;
+.content li {
+    padding-left: 10px;
+
+    animation-name: moveInBottom;
     animation-duration: 1s;
     animation-timing-function: ease-out;
 }
+
 .img-fluid {
-  border-radius: 20px;
+    border-radius: 20px;
 }
 
 .h1 {
-  font-family: "Bree Serif", serif;
-  line-height: 200%;
-  letter-spacing: 4px;
+    font-family: "Bree Serif", serif;
+    line-height: 200%;
+    letter-spacing: 4px;
 
-  animation-name: moveInLeft;
+    animation-name: moveInLeft;
     animation-duration: 1s;
     animation-timing-function: ease-in;
 }
 
-svg{
-  transform: scale(1.8);
+svg {
+    transform: scale(1.8);
 }
 
-.bi-person, .bi-cart3{
-  color: white;
-  font-size: 1.7rem;    
+.bi-person, .bi-cart3 {
+    color: white;
+    font-size: 1.7rem;
 }
 
-.btn-primary{
-  background-color: #156470;
-  border-color: #156470;
+.btn-primary {
+    background-color: #156470;
+    border-color: #156470;
 }
 
-.btn-primary:hover{
-  background-color: #135661;
+.btn-primary:hover {
+    background-color: #135661;
 }
 
-.btn-secondary{
-  background:orange;
-  border-color: orange;
+.btn-secondary {
+    background: orange;
+    border-color: orange;
 }
 
-.btn-secondary:hover{
-  background:rgb(216, 140, 0);
+.btn-secondary:hover {
+    background: rgb(216, 140, 0);
 }
 
 .body {
-  background-color: #eee ;
-  /*#a8a8a8;*/
-  overflow: hidden;
-  overflow-y: visible;
+    background-color: #eee;
+    /*#a8a8a8;*/
+    overflow: hidden;
+    overflow-y: visible;
 }
 
 
-@keyframes moveInLeft{
-  0%{
-      opacity:0;
-      transform: translateX(-100px);
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
 
-  }
+    }
 
-  80%{
-      transform: translateX(10px);
-  }
+    80% {
+        transform: translateX(10px);
+    }
 
-  100%{
-      opacity:1;
-      transform: translate(0);
-  }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
 }
 
-@keyframes moveInRight{
-  0%{
-      opacity:0;
-      transform: translateX(1000px);
-  }
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(1000px);
+    }
 
-  80%{
-      transform: translateX(-10px);
-  }
+    80% {
+        transform: translateX(-10px);
+    }
 
-  100%{
-      opacity:1;
-      transform: translate(0);
-  }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
 }
 
-@keyframes moveInBottom{
-  0%{
-      opacity:0;
-      transform: translateY(40px);
-  }
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
 
-  100%{
-      opacity:1;
-      transform: translate(0);
-  }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
 }

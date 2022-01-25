@@ -3,6 +3,7 @@
     border-radius: 10px;
     background-color: #156470;
 }
+
 .aside .h4 {
     font-weight: 500;
     padding-left: 15px;
@@ -21,7 +22,8 @@
     padding-right: 1rem;
     border-left: 5px solid transparent;
 }
-.aside ul li a{
+
+.aside ul li a {
     text-decoration: none;
     align-items: start;
 }
@@ -37,21 +39,21 @@
     font-size: 1.3rem;
 }
 
-.aside ul li a .link:hover{
+.aside ul li a .link:hover {
     color: tomato;
     transition: all .2s;
 }
-.aside ul li a:hover{
+
+.aside ul li a:hover {
     padding: 1%;
     transition: all .2s;
 }
 
 
-
 .main-content {
     padding: 30px;
     border-radius: 15px;
-    background:white;
+    background: white;
 }
 
 .main-content .h5,
@@ -97,7 +99,7 @@
 
 .order .order-summary {
     height: 100%;
-    margin-bottom:10px;
+    margin-bottom: 10px;
 }
 
 .order .status {
@@ -111,7 +113,7 @@
     padding: 0px 3px
 }
 
-.info{
+.info {
     color: grey;
     font-size: 0.8rem;
 }

@@ -1,8 +1,7 @@
 <?php
-if (!login_check($db)) {
-    //TODO: DECOMMENTARE QUI SOTTO DOPO AVER FINITO DI LAVORARE ALLE PAGINE UTENTE
+if (!admin_check($db)) {
     ?>
-    <!-- <meta http-equiv="refresh" content="0;url=login_page.php"> -->
+    <meta http-equiv="refresh" content="0;url=login_page.php">
     <?php
 }
 ?>
