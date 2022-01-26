@@ -61,7 +61,7 @@ La procedura varia a seconda del OS, per la simulazione del progetto abbiamo uti
 - Per creare il database basta eseguire le query SQL dentro al file `DATABASE_CREATE.sql`nella console di MySQL. 
 Questa query creerà anche un account Venditore di prova dalle credenziali:
 `mail:		pasticceroo@protonmail.com`
-`password: 	Password1234`
+`password: 	Prova1234`
 
 Una volta creato sarà possibile popolarlo direttamente dalla dashboard venditore sul sito.
 
