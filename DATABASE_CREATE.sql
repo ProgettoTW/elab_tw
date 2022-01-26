@@ -117,6 +117,7 @@ CREATE TABLE `notifications`
     CONSTRAINT `FK_191` FOREIGN KEY `FK_193` (`email`) REFERENCES `users` (`email`)
 );
 
+--Populate queries
 
 INSERT INTO `categories` (`categoryID`, `name`, `description`)
 VALUES (1, 'Torte', 'Torte'),

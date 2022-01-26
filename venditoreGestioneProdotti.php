@@ -113,7 +113,7 @@ if (isset($_POST['rimuovi'], $_POST['ID'])) {
                         } ?>
                         </tbody>
                     </table>
-                    <h5 class="d-flex justify-content-center mb-4">Aggiungi un prodotto:</h5>
+                    <h2 class="mb-4">Aggiungi un prodotto:</h2>
                     <form class="form-inline" action="venditoreGestioneProdotti.php" method="post"
                           enctype="multipart/form-data">
                         <div class="input-group mb-3">
@@ -154,7 +154,10 @@ if (isset($_POST['rimuovi'], $_POST['ID'])) {
                             <label class="input-group-text" for="inputGroupFile01">Immagine prodotto</label>
                             <input type="file" class="form-control" id=immagine" name="immagine">
                         </div>
+
+                        <div class="input-group mb-3">
                         <button class="btn btn-primary" type="submit">Aggiungi</button>
+                        </div>
                     </form>
                 </div>
             </div>

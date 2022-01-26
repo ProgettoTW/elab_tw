@@ -137,6 +137,32 @@ class NotificationManager
         $db->close();
     }
 
+    public function setSeen($notId)
+    {
+        $conn = new Connection();
+        $db = $conn->getConnection();
+
+        if ($db->connect_error) {
+            die("Connection failed: " . $db->connect_error);
+        }
+
+        $querytoexec = $db->prepare("UPDATE " . $this->notTable . " SET seen = 1 WHERE ID = ?");
+        $querytoexec->bind_param('i', $notId);
+        if (!$querytoexec->execute()) {
+            echo($querytoexec->error);
+        }
+
+        $result = $querytoexec->get_result();
+        if ($result) {
+            echo "Update OK";
+        } else {
+            return null;
+        }
+
+        $querytoexec->close();
+        $db->close();
+    }
+
     public function checkUnseen($userId)
     {
         $conn = new Connection();

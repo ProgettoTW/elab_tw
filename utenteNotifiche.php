@@ -6,14 +6,20 @@ require_once("notifications.php");
 
 $notifications = new NotificationManager();
 
-$rows = $notifications->getByUser($_SESSION['email']);
+
 
 if (isset($_POST['setasseen'])) {
     $notifications->setAllSeen($_SESSION['email']);
 }
+if (isset($_POST['setSeenID'])) {
+    $notifications->setSeen($_POST['setSeenID']);
+}
+
+$rows = $notifications->getByUser($_SESSION['email']);
 
 ?>
 <html lang="it">
+<link rel="stylesheet" href="css/utenteStyle.css">
 <body class="body">
 <div class="container mt-4" id="main-content">
     <div class="row">
@@ -62,18 +68,21 @@ if (isset($_POST['setasseen'])) {
                             ?>
                         </td>
                         <td>
+                            <form method="post" name="setSeenID" action="utenteNotifiche.php">
                             <?php
                             if (!$row->getSeen()) {
+                                $id = $row->getId();
                                 ?>
-                                <div class="blue-label ms-auto">Da leggere</div>
+                                <button type="submit" name="setSeenID" value="<?php echo $id;?>" class="btn btn-outline-dark">Da leggere</button>
                                 <?php
                             } else {
                                 ?>
-                                <div class="form-label ms-auto">Letta</div>
+                                <div class="blue-label ms-auto">Letta</div>
                                 <?php
                             }
                             }
                             } ?>
+                            </form>
                         </td>
                 </table>
             </div>
