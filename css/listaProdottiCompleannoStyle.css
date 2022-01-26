@@ -24,8 +24,17 @@
     margin: 0 2%;
 }
 
+.nav-link {
+    color: #ad006b;
+}
+
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #fff;
-    background-color: #156470;
+    background-color: #ad006b;
     font-weight: 500;
+}
+
+.btn-primary {
+    background-color: #ad006b !important;
+    border-color: #ad006b !important;
 }

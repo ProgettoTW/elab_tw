@@ -44,11 +44,10 @@ if (isset($_POST['add'])) {
 
 <?php if ($bday) {
     ?>
-
-    <link rel="stylesheet" href="css/listaProdottiStyle.css">
+    <link rel="stylesheet" href="css/listaProdottiCompleannoStyle.css">
     <?php
 } else { ?>
-    <link rel="stylesheet" href="css/listaProdottiCompleannoStyle.css">
+    <link rel="stylesheet" href="css/listaProdottiStyle.css">
     <?php
 }
 ?>
