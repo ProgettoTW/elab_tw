@@ -28,7 +28,7 @@ $(document).ready(function () {
                 email: true,
                 required: true
             },
-            password: {
+            p: {
                 password: true,
                 required: true
             },
@@ -37,7 +37,7 @@ $(document).ready(function () {
             $(element).closest('.form-group').removeClass('success').addClass('error');
         },
         success: function (element) {
-            element.addClass('valid')
+            element.text('Valido!').addClass('valid')
                 .closest('.form-group').removeClass('error').addClass('success');
         }
     });
