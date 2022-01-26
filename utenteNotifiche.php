@@ -78,7 +78,7 @@ $rows = $notifications->getByUser($_SESSION['email']);
                                     <?php
                                 } else {
                                     ?>
-                                    <div class="blue-label ms-auto">Letta</div>
+                                    <div class="label label-primary" style="color: dimgray">Letto</div>
                                     <?php
                                 }
                                 }
