@@ -43,13 +43,16 @@ if (isset($_GET['error'])) {
                         <form action="includes/login.php" method="post" name="login_form" id="login_form">
                             <div class="mb-4">
                                 <label for="emailInput" class="visually-hidden">Email</label>
-                                <input type="email" class="form-control py-4" id="emailInput" placeholder="Email" name="emailLogin">
+                                <input type="email" class="form-control py-4" id="emailInput" placeholder="Email"
+                                       name="emailLogin">
                             </div>
                             <div class="mb-4">
                                 <label for="passwordInput" class="visually-hidden">Password</label>
-                                <input type="password" class="form-control py-4" id="passwordInput" placeholder="Password" name="passwordLogin">
+                                <input type="password" class="form-control py-4" id="passwordInput"
+                                       placeholder="Password" name="passwordLogin">
                             </div>
-                            <button type="submit"class="btn btn-primary btn-block btn-lg align-items-center flex-grow-1 w-25 ms-3">
+                            <button type="submit"
+                                    class="btn btn-primary btn-block btn-lg align-items-center flex-grow-1 w-25 ms-3">
                                 Accedi
                             </button>
                         </form>
@@ -65,15 +68,17 @@ if (isset($_GET['error'])) {
                     </div>
                     <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
                         <form action="includes/register.php" method="post" name="register_form" id="register_form">
-                            
+
                             <div class="row mx-0">
                                 <div class="col ps-0 m-2">
                                     <label for="nameInput" class="visually-hidden">Nome</label>
-                                    <input type="text" class="form-control py-4" id="nameInput" placeholder="Nome" name="name">
+                                    <input type="text" class="form-control py-4" id="nameInput" placeholder="Nome"
+                                           name="name">
                                 </div>
                                 <div class="col ps-0 m-2">
                                     <label for="surnameInput" class="visually-hidden">Cognome</label>
-                                    <input type="text" class="form-control py-4" id="surnameInput" placeholder="Cognome" name="surname">
+                                    <input type="text" class="form-control py-4" id="surnameInput" placeholder="Cognome"
+                                           name="surname">
                                 </div>
                             </div>
 
@@ -88,15 +93,18 @@ if (isset($_GET['error'])) {
                                 </div>
                             </div>
 
-                            <p class="ms-3">Il giorno del tuo compleanno avrai uno sconto del 50% su tutti i prodotti!</p>
+                            <p class="ms-3">Il giorno del tuo compleanno avrai uno sconto del 50% su tutti i
+                                prodotti!</p>
 
                             <div class="mb-4 ms-2">
                                 <label for="emailInput" class="visually-hidden">Email</label>
-                                <input type="email" class="form-control py-4" id="emailInput" placeholder="Email" name="email">
+                                <input type="email" class="form-control py-4" id="emailInput" placeholder="Email"
+                                       name="email">
                             </div>
                             <div class="mb-4 ms-2">
                                 <label for="passwordInput" class="visually-hidden">Password</label>
-                                <input type="password" class="form-control py-4" id="passwordInput" placeholder="Password" name="p">
+                                <input type="password" class="form-control py-4" id="passwordInput"
+                                       placeholder="Password" name="p">
                             </div>
 
                             <button type="submit" class="btn btn-primary btn-lg ms-4 w-25">Registrati</button>

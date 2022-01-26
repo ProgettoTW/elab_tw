@@ -156,7 +156,7 @@ if (isset($_POST['rimuovi'], $_POST['ID'])) {
                         </div>
 
                         <div class="input-group mb-3">
-                        <button class="btn btn-primary" type="submit">Aggiungi</button>
+                            <button class="btn btn-primary" type="submit">Aggiungi</button>
                         </div>
                     </form>
                 </div>

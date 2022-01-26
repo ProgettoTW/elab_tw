@@ -7,7 +7,6 @@ require_once("notifications.php");
 $notifications = new NotificationManager();
 
 
-
 if (isset($_POST['setasseen'])) {
     $notifications->setAllSeen($_SESSION['email']);
 }
@@ -52,13 +51,13 @@ $rows = $notifications->getByUser($_SESSION['email']);
                         <td><?php $status = $row->getStatus();
                             switch ($status) {
                                 case "Pagato":
-                                    echo "Il tuo ordine è stato confermato";
+                                    echo "Ordine confermato";
                                     break;
                                 case "In Consegna":
-                                    echo "Il tuo ordine è in consegna";
+                                    echo "Ordine in consegna";
                                     break;
                                 case "Completato":
-                                    echo "Il tuo ordine è stato consegnato";
+                                    echo "Ordine consegnato";
                                     break;
                                 default:
                                     //Tutte le altre notifiche;
@@ -69,19 +68,21 @@ $rows = $notifications->getByUser($_SESSION['email']);
                         </td>
                         <td>
                             <form method="post" name="setSeenID" action="utenteNotifiche.php">
-                            <?php
-                            if (!$row->getSeen()) {
-                                $id = $row->getId();
-                                ?>
-                                <button type="submit" name="setSeenID" value="<?php echo $id;?>" class="btn btn-outline-dark">Da leggere</button>
                                 <?php
-                            } else {
-                                ?>
-                                <div class="blue-label ms-auto">Letta</div>
-                                <?php
-                            }
-                            }
-                            } ?>
+                                if (!$row->getSeen()) {
+                                    $id = $row->getId();
+                                    ?>
+                                    <button type="submit" name="setSeenID" value="<?php echo $id; ?>"
+                                            class="btn btn-outline-dark">Da leggere
+                                    </button>
+                                    <?php
+                                } else {
+                                    ?>
+                                    <div class="blue-label ms-auto">Letta</div>
+                                    <?php
+                                }
+                                }
+                                } ?>
                             </form>
                         </td>
                 </table>

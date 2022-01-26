@@ -3,23 +3,25 @@
     padding: 15px 0px 15px 0px;
     border-radius: 10px;
     background-color: #15647065;
-    margin-bottom:1rem;
+    margin-bottom: 1rem;
 }
-.presentazione{
+
+.presentazione {
     line-height: 1;
 }
-.presentazione li{
-    padding-left:1%;
+
+.presentazione li {
+    padding-left: 1%;
 }
 
 
-.div-presentazione{
+.div-presentazione {
     border-radius: 15px;
     padding: 20px 50px;
     background-color: white;
 }
 
-.presentazione,p{
+.presentazione, p {
     font-size: 1.25rem;
 }
 
