@@ -13,7 +13,7 @@ $(document).ready(function () {
             $(element).closest('.form-group').removeClass('success').addClass('error');
         },
         success: function (element) {
-            element.text('OK!').addClass('valid')
+            element.addClass('valid')
                 .closest('.form-group').removeClass('error').addClass('success');
         }
     });

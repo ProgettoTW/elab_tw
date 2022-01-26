@@ -14,6 +14,8 @@ if (isset($_GET['error'])) {
 
 <html lang="it">
 
+<link rel="stylesheet" href="css/loginStyle.css">
+
 <body class="body">
 <div class="container-fluid" id="main-content">
     <div class="row">
